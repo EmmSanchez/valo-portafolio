@@ -36,7 +36,7 @@ export function ConoceValoCarousel() {
   }, [emblaApi]);
 
   return (
-    <div className="embla flex flex-col justify-end w-full h-full text-valo">
+    <div className="embla flex flex-col justify-end w-full h-full text-valo pt-6">
       <div className="embla__viewport w-full h-full flex" ref={emblaRef}>
         <div className="embla__container flex w-full h-full">
           {/* Slide 1 */}
