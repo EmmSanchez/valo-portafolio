@@ -17,9 +17,13 @@
   --text-paragraph-button: clamp(14px, 1.09vw, 21px);
   --text-paragraph-sub-button: clamp(9px, 0.89vw, 17px);
   --text-title: clamp(14px, 2.19vw, 42px);
+  --text-subtitle: clamp(11px, 1.93vw, 37px);
+  --text-subtitle-mobile: clamp(8px, 1.63vw, 37px);
   --text-paragraph: clamp(14px, 1.56vw, 30px);
   --text-info: clamp(9px, 1.3vw, 25px);
   --text-label: clamp(9px, 1.56vw, 30px);
+  --text-puesto: clamp(8px, 1.09vw, 21px);
+  --text-puesto-mobile: clamp(6px, 1vw, 21px);
 
   /* Animación pop-in para markers */
   /* Bounce solo una vez al aparecer */
@@ -54,7 +58,12 @@ body {
 
 /* Default Screen Padding */
 .default-padding {
-  @apply p-1 sm:p-2 lg:p-5;
+  @apply p-1 sm:p-1.5 md:p-2.5 lg:p-4 xl:p-4.5 2xl:p-5;
+}
+
+/* Valo Logo (Left Corner) */
+.default-logo-padding {
+  @apply pt-[clamp(15.4px,2.71vw,52px)] pl-[clamp(17.75px,3.13vw,60px)];
 }
 
 /* Embla Carousel */
