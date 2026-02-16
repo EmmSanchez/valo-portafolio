@@ -16,8 +16,8 @@ export default function Home() {
 
       {!showSplashScreen && (
         <>
-          <div className="absolute top-0 left-0 p-8 lg:pt-13 lg:pl-15">
-            <div className="relative w-[clamp(90px,7.34vw,141px)]">
+          <div className="absolute top-0 left-0 default-logo-padding">
+            <div className="relative w-[clamp(50px,7.34vw,141px)]">
               <span className="absolute inset-0">
                 <LogoValoMark className="text-valo" />
               </span>

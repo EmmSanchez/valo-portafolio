@@ -54,13 +54,13 @@ const TEAM = [
 
 export default function EquipoDeTrabajo() {
   return (
-    <div className="w-dvw h-dvh p-5 flex flex-col gap-6">
-      <div className="flex flex-1 items-center justify-center pt-24">
-        <div className="grid grid-cols-8 gap-x-15.75 gap-y-7.5">
+    <div className="w-dvw h-dvh default-padding flex flex-col gap-2 lg:gap-6">
+      <div className="flex flex-1 items-center justify-center pt-[clamp(24px,3vw,96px)]">
+        <div className="grid grid-cols-8 gap-x-4 gap-y-2.5 md:gap-x-6 md:gap-y-3 xl:gap-x-12.75 xl:gap-y-6.5 2xl:gap-x-15.75 2xl:gap-y-7.5">
           {TEAM.map((member, index) => (
             <div
               key={member.id}
-              className={`relative w-87.5 h-93 flex flex-col justify-end col-span-2 px-6 py-7.5 gap-3.75 outline-[5px] outline-valo
+              className={`relative w-[clamp(80px,15.8vw,350px)] h-[clamp(85px,16.5vw,372px)] lg:w-[clamp(200px,18.23vw,350px)] lg:h-[clamp(213px,19.38vw,372px)] flex flex-col justify-end col-span-2 px-1.5 py-2 md:px-2.5 md:py-3.5 xl:px-6 xl:py-7.5 gap-1.5 lg:gap-3.75 outline-2 lg:outline-3.5 2xl:outline-[5px] outline-valo
                 ${index === 4 ? "col-start-2" : ""}
               `}
             >
@@ -75,10 +75,10 @@ export default function EquipoDeTrabajo() {
               <div className="absolute inset-0 w-full h-full -z-30 bg-black/35" />
 
               {/* Content */}
-              <p className="text-[37px] text-shadow-lg font-lumarc leading-[100%] uppercase">
+              <p className="text-subtitle-mobile text-shadow-lg font-lumarc leading-[100%] uppercase">
                 {member.name}
               </p>
-              <p className="text-[21px] text-shadow-lg font-eurostile font-semibold uppercase">
+              <p className="text-puesto-mobile text-shadow-lg font-eurostile font-light tracking-wider uppercase">
                 {member.role}
               </p>
             </div>
