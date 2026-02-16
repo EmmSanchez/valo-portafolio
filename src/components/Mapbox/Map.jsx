@@ -5,11 +5,13 @@ import LOCATIONS from "@/data/Valo/geojsonData.json";
 import { FILTERS_ID } from "@/const/FiltersId";
 import { useContext } from "react";
 import { AppContext } from "@/context/AppContext";
+import { IS_DEVELOPMENT } from "@/config";
 
 const ACCESS_TOKEN = import.meta.env.VITE_PUBLIC_MAPBOX_TOKEN;
+const ZOOM = window.innerWidth < 768 ? 8 : window.innerWidth < 1024 ? 9 : 10.9;
 const INITIAL_CONFIG = {
   center: [-100.32693, 25.68785],
-  zoom: 10.9,
+  zoom: ZOOM,
   pitch: 0,
   bearing: 0,
   maxPitch: 65,
@@ -36,6 +38,7 @@ export default function Map() {
   const [center, setCenter] = useState(INITIAL_CONFIG.center);
   const [zoom, setZoom] = useState(INITIAL_CONFIG.zoom);
 
+  // Rendering Map
   useEffect(() => {
     if (!ACCESS_TOKEN) return;
 
@@ -100,18 +103,20 @@ export default function Map() {
   return (
     <>
       {/* Debugging */}
-      <div className="absolute bottom-0 right-0 w-fit flex gap-4 p-4 z-50">
-        <button
-          className="w-fit rounded-md p-3 bg-blue-600 hover:cursor-pointer"
-          onClick={goToInitialPosition}
-        >
-          Posición Inicial
-        </button>
-        <p className="bg-gray-800/80 text-white font-semibold text-xl p-4 rounded-2xl">
-          Longitude: {center[0].toFixed(4)} | Latitude: {center[1].toFixed(4)} |
-          Zoom: {zoom.toFixed(2)}
-        </p>
-      </div>
+      {IS_DEVELOPMENT && (
+        <div className="absolute bottom-0 right-0 w-fit flex gap-4 p-4 z-50">
+          <button
+            className="w-fit rounded-md p-3 bg-blue-600 hover:cursor-pointer"
+            onClick={goToInitialPosition}
+          >
+            Posición Inicial
+          </button>
+          <p className="bg-gray-800/80 text-white font-semibold text-xl p-4 rounded-2xl">
+            Longitude: {center[0].toFixed(4)} | Latitude: {center[1].toFixed(4)}{" "}
+            | Zoom: {zoom.toFixed(2)}
+          </p>
+        </div>
+      )}
 
       <div
         id="map-container"

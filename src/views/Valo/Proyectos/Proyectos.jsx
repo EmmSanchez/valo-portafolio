@@ -19,11 +19,14 @@ export default function Proyectos() {
 
       {/* Content */}
       <div className="relative w-full h-full flex justify-center items-center">
-        <MapaMexico ACTIVE_STATES={ACTIVE_STATES} />
+        <MapaMexico
+          ACTIVE_STATES={ACTIVE_STATES}
+          className="w-[clamp(280px,55vw,1289px)] h-[clamp(194px,38.15vw,894px)] lg:w-[clamp(381px,67.14vw,1289px)] lg:h-[clamp(264px,46.56vw,894px)]"
+        />
       </div>
 
       {/* Return button */}
-      <div className="fixed bottom-0 p-5 z-30">
+      <div className="fixed bottom-0 z-30 default-padding">
         <BackButton to="/" />
       </div>
     </div>

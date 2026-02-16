@@ -1,4 +1,3 @@
-import MapaMonterrey from "@/assets/images/proyectos/MapaMonterrey";
 import { MapFilterButtons } from "@/components/Buttons/MapFilterButtons";
 import MapView from "@/components/Mapbox/Map.jsx";
 import BackButton from "@/components/Navigation/BackButton";
@@ -11,12 +10,11 @@ export default function NuevoLeon() {
 
       {/* Map and Markers */}
       <div className="absolute z-0 inset-0">
-        {/* <MapaMonterrey /> Replaced by MapView with Mapbox*/}
         <MapView />
       </div>
 
       {/* Return button */}
-      <div className="fixed bottom-0 p-5 z-30">
+      <div className="fixed bottom-0 z-30 default-padding">
         <BackButton to="/proyectos" />
       </div>
     </div>

@@ -24,6 +24,7 @@
   --text-label: clamp(9px, 1.56vw, 30px);
   --text-puesto: clamp(8px, 1.09vw, 21px);
   --text-puesto-mobile: clamp(6px, 1vw, 21px);
+  --text-filter-button: clamp(14px, 1.56vw, 30px);
 
   /* Animación pop-in para markers */
   /* Bounce solo una vez al aparecer */
@@ -64,6 +65,11 @@ body {
 /* Valo Logo (Left Corner) */
 .default-logo-padding {
   @apply pt-[clamp(15.4px,2.71vw,52px)] pl-[clamp(17.75px,3.13vw,60px)];
+}
+
+/* Filter Button when Map is opened */
+.filter-button-spacing {
+  @apply gap-1 px-1.5 py-1.5 sm:gap-1.5 md:py-3 lg:gap-2.5 lg:px-2.5 lg:py-3.75;
 }
 
 /* Embla Carousel */

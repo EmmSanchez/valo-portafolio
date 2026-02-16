@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router";
 
-export const MapaMexico = ({ ACTIVE_STATES }) => {
+export const MapaMexico = ({ ACTIVE_STATES, className = "" }) => {
   const navigate = useNavigate();
   return (
     <svg
-      width="1289"
-      height="894"
       viewBox="0 0 1289 894"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <g clipPath="url(#clip0_1247_4960)" filter="url(#filter0_d_1247_4960)">
         <path

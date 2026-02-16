@@ -36,8 +36,8 @@ const BUTTONS = [
 export const MapFilterButtons = () => {
   const { selectMapFilter, mapFilter } = useContext(AppContext);
   return (
-    <div className="fixed z-30 top-0 right-0 py-5 px-3.75">
-      <div className="flex flex-col items-end gap-3.75">
+    <div className="fixed z-30 top-0 right-0 py-[clamp(5.92px,1.04vw,20px)] px-[clamp(4.44px,0.78vw,15px)]">
+      <div className="flex flex-col items-end gap-[clamp(4.44px,0.78vw,15px)]">
         {BUTTONS.map((button) => {
           const Icon = button.icon;
           return (
@@ -46,28 +46,34 @@ export const MapFilterButtons = () => {
                 // Active Button
                 <span
                   key={button.id}
-                  className="relative h-17.5 max-w-117.5 flex items-center gap-2.5 px-3.75 bg-white hover:cursor-pointer"
+                  className="relative h-[clamp(42px,3.65vw,70px)] max-w-117.5 flex items-center filter-button-spacing bg-white hover:cursor-pointer"
                 >
                   <span className="flex shrink">
-                    <Icon isActive />
+                    <Icon
+                      isActive
+                      className="size-[clamp(11.83px,2.08vw,40px)]"
+                    />
                   </span>
-                  <span className="text-[30px] whitespace-nowrap text-valo font-lumarc tracking-wider uppercase">
+                  <span className="text-filter-button whitespace-nowrap text-valo font-lumarc tracking-wider uppercase">
                     {button.label}
                   </span>
                 </span>
               ) : (
-                <span className="group relative flex justify-center items-center w-31 h-17.5 gap-2.5 px-2.5 py-3.75 bg-valo hover:cursor-pointer">
-                  <Icon />
-                  <p className="text-[30px] text-white font-lumarc tracking-wider">
+                <span className="group relative flex justify-center items-center w-[clamp(65px,6.46vw,124px)] h-[clamp(42px,3.65vw,70px)] filter-button-spacing bg-valo hover:cursor-pointer">
+                  <Icon className="size-[clamp(16.83px,2.08vw,40px)]" />
+                  <p className="text-filter-button text-white font-lumarc tracking-wider">
                     {button.abbreviation}
                   </p>
 
                   {/* Hover Button */}
-                  <span className="absolute top-0 right-0 h-17.5 flex items-center gap-2.5 px-3.75 bg-white overflow-hidden max-w-0 opacity-0 transition-[max-width,opacity] duration-400 ease-out group-hover:max-w-117.5 group-hover:opacity-100">
+                  <span className="absolute top-0 right-0 h-[clamp(42px,3.65vw,70px)] flex items-center filter-button-spacing bg-white overflow-hidden max-w-0 opacity-0 transition-[max-width,opacity] duration-400 ease-out group-hover:max-w-117.5 group-hover:opacity-100">
                     <span className="flex shrink">
-                      <Icon isActive />
+                      <Icon
+                        isActive
+                        className="size-[clamp(11.83px,2.08vw,40px)]"
+                      />
                     </span>
-                    <span className="text-[30px] whitespace-nowrap text-valo font-lumarc tracking-wider uppercase">
+                    <span className="text-filter-button whitespace-nowrap text-valo font-lumarc tracking-wider uppercase">
                       {button.label}
                     </span>
                   </span>
