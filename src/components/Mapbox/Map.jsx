@@ -104,14 +104,14 @@ export default function Map() {
     <>
       {/* Debugging */}
       {IS_DEVELOPMENT && (
-        <div className="absolute bottom-0 right-0 w-fit flex gap-4 p-4 z-50">
+        <div className="absolute bottom-0 right-0 w-fit flex gap-[clamp(4.44px,0.83vw,16px)] p-[clamp(4.44px,0.83vw,16px)] z-50">
           <button
-            className="w-fit rounded-md p-3 bg-blue-600 hover:cursor-pointer"
+            className="w-fit rounded-md p-[clamp(3.33px,0.63vw,12px)] text-[clamp(5.92px,1.04vw,20px)] bg-blue-600 hover:cursor-pointer"
             onClick={goToInitialPosition}
           >
             Posición Inicial
           </button>
-          <p className="bg-gray-800/80 text-white font-semibold text-xl p-4 rounded-2xl">
+          <p className="bg-gray-800/80 text-white font-semibold text-[clamp(5.92px,1.04vw,20px)] p-[clamp(4.44px,0.83vw,16px)] rounded-2xl">
             Longitude: {center[0].toFixed(4)} | Latitude: {center[1].toFixed(4)}{" "}
             | Zoom: {zoom.toFixed(2)}
           </p>
