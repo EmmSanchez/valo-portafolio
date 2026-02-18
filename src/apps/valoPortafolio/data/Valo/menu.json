@@ -1,0 +1,36 @@
+{
+  "menu": [
+    {
+      "id": "nosotros",
+      "label": "Nosotros",
+      "to": "/nosotros",
+      "children": [
+        {
+          "id": "conoce_valo",
+          "label": "Conoce Valo Developers",
+          "to": "conoce-valo-developers"
+        },
+        {
+          "id": "equipo",
+          "label": "Equipo de trabajo",
+          "to": "equipo-de-trabajo"
+        }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "label": "Proyectos",
+      "to": "/proyectos"
+    },
+    {
+      "id": "contacto",
+      "label": "Contacto",
+      "to": "/contacto"
+    },
+    {
+      "id": "sitio_web",
+      "label": "Sitio Web",
+      "to": "#"
+    }
+  ]
+}
