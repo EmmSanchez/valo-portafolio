@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router";
 
-import Home from "./Home/Home";
-import NosotrosLayout from "./Nosotros/NosotrosLayout";
-import Nosotros from "./Nosotros/Nosotros";
-import Conocenos from "./Nosotros/Conocenos";
-import EquipoDeTrabajo from "./Nosotros/EquipoDeTrabajo";
-import ProyectosLayout from "./Proyectos/ProyectosLayout";
-import Proyectos from "./Proyectos/Proyectos";
-import NuevoLeon from "./Proyectos/Ciudades/NuevoLeon";
-import Contacto from "./Contacto/Contacto";
+import Home from "./pages/Home/Home";
+import NosotrosLayout from "./pages/Nosotros/NosotrosLayout";
+import Nosotros from "./pages/Nosotros/Nosotros";
+import Conocenos from "./pages/Nosotros/Conocenos";
+import EquipoDeTrabajo from "./pages/Nosotros/EquipoDeTrabajo";
+import ProyectosLayout from "./pages/Proyectos/ProyectosLayout";
+import Proyectos from "./pages/Proyectos/Proyectos";
+import NuevoLeon from "./pages/Proyectos/Ciudades/NuevoLeon";
+import Contacto from "./pages/Contacto/Contacto";
 
 export default function ValoPortafolioRoutes() {
   return (
