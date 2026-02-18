@@ -5,7 +5,11 @@ export default function ProyectosLayout() {
   return (
     <>
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
-        <LogoValoMark className="text-white" />
+        <div className="relative w-[clamp(50px,7.34vw,141px)]">
+          <span className="absolute inset-0">
+            <LogoValoMark className="text-white" />
+          </span>
+        </div>
       </div>
 
       <Outlet />

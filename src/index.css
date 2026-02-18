@@ -25,6 +25,7 @@
   --text-puesto: clamp(8px, 1.09vw, 21px);
   --text-puesto-mobile: clamp(6px, 1vw, 21px);
   --text-filter-button: clamp(14px, 1.56vw, 30px);
+  --text-datos: clamp(9.48px, 1.67vw, 32px);
 
   /* Animación pop-in para markers */
   /* Bounce solo una vez al aparecer */
@@ -70,6 +71,11 @@ body {
 /* Filter Button when Map is opened */
 .filter-button-spacing {
   @apply gap-1 px-1.5 py-1.5 sm:gap-1.5 md:py-3 lg:gap-2.5 lg:px-2.5 lg:py-3.75;
+}
+
+/* Input Contact Properties */
+.contact-input {
+  @apply h-[clamp(14.47px,2.54vw,49px)] w-full p-[clamp(3.5px,0.44vw,8.54px)] border-b-[clamp(0.6px,0.08vw,1.5px)] border-valo text-datos placeholder:text-datos text-valo placeholder:text-valo/80 font-lumarc placeholder:font-lumarc leading-[100%] placeholder:leading-[100%] focus:outline-none;
 }
 
 /* Embla Carousel */
