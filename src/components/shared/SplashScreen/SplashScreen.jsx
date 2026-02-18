@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import { AppContext } from "@/context/AppContext";
-import { LogoValo } from "@/apps/valoPortafolio/assets/logos/logo-valo";
 
-export default function SplashScreen({ splashKey, className = "", logo }) {
+export default function SplashScreen({
+  splashKey,
+  bgColor = "",
+  logo,
+  logoSize = "size-10",
+}) {
   const { toggleSplashScreen } = useContext(AppContext);
   if (!logo) return null;
 
@@ -11,9 +15,11 @@ export default function SplashScreen({ splashKey, className = "", logo }) {
   return (
     <div
       onClick={() => toggleSplashScreen(splashKey)}
-      className={`h-dvh w-dvw flex justify-center items-center cursor-pointer ${className}`}
+      className={`h-dvh w-dvw flex justify-center items-center cursor-pointer ${bgColor}`}
     >
-      <LogoComponent />
+      <span className={`relative ${logoSize}`}>
+        <LogoComponent className="absolute inset-0" />
+      </span>
     </div>
   );
 }

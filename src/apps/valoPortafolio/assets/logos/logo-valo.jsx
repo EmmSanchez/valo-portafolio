@@ -1,10 +1,9 @@
-export const LogoValo = () => (
+export const LogoValo = (className = "") => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="396"
-    height="112"
     viewBox="0 0 396 112"
     fill="none"
+    className={className}
   >
     <path
       fillRule="evenodd"

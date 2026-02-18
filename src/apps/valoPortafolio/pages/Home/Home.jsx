@@ -18,7 +18,8 @@ export default function Home() {
         <SplashScreen
           logo={LogoValo}
           splashKey={SPLASH_KEYS.PORTAFOLIO_SPLASH_KEY}
-          className="bg-[#12274C]/85"
+          bgColor="bg-[#12274C]/85"
+          logoSize="w-[clamp(117.26px,20.63vw,396px)] h-[clamp(33.15px,5.83vw,112px)]"
         />
       )}
 
