@@ -8,9 +8,16 @@ import { AppContext } from "@/context/AppContext";
 import { IS_DEVELOPMENT } from "@/config";
 
 const ACCESS_TOKEN = import.meta.env.VITE_PUBLIC_MAPBOX_TOKEN;
-const ZOOM = window.innerWidth < 768 ? 8 : window.innerWidth < 1024 ? 9 : 10.9;
+const ZOOM =
+  window.innerWidth < 768
+    ? 9.1
+    : window.innerWidth < 1024
+      ? 9.4
+      : window.innerWidth < 1444
+        ? 10.2
+        : 10.9;
 const INITIAL_CONFIG = {
-  center: [-100.32693, 25.68785],
+  center: [-100.3444, 25.7371],
   zoom: ZOOM,
   pitch: 0,
   bearing: 0,
@@ -81,7 +88,17 @@ export default function Map() {
 
     setActiveFeature(feature?.properties?.landmarkId);
 
-    const { zoom, pitch, bearing, duration } = feature.properties.camera;
+    /*
+    const {
+      zoom = 11.5,
+      pitch = 0,
+      bearing = 0,
+      duration = 1500,
+    } = feature.properties.camera;
+    */
+
+    // FUNCTION TO MOVE MAPBOX CAMERA
+    /*
     map?.flyTo({
       center: feature.geometry.coordinates,
       zoom,
@@ -89,6 +106,7 @@ export default function Map() {
       bearing,
       duration,
     });
+    */
   };
 
   const goToInitialPosition = () => {

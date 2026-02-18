@@ -5,6 +5,7 @@ import MontevoLandmark from "@/assets/icons/proyectos/markers/MontevoLandmark.sv
 import TorrelunaLandmark from "@/assets/icons/proyectos/markers/TorrelunaLandmark.svg";
 import ValoParkApodacaLandmark from "@/assets/icons/proyectos/markers/ValoParkApodacaLandmark.svg";
 import ValoParkSantaCatarinaLandmark from "@/assets/icons/proyectos/markers/ValoParkSantaCatarinaLandmark.svg";
+// import Popup from "./Popup";
 
 const LANDMARKS = {
   "valo-santa-catarina": ValoParkSantaCatarinaLandmark,
@@ -68,7 +69,7 @@ const Marker = ({
         src={icon}
         alt={properties.name}
         onClick={() => handleMarkerClick(feature)}
-        className={`hover:cursor-pointer transition-all hover:scale-110 hover:drop-shadow-2xl hover:brightness-110 origin-bottom
+        className={`w-[clamp(45px,5.5vw,105px)] h-[clamp(55px,6.7vw,128px)] hover:cursor-pointer transition-all hover:scale-110 hover:drop-shadow-2xl hover:brightness-110 origin-bottom
         ${
           isVisible
             ? "opacity-100 scale-100 pointer-events-auto animate-bounce-once"
@@ -78,31 +79,12 @@ const Marker = ({
       />
 
       {/* Popup */}
-      <div
-        ref={popupRef}
-        className={`absolute flex flex-col w-120 h-fit -bottom-80 -left-45 text-3xl bg-white border-2 border-solid border-white shadow-2xl transition-all duration-300 ${
-          isActive && isVisible
-            ? "opacity-100 pointer-events-auto scale-100"
-            : "opacity-0 pointer-events-none scale-95"
-        }`}
-      >
-        {/* Image */}
-        <div className="flex w-full h-20 bg-linear-to-tl from-valo to-blue-500"></div>
-
-        {/* Description */}
-        <div className="flex flex-col gap-3 text-xl px-4 py-4 text-black">
-          <p className="opacity-60">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut
-            deleniti quasi iste.
-          </p>
-
-          <p className="font-semibold">{properties.landmarkId}</p>
-
-          <button className="py-4 bg-valo text-white font-bold hover:cursor-pointer hover:opacity-90 transition-all">
-            Visitar
-          </button>
-        </div>
-      </div>
+      {/* <Popup
+        popupRef={popupRef}
+        isActive={isActive}
+        isVisible={isVisible}
+        properties={properties}
+      /> */}
     </div>,
     container,
   );
