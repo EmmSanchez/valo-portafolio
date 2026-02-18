@@ -1,20 +1,28 @@
 import { useContext } from "react";
 import { AppContext } from "@/context/AppContext";
-import SplashScreen from "./SplashScreen";
+import SplashScreen from "@/components/shared/SplashScreen/SplashScreen";
 import bgImage from "@/apps/valoPortafolio/assets/images/home-screen.webp";
 import MainMenu from "@/apps/valoPortafolio/components/Menus/MainMenu";
 import PlayButton from "@/apps/valoPortafolio/components/Buttons/PlayButton";
 import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
-import LogoValoMark from "@/assets/logos/logo-valo-mark";
+import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
+import { SPLASH_KEYS } from "@/components/shared/SplashScreen/const";
+import { LogoValo } from "@/apps/valoPortafolio/assets/logos/logo-valo";
 
 export default function Home() {
   const { showSplashScreen } = useContext(AppContext);
 
   return (
     <div className="h-dvh w-dvw flex justify-center items-center overflow-hidden">
-      {showSplashScreen && <SplashScreen />}
+      {showSplashScreen[SPLASH_KEYS.PORTAFOLIO_SPLASH_KEY] && (
+        <SplashScreen
+          logo={LogoValo}
+          splashKey={SPLASH_KEYS.PORTAFOLIO_SPLASH_KEY}
+          className="bg-[#12274C]/85"
+        />
+      )}
 
-      {!showSplashScreen && (
+      {!showSplashScreen[SPLASH_KEYS.PORTAFOLIO_SPLASH_KEY] && (
         <>
           <div className="absolute top-0 left-0 default-logo-padding">
             <div className="relative w-[clamp(50px,7.34vw,141px)]">

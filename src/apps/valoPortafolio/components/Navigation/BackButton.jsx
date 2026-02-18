@@ -3,6 +3,7 @@ import { ReturnIcon } from "@/apps/valoPortafolio/assets/icons/ReturnIcon";
 import { useContext } from "react";
 import { AppContext } from "@/context/AppContext";
 import { useLocation } from "react-router";
+import { SPLASH_KEYS } from "@/components/shared/SplashScreen/const";
 
 export default function BackButton({ to = "" }) {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function BackButton({ to = "" }) {
 
   const handleBack = () => {
     if (pathname === "/") {
-      toggleSplashScreen();
+      toggleSplashScreen(SPLASH_KEYS.PORTAFOLIO_SPLASH_KEY);
     } else if (pathname.includes("/proyectos/")) {
       // Clean useContext mapFilter
       selectMapFilter(null);
