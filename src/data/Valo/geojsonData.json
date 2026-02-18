@@ -14,10 +14,7 @@
         "id": 1,
         "landmarkId": "valo-santa-catarina",
         "camera": {
-          "zoom": 17.38,
-          "pitch": 65,
-          "bearing": -25,
-          "duration": 4000
+          "duration": 1500
         }
       }
     },
@@ -26,18 +23,15 @@
       "geometry": {
         "type": "Feature",
         "coordinates": [
-          -100.18548,
-          25.76183
+          -100.25176,
+          25.83784
         ]
       },
       "properties": {
         "id": 2,
         "landmarkId": "valo-apodaca",
         "camera": {
-          "zoom": 17.38,
-          "pitch": 65,
-          "bearing": 25,
-          "duration": 4000
+          "duration": 1500
         }
       }
     },
@@ -54,10 +48,7 @@
         "id": 3,
         "landmarkId": "torreluna",
         "camera": {
-          "zoom": 17.38,
-          "pitch": 65,
-          "bearing": 25,
-          "duration": 4000
+          "duration": 1500
         }
       }
     },
@@ -74,10 +65,7 @@
         "id": 4,
         "landmarkId": "montevo",
         "camera": {
-          "zoom": 17.38,
-          "pitch": 65,
-          "bearing": 25,
-          "duration": 4000
+          "duration": 1500
         }
       }
     }
