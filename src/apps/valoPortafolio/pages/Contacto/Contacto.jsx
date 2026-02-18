@@ -1,6 +1,6 @@
 import { SendIcon } from "@/apps/valoPortafolio/assets/icons/SendIcon";
 import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
-import LogoValoMark from "@/assets/logos/logo-valo-mark";
+import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 
 export default function Contacto() {
   const handleSubmit = (e) => {

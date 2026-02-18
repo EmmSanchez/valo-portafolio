@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import LogoValoMark from "@/assets/logos/logo-valo-mark";
+import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 
 export default function ProyectosLayout() {
   return (
