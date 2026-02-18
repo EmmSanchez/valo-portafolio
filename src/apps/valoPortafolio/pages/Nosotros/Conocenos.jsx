@@ -1,5 +1,5 @@
 import { ConoceValoCarousel } from "@/apps/valoPortafolio/components/Carousel/ConoceValoCarousel";
-import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
+import BackButton from "@/components/shared/Buttons/BackButton";
 import React from "react";
 
 export default function Conocenos() {

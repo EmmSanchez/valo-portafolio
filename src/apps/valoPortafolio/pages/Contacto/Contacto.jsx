@@ -1,5 +1,5 @@
 import { SendIcon } from "@/apps/valoPortafolio/assets/icons/SendIcon";
-import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
+import BackButton from "@/components/shared/Buttons/BackButton";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 
 export default function Contacto() {

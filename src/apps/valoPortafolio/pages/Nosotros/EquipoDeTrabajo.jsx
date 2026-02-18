@@ -1,4 +1,4 @@
-import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
+import BackButton from "@/components/shared/Buttons/BackButton";
 import miembro1 from "@/apps/valoPortafolio/assets/images/equpo-de-trabajo/miembro1.jpg";
 import miembro2 from "@/apps/valoPortafolio/assets/images/equpo-de-trabajo/miembro2.jpg";
 import miembro3 from "@/apps/valoPortafolio/assets/images/equpo-de-trabajo/miembro3.jpg";

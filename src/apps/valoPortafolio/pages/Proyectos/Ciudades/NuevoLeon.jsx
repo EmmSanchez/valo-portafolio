@@ -1,6 +1,6 @@
 import { MapFilterButtons } from "@/apps/valoPortafolio/components/Buttons/MapFilterButtons";
 import MapView from "@/apps/valoPortafolio/components/Mapbox/Map.jsx";
-import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
+import BackButton from "@/components/shared/Buttons/BackButton";
 
 export default function NuevoLeon() {
   return (

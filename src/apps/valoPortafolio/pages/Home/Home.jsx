@@ -4,7 +4,7 @@ import SplashScreen from "@/components/shared/SplashScreen/SplashScreen";
 import bgImage from "@/apps/valoPortafolio/assets/images/home-screen.webp";
 import MainMenu from "@/apps/valoPortafolio/components/Menus/MainMenu";
 import PlayButton from "@/apps/valoPortafolio/components/Buttons/PlayButton";
-import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
+import BackButton from "@/components/shared/Buttons/BackButton";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 import { SPLASH_KEYS } from "@/components/shared/SplashScreen/const";
 import { LogoValo } from "@/apps/valoPortafolio/assets/logos/logo-valo";

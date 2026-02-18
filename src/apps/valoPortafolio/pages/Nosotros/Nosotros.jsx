@@ -1,5 +1,5 @@
 import bgImage from "@/apps/valoPortafolio/assets/images/home-screen.webp";
-import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
+import BackButton from "@/components/shared/Buttons/BackButton";
 import NosotrosSubMenu from "@/apps/valoPortafolio/components/Menus/NosotrosSubMenu";
 
 export default function Nosotros() {

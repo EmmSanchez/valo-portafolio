@@ -1,6 +1,6 @@
 import masterplanBg from "@/apps/valoPortafolio/assets/images/proyectos/Masterplan.jpg";
 import { MapaMexico } from "@/apps/valoPortafolio/assets/images/proyectos/MapaMexico";
-import BackButton from "@/apps/valoPortafolio/components/Navigation/BackButton";
+import BackButton from "@/components/shared/Buttons/BackButton";
 
 const ACTIVE_STATES = ["nuevo-leon", "guanajuato"];
 
