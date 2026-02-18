@@ -1,0 +1,29 @@
+{
+  "menu": [
+    {
+      "id": "vpsc_informacion",
+      "label": "Información",
+      "to": "/valoPark/SantaCatarina/informacion"
+    },
+    {
+      "id": "vpsc_ubicacion",
+      "label": "Ubicación",
+      "to": "/valoPark/SantaCatarina/ubicacion"
+    },
+    {
+      "id": "vpsc_masterplan",
+      "label": "Masterplan",
+      "to": "/valoPark/SantaCatarina/masterplan"
+    },
+    {
+      "id": "vpsc_disponibilidad",
+      "label": "Disponibilidad",
+      "to": "/valoPark/SantaCatarina/disponibilidad"
+    },
+    {
+      "id": "vpsc_contacto",
+      "label": "Contacto",
+      "to": "/valoPark/SantaCatarina/contacto"
+    }
+  ]
+}
