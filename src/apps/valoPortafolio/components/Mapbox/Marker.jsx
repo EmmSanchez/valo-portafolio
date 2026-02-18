@@ -15,7 +15,7 @@ const LANDMARKS = {
 };
 
 const LINKS = {
-  "valo-santa-catarina": "/valoPark/SantaCatarina",
+  "valo-santa-catarina": "/valoPark/santaCatarina",
   "valo-apodaca": "#",
   torreluna: "#",
   montevo: "#",
