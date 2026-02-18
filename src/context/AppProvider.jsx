@@ -1,30 +1,27 @@
 import { useState } from "react";
 import { AppContext } from "./AppContext.jsx";
-
-const SPLASH_KEY = "showSplashScreen";
+import { SPLASH_KEYS } from "@/components/shared/SplashScreen/const.js";
 
 export function AppContextProvider({ children }) {
   const [showSplashScreen, setShowSplashScreen] = useState(() => {
-    const storedValue = sessionStorage.getItem(SPLASH_KEY);
-    if (storedValue === null) {
-      sessionStorage.setItem(SPLASH_KEY, "true");
-      return true;
-    }
-    return storedValue === "true";
+    return Object.fromEntries(
+      Object.entries(SPLASH_KEYS).map(([, value]) => {
+        const storedValue = sessionStorage.getItem(value);
+
+        if (storedValue === null) {
+          sessionStorage.setItem(value, "true");
+          return [value, true];
+        }
+
+        return [value, storedValue === "true"];
+      }),
+    );
   });
 
-  const toggleSplashScreen = () => {
-    const showSplash = sessionStorage.getItem(SPLASH_KEY);
-
-    if (showSplash === "true") {
-      sessionStorage.setItem(SPLASH_KEY, "false");
-      setShowSplashScreen(false);
-    }
-
-    if (showSplash === "false") {
-      sessionStorage.setItem(SPLASH_KEY, "true");
-      setShowSplashScreen(true);
-    }
+  const toggleSplashScreen = (key) => {
+    const nextValue = sessionStorage.getItem(key) !== "true";
+    sessionStorage.setItem(key, String(nextValue));
+    setShowSplashScreen((prev) => ({ ...prev, [key]: nextValue }));
   };
 
   const [mapFilter, setMapFilter] = useState(null);
