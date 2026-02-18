@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import mapboxgl from "mapbox-gl";
 import Marker from "./Marker";
 import LOCATIONS from "@/apps/valoPortafolio/data/Valo/geojsonData.json";
@@ -34,6 +35,7 @@ const CATEGORIES = {
 
 export default function Map() {
   const mapContainerRef = useRef();
+  const navigate = useNavigate();
   const [map, setMap] = useState(null);
   const [locationsData] = useState(LOCATIONS);
   const { mapFilter } = useContext(AppContext);
@@ -80,11 +82,13 @@ export default function Map() {
     };
   }, []);
 
-  const handleMarkerClick = (feature) => {
+  const handleMarkerClick = (feature, markerURL) => {
     if (!feature) {
       setActiveFeature(null);
       return;
     }
+
+    navigate(markerURL);
 
     setActiveFeature(feature?.properties?.landmarkId);
 

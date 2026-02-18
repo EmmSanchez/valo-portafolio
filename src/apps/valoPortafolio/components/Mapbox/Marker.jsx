@@ -14,6 +14,13 @@ const LANDMARKS = {
   montevo: MontevoLandmark,
 };
 
+const LINKS = {
+  "valo-santa-catarina": "/valoPark/SantaCatarina",
+  "valo-apodaca": "#",
+  torreluna: "#",
+  montevo: "#",
+};
+
 const Marker = ({
   map,
   feature,
@@ -28,6 +35,8 @@ const Marker = ({
   const [container] = useState(() => document.createElement("div"));
 
   const icon = LANDMARKS[properties.landmarkId];
+  const markerURL = LINKS[properties.landmarkId];
+
   const isActive = activeFeature === properties.landmarkId;
 
   useEffect(() => {
@@ -68,7 +77,7 @@ const Marker = ({
       <img
         src={icon}
         alt={properties.name}
-        onClick={() => handleMarkerClick(feature)}
+        onClick={() => handleMarkerClick(feature, markerURL)}
         className={`w-[clamp(45px,5.5vw,105px)] h-[clamp(55px,6.7vw,128px)] hover:cursor-pointer transition-all hover:scale-110 hover:drop-shadow-2xl hover:brightness-110 origin-bottom
         ${
           isVisible
