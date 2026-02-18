@@ -1,3 +1,10 @@
-export default function routes() {
-  return <div>routes</div>;
+import { Route, Routes } from "react-router";
+import Home from "./pages/Home/Home";
+
+export default function ValoParkSantaCatarinaRoutes() {
+  return (
+    <Routes>
+      <Route path="/valoPark/SantaCatarina" element={<Home />} />
+    </Routes>
+  );
 }
