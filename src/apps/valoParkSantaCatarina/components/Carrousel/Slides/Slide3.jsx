@@ -2,28 +2,6 @@ import EntradaIcon from "@/apps/valoParkSantaCatarina/assets/icons/carrousel/Ent
 import ParqueIcon from "@/apps/valoParkSantaCatarina/assets/icons/carrousel/ParqueIcon";
 import TiendaIcon from "@/apps/valoParkSantaCatarina/assets/icons/carrousel/TiendaIcon";
 
-const CARACTERISTICAS = [
-  {
-    id: "porton-control-acceso",
-    label: "Portón con control de acceso.",
-    icon: EntradaIcon,
-  },
-  {
-    id: "area-comercial",
-    label: [
-      { text: "Área comercial de ", bold: false },
-      { text: "850m2", bold: true },
-      { text: " al frente del terreno.", bold: false },
-    ],
-    icon: TiendaIcon,
-  },
-  {
-    id: "servicios-comercio",
-    label: "Servicios y comercio a pie del parque.",
-    icon: ParqueIcon,
-  },
-];
-
 export default function Slide3() {
   return (
     <div className="flex w-full h-full flex-col items-center justify-center px-[clamp(38.79px,6.82vw,131px)] gap-1 lg:gap-5.5 2xl:gap-7.5">
