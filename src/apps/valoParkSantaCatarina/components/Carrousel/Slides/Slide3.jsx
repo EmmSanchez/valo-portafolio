@@ -32,33 +32,40 @@ export default function Slide3() {
       </h3>
 
       <div className="grid grid-cols-3">
-        {CARACTERISTICAS.map((caracteristica) => {
-          const IconComponent = caracteristica.icon;
+        {/* Primera Caratetistica */}
+        <div className="w-[clamp(166.39px,29.27vw,562px)] h-[clamp(81.43px,14.32vw,275px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white bg-santa-catarina">
+          <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
+            <EntradaIcon />
+          </span>
 
-          return (
-            <div
-              key={caracteristica.id}
-              className="w-[clamp(166.39px,29.27vw,562px)] h-[clamp(81.43px,14.32vw,275px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white bg-santa-catarina"
-            >
-              <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
-                <IconComponent />
-              </span>
+          <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+            Portón con control <br /> de acceso.
+          </p>
+        </div>
 
-              <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] leading-[120%]">
-                {Array.isArray(caracteristica.label)
-                  ? caracteristica.label.map((part, i) => (
-                      <span
-                        key={i}
-                        className={part.bold ? "font-bold font-lumarc" : ""}
-                      >
-                        {part.text}
-                      </span>
-                    ))
-                  : caracteristica.label}
-              </p>
-            </div>
-          );
-        })}
+        {/* Segunda Caratetistica */}
+        <div className="w-[clamp(166.39px,29.27vw,562px)] h-[clamp(81.43px,14.32vw,275px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white bg-santa-catarina">
+          <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
+            <TiendaIcon />
+          </span>
+
+          <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+            Área comercial de <strong>850m2</strong>
+            <br />
+            al frente del terreno.
+          </p>
+        </div>
+
+        {/* Tercerea Caratetistica */}
+        <div className="w-[clamp(166.39px,29.27vw,562px)] h-[clamp(81.43px,14.32vw,275px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white bg-santa-catarina">
+          <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
+            <ParqueIcon />
+          </span>
+
+          <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+            Servicios y comercio <br /> a pie del parque.
+          </p>
+        </div>
       </div>
     </div>
   );
