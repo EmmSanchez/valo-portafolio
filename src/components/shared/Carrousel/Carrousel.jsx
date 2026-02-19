@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { CircleIndicatorIcon } from "@/apps/valoPortafolio/assets/icons/CircleIndicatorIcon";
 
-export function Carrousel({ slides = [] }) {
+export function Carrousel({ slides = [], navIndicator }) {
   const autoplay = useRef(Autoplay({ delay: 10000, stopOnInteraction: true }));
 
   const [scrollSnaps, setScrollSnaps] = useState([]);
@@ -49,16 +48,9 @@ export function Carrousel({ slides = [] }) {
           <button
             key={index}
             onClick={() => goTo(index)}
-            className={"flex hover:cursor-pointer"}
+            className="flex hover:cursor-pointer"
           >
-            {index === selectedSnap ? (
-              <CircleIndicatorIcon
-                isActive
-                className="size-[clamp(20px,2.08vw,40px)]"
-              />
-            ) : (
-              <span className="size-[clamp(20px,2.08vw,40px)] rounded-full border-[3px] border-valo" />
-            )}
+            {navIndicator?.(index, index === selectedSnap)}
           </button>
         ))}
       </div>
