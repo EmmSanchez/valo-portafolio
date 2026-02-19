@@ -2,11 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { CircleIndicatorIcon } from "@/apps/valoPortafolio/assets/icons/CircleIndicatorIcon";
-import Slide1 from "./Slides/Slide1";
-import Slide2 from "./Slides/Slide2";
-import Slide3 from "./Slides/Slide3";
 
-export function ConoceValoCarousel() {
+export function Carrousel({ slides = [] }) {
   const autoplay = useRef(Autoplay({ delay: 10000, stopOnInteraction: true }));
 
   const [scrollSnaps, setScrollSnaps] = useState([]);
@@ -39,20 +36,11 @@ export function ConoceValoCarousel() {
     <div className="embla flex flex-col justify-end w-full h-full text-valo pt-6">
       <div className="embla__viewport w-full h-full flex" ref={emblaRef}>
         <div className="embla__container flex w-full h-full">
-          {/* Slide 1 */}
-          <div className="embla__slide flex-[0_0_100%]">
-            <Slide1 />
-          </div>
-
-          {/* Slide 2 */}
-          <div className="embla__slide flex-[0_0_100%]">
-            <Slide2 />
-          </div>
-
-          {/* Slide 3 */}
-          <div className="embla__slide flex-[0_0_100%]">
-            <Slide3 />
-          </div>
+          {slides.map((slide, index) => (
+            <div key={index} className="embla__slide flex-[0_0_100%]">
+              {slide}
+            </div>
+          ))}
         </div>
       </div>
 
