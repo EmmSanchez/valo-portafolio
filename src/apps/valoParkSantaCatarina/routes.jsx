@@ -5,7 +5,7 @@ import Ubicacion from "./pages/Ubicacion/Ubicacion";
 import Masterplan from "./pages/Masterplan/Masterplan";
 import Disponibilidad from "./pages/Disponibilidad/Disponibilidad";
 import Contacto from "./pages/Contacto/Contacto";
-import InformacionLayout from "./pages/Informacion/InformaciOnLayout";
+import InformacionLayout from "./pages/Informacion/InformacionLayout";
 
 export default function ValoParkSantaCatarinaRoutes() {
   return (
