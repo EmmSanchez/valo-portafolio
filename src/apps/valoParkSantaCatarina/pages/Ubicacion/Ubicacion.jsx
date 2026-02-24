@@ -8,6 +8,7 @@ import BagIcon from "../../assets/icons/ubicacion/BagIcon";
 import BikeIcon from "../../assets/icons/ubicacion/BikeIcon";
 import CartIcon from "../../assets/icons/ubicacion/CartIcon";
 import HospitalIcon from "../../assets/icons/ubicacion/HospitalIcon";
+import GoogleMaps from "@/components/shared/Map/GoogleMaps";
 
 const SUBMENU = {
   id: "ubicación-vpsc",
@@ -64,7 +65,7 @@ export default function Ubicacion() {
   const subFilter = searchParams.get("subFilter");
 
   return (
-    <div className="relative w-dvw h-dvh flex bg-cyan-800">
+    <div className="relative w-dvw h-dvh flex">
       {/* Logo */}
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <LogoValoParkSantaCatarina className="w-[clamp(58.33px,10.26vw,197px)] h-[clamp(17.76px,3.13vw,60px)]" />
@@ -125,6 +126,11 @@ export default function Ubicacion() {
           </div>
         </div>
       )}
+
+      {/* MAP FROM GOOGLE */}
+      <div className="absolute inset-0 -z-50">
+        <GoogleMaps filter={subFilter} />
+      </div>
 
       {/* Brujula */}
       <div className="absolute right-0 bottom-0 default-padding">
