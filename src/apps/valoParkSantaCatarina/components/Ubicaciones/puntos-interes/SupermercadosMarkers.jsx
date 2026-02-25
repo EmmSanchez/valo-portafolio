@@ -1,0 +1,28 @@
+import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
+import cartLandmark from "@/apps/valoParkSantaCatarina/assets/icons/ubicacion/puntos_interes/cartLandmark.svg";
+import { COORDENADAS } from "@/apps/valoParkSantaCatarina/const/Ubicaciones";
+
+export default function SupermercadosMarkers() {
+  return (
+    <>
+      {COORDENADAS.SUPERMERCADOS.map((item) => {
+        return (
+          <AdvanceMarker key={item.id} position={item.coordinates}>
+            <div className="relative flex">
+              <img
+                src={cartLandmark}
+                alt="Bus Landmark"
+                className="size-[clamp(11.83px,2.08vw,40px)]"
+              />
+              <div
+                className={`absolute top-1/2 -translate-y-1/2 -z-10 w-fit py-[clamp(1.48px,0.26vw,5px)] whitespace-nowrap bg-santa-catarina font-semibold uppercase ${item.labelSide === "left" ? "right-1/2 pl-[clamp(2.96px,0.52vw,10px)] pr-[clamp(7.4px,1.3vw,25px)]" : "left-1/2 pr-[clamp(2.96px,0.52vw,10px)] pl-[clamp(7.4px,1.3vw,25px)]"}`}
+              >
+                <p className="text-puntos-interes py-px">{item.label}</p>
+              </div>
+            </div>
+          </AdvanceMarker>
+        );
+      })}
+    </>
+  );
+}
