@@ -1,6 +1,6 @@
 import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
 import hospitalLandmark from "@/apps/valoParkSantaCatarina/assets/icons/ubicacion/puntos_interes/hospitalLandmark.svg";
-import { COORDENADAS } from "@/apps/valoParkSantaCatarina/const/Ubicaciones";
+import { COORDENADAS } from "@/apps/valoParkSantaCatarina/data/Ubicaciones";
 
 export default function CentrosSaludMarkers() {
   return (

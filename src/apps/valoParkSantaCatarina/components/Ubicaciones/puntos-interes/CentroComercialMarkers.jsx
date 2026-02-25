@@ -1,6 +1,6 @@
 import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
 import bagLandmark from "@/apps/valoParkSantaCatarina/assets/icons/ubicacion/puntos_interes/bagLandmark.svg";
-import { COORDENADAS } from "@/apps/valoParkSantaCatarina/const/Ubicaciones";
+import { COORDENADAS } from "@/apps/valoParkSantaCatarina/data/Ubicaciones";
 
 export default function CentroComercialMarkers() {
   return (
