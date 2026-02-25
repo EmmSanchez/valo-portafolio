@@ -71,8 +71,13 @@ export default function Ubicacion() {
         <LogoValoParkSantaCatarina className="w-[clamp(58.33px,10.26vw,197px)] h-[clamp(17.76px,3.13vw,60px)]" />
       </div>
 
+      {/* MAP FROM GOOGLE */}
+      <div className="absolute inset-0">
+        <GoogleMaps filter={subFilter} />
+      </div>
+
       {/* SUBMENU AND BACK BUTTON*/}
-      <div className="flex flex-col self-end items-start w-fit default-padding">
+      <div className="relative z-10 flex flex-col self-end items-start w-fit default-padding">
         <SubmenuUbicacion submenu={SUBMENU} />
 
         <BackButton
@@ -126,11 +131,6 @@ export default function Ubicacion() {
           </div>
         </div>
       )}
-
-      {/* MAP FROM GOOGLE */}
-      <div className="absolute inset-0 -z-50">
-        <GoogleMaps filter={subFilter} />
-      </div>
 
       {/* Brujula */}
       <div className="absolute right-0 bottom-0 default-padding">
