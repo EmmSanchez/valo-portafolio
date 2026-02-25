@@ -6,6 +6,7 @@ import Masterplan from "./pages/Masterplan/Masterplan";
 import Disponibilidad from "./pages/Disponibilidad/Disponibilidad";
 import Contacto from "./pages/Contacto/Contacto";
 import InformacionLayout from "./pages/Informacion/InformacionLayout";
+import UbicacionLayout from "./pages/Ubicacion/UbicacionLayout";
 
 export default function ValoParkSantaCatarinaRoutes() {
   return (
@@ -19,7 +20,12 @@ export default function ValoParkSantaCatarinaRoutes() {
         <Route index element={<Informacion />} />
       </Route>
 
-      <Route path="/valoPark/santaCatarina/ubicacion" element={<Ubicacion />} />
+      <Route
+        path="/valoPark/santaCatarina/ubicacion"
+        element={<UbicacionLayout />}
+      >
+        <Route index element={<Ubicacion />} />
+      </Route>
       <Route
         path="/valoPark/santaCatarina/masterplan"
         element={<Masterplan />}
