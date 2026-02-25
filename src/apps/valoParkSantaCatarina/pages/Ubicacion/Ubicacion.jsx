@@ -120,7 +120,9 @@ export default function Ubicacion() {
                   onClick={() => handleSubFilter(button.id)}
                   className={`flex-1 flex justify-between items-center px-[clamp(5.92px,1.04vw,20px)] text-white font-semibold rounded-[clamp(11.83px,2.08vw,40px)] hover:cursor-pointer ${subFilter === button.id ? "bg-santa-catarina-grey" : "hover:bg-santa-catarina-grey"}`}
                 >
-                  <span className="text-paragraph-button">{button.label}</span>
+                  <span className="text-paragraph-subFilter-button">
+                    {button.label}
+                  </span>
 
                   <span className="size-[clamp(7.99px,1.41vw,27px)]">
                     <IconComponent className="w-full h-full" />
