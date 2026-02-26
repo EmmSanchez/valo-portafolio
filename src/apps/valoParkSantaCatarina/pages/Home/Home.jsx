@@ -4,7 +4,6 @@ import React from "react";
 import { useContext } from "react";
 import { SPLASH_KEYS } from "@/components/shared/SplashScreen/const";
 import LogoValoParkSantaCatarina from "../../assets/logos/logo-valoParkSC";
-import bgImage from "../../assets/images/example-bgImage.png";
 import MainMenuVPSC from "../../components/Menus/MainMenu";
 import PlayButtonVPSC from "../../components/Buttons/PlayButton";
 
@@ -37,15 +36,6 @@ export default function Home() {
           </div>
         </>
       )}
-
-      {/* Background */}
-      <div className="absolute -z-50">
-        <img
-          src={bgImage}
-          alt="Imagen de fondo"
-          className="w-dvw h-dvh object-cover"
-        />
-      </div>
     </div>
   );
 }
