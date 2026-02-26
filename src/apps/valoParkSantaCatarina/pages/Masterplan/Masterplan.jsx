@@ -1,12 +1,80 @@
 import BackButton from "@/components/shared/Buttons/BackButton";
+import { CircleIndicatorIcon } from "../../assets/icons/CicleIndicatorIcon";
+import { useSearchParams } from "react-router";
+
+const POSICIONES = [
+  {
+    id: "1",
+    label: "Posición 1",
+  },
+  {
+    id: "2",
+    label: "Posición 2",
+  },
+  {
+    id: "3",
+    label: "Posición 3",
+  },
+  {
+    id: "4",
+    label: "Posición 4",
+  },
+  {
+    id: "5",
+    label: "Posición 5",
+  },
+];
 
 export default function Masterplan() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activePos = searchParams.get("position");
+
   return (
     <div className="w-dvw h-dvh flex default-padding">
       <BackButton
         to="/valoPark/santaCatarina"
         className="self-end bg-santa-catarina hover:bg-santa-catarina-grey"
       />
+
+      {/* Posiciones */}
+      <div className="absolute h-full right-[clamp(10.36px,1.82vw,35px)] top-1/2 -translate-y-1/2 flex flex-col justify-center gap-[clamp(2.96px,0.52vw,10px)] pointer-events-none">
+        {POSICIONES.map((posiciones) => (
+          <button
+            key={posiciones.id}
+            onClick={() => setSearchParams({ position: posiciones.id })}
+            className={`flex justify-between items-center px-[clamp(13.32px,2.34vw,45px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto hover:cursor-pointer ${activePos === posiciones.id ? "bg-santa-catarina-grey" : "bg-santa-catarina hover:bg-santa-catarina-grey"}`}
+          >
+            <p className="text-paragraph-button font-semibold">
+              {posiciones.label}
+            </p>
+
+            <CircleIndicatorIcon
+              className="shrink-0 size-[clamp(7.11px,1.25vw,24px)]"
+              isActive={activePos === posiciones.id}
+            />
+          </button>
+        ))}
+      </div>
+
+      {/* BOTÓN 360 */}
+      <div className="absolute bottom-0 right-[clamp(10.36px,1.82vw,35px)] default-bottom-padding">
+        <button
+          className={`relative flex justify-between items-center px-[clamp(13.32px,2.34vw,45px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto hover:cursor-pointer ${activePos === "360" ? "bg-santa-catarina-grey" : "bg-santa-catarina hover:bg-santa-catarina-grey"}`}
+        >
+          <p className="absolute inset-0 flex items-center justify-center text-paragraph-button font-semibold">
+            360
+          </p>
+
+          {/* Texto e icono invisible para mantener tamaño */}
+          <p className="text-paragraph-button font-semibold invisible">
+            Posición 2
+          </p>
+          <CircleIndicatorIcon
+            className="shrink-0 size-[clamp(7.11px,1.25vw,24px)] invisible"
+            isActive={activePos === "360"}
+          />
+        </button>
+      </div>
     </div>
   );
 }
