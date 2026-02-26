@@ -42,6 +42,7 @@ export default function GoogleMaps({ filter, subFilter, isFilterValid }) {
       <Map
         mapId={MAP_CONFIG.id}
         mapTypeId="satellite"
+        gestureHandling={filter === FILTERS.MASTERPLAN ? "none" : "greedy"}
         disableDefaultUI
         defaultZoom={MAP_CONFIG.zoom}
         defaultCenter={MAP_CONFIG.center}
