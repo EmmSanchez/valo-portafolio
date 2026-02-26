@@ -28,10 +28,12 @@ export default function ValoParkSantaCatarinaRoutes() {
         >
           <Route index element={<Ubicacion />} />
         </Route>
+
         <Route
           path="/valoPark/santaCatarina/masterplan"
           element={<Masterplan />}
         />
+
         <Route
           path="/valoPark/santaCatarina/disponibilidad"
           element={<Disponibilidad />}
