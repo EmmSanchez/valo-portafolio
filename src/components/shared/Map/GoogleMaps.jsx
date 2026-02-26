@@ -7,6 +7,7 @@ import CentrosRecreativosMarkers from "@/apps/valoParkSantaCatarina/components/U
 import SupermercadosMarkers from "@/apps/valoParkSantaCatarina/components/Ubicaciones/puntos-interes/SupermercadosMarkers";
 import CentrosSaludMarkers from "@/apps/valoParkSantaCatarina/components/Ubicaciones/puntos-interes/CentrosSaludMarkers";
 import VialidadesLayer from "@/apps/valoParkSantaCatarina/components/Ubicaciones/vialidades/VialidadesLayer";
+import VialidadesMarkers from "@/apps/valoParkSantaCatarina/components/Ubicaciones/vialidades/VialidadesMarkers";
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
 const VPSC_LANDMARK_POSITION = {
@@ -21,7 +22,7 @@ const MAP_CONFIG = {
   center: { lat: 25.701990146668596, lng: -100.48971351880338 },
 };
 
-const PUNTOS_INTERES = {
+const PUNTOS_INTERES_SUBFILTERS = {
   TRANSPORTE_PUBLICO: "transporte",
   CENTRO_COMERCIAL: "centro-comercial",
   CENTROS_RECREATIVOS: "centros-recreativos",
@@ -29,20 +30,27 @@ const PUNTOS_INTERES = {
   CENTRO_DE_SALUD: "centro-salud",
 };
 
+const PUNTOS_INTERES = "puntos-de-interes";
 const VIALIDADES = "vialidades";
 const MASTERPLAN = "masterplan";
 
 const MARKER_COMPONENTS = {
-  [PUNTOS_INTERES.TRANSPORTE_PUBLICO]: TransporteMarkers,
-  [PUNTOS_INTERES.CENTRO_COMERCIAL]: CentroComercialMarkers,
-  [PUNTOS_INTERES.CENTROS_RECREATIVOS]: CentrosRecreativosMarkers,
-  [PUNTOS_INTERES.SUPERMERCADOS]: SupermercadosMarkers,
-  [PUNTOS_INTERES.CENTRO_DE_SALUD]: CentrosSaludMarkers,
-  [VIALIDADES]: VialidadesLayer,
+  [PUNTOS_INTERES_SUBFILTERS.TRANSPORTE_PUBLICO]: TransporteMarkers,
+  [PUNTOS_INTERES_SUBFILTERS.CENTRO_COMERCIAL]: CentroComercialMarkers,
+  [PUNTOS_INTERES_SUBFILTERS.CENTROS_RECREATIVOS]: CentrosRecreativosMarkers,
+  [PUNTOS_INTERES_SUBFILTERS.SUPERMERCADOS]: SupermercadosMarkers,
+  [PUNTOS_INTERES_SUBFILTERS.CENTRO_DE_SALUD]: CentrosSaludMarkers,
+  [VIALIDADES]: () => (
+    <>
+      <VialidadesLayer />
+      <VialidadesMarkers />
+    </>
+  ),
 };
 
 export default function GoogleMaps({ filter, subFilter, isFilterValid }) {
-  const ActiveMarkers = MARKER_COMPONENTS[subFilter ?? filter] ?? null;
+  const selectedFilter = filter === PUNTOS_INTERES ? subFilter : filter;
+  const ActiveMarkers = MARKER_COMPONENTS[selectedFilter] ?? null;
   return (
     <APIProvider apiKey={API_KEY}>
       <Map
