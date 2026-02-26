@@ -1,0 +1,61 @@
+{
+  "type": "sequence",
+  "loop": true,
+  "videos": [
+    {
+      "type": "idle",
+      "id": "position_1",
+      "src": "/videos/RDE/2_VALO_VPSC_IDLE_RDE_POS_1.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/RDE/3_VALO_VPSC_TRANSICION_RDE_POS_1_A_POS_2.mp4",
+      "back": "/videos/RDE/3R_VALO_VPSC_TRANSICION_RDE_POS_2_A_POS_1.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_2",
+      "src": "/videos/RDE/4_VALO_VPSC_IDLE_RDE_POS_2.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/RDE/5_VALO_VPSC_TRANSICION_RDE_POS_2_A_POS_3.mp4",
+      "back": "/videos/RDE/5R_VALO_VPSC_TRANSICION_RDE_POS_3_A_POS_2.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_3",
+      "src": "/videos/RDE/6_VALO_VPSC_IDLE_RDE_POS_3.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/RDE/7_VALO_VPSC_TRANSICION_RDE_POS_3_A_POS_4.mp4",
+      "back": "/videos/RDE/7R_VALO_VPSC_TRANSICION_RDE_POS_4_A_POS_3.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_4",
+      "src": "/videos/RDE/8_VALO_VPSC_IDLE_RDE_POS_4.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/RDE/9_VALO_VPSC_TRANSICION_RDE_POS_4_A_POS_5.mp4",
+      "back": "/videos/RDE/9R_VALO_VPSC_TRANSICION_RDE_POS_5_A_POS_4.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_5",
+      "src": "/videos/RDE/10_VALO_VPSC_IDLE_RDE_POS_5.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/RDE/11_VALO_VPSC_TRANSICION_RDE_POS_5_A_MENU_360.mp4",
+      "back": "/videos/RDE/11R_VALO_VPSC_TRANSICION_RDE_MENU_360_A_POS_5.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "menu_360",
+      "src": "public/videos/RDE/12_VALO_VPSC_IDLE_RDE_MENU_360.mp4"
+    }
+  ]
+}
