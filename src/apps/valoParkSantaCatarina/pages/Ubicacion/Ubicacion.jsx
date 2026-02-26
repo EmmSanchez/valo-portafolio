@@ -2,6 +2,8 @@ import { useSearchParams } from "react-router";
 import GoogleMaps from "@/components/shared/Map/GoogleMaps";
 import { SUBMENU_UBICACION } from "../../data/SubmenuUbicacion";
 import PuntosInteresFilters from "../../components/Menus/PuntosInteresFilters";
+import { FILTERS } from "../../const/Filters";
+import ExplorarProyectoButton from "../../components/Buttons/ExplorarProyectoButton";
 
 export default function Ubicacion() {
   const [searchParams, _] = useSearchParams();
@@ -11,7 +13,6 @@ export default function Ubicacion() {
   const isFilterValid = buttons.some((b) => b.filter === filter);
 
   const { subfilters } = buttons.find((b) => b.filter === filter) ?? {};
-
   const activeSubFilter = searchParams.get("subFilter");
 
   return (
@@ -53,6 +54,12 @@ export default function Ubicacion() {
           activeSubFilter={activeSubFilter}
           subfilters={subfilters}
         />
+      )}
+
+      {filter === FILTERS.MASTERPLAN && (
+        <>
+          <ExplorarProyectoButton />
+        </>
       )}
     </div>
   );
