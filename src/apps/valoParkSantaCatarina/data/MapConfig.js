@@ -1,5 +1,7 @@
+const MAP_ID = import.meta.env.VITE_GOOGLE_MAPID;
+
 export const MAP_CONFIG = {
-  id: "82766ca9d435febc2711df52",
+  id: MAP_ID,
   zoom: 14,
   heading: 9,
   center: { lat: 25.701990146668596, lng: -100.48971351880338 },
