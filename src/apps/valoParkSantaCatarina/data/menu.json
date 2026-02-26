@@ -13,7 +13,7 @@
     {
       "id": "vpsc_masterplan",
       "label": "Masterplan",
-      "to": "/valoPark/santaCatarina/masterplan"
+      "to": "/valoPark/santaCatarina/masterplan?position=1"
     },
     {
       "id": "vpsc_disponibilidad",
