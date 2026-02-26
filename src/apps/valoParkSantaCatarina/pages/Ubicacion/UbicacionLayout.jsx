@@ -5,6 +5,7 @@ import SubmenuUbicacion from "../../components/Menus/Submenu";
 import LogoValoParkSantaCatarina from "../../assets/logos/logo-valoParkSC";
 import CompassIcon from "../../assets/icons/CompassIcon";
 import { SUBMENU_UBICACION } from "../../data/SubmenuUbicacion";
+import { FILTERS } from "../../const/Filters";
 
 export default function UbicacionLayout() {
   const [searchParams, _] = useSearchParams();
@@ -34,11 +35,13 @@ export default function UbicacionLayout() {
         </div>
 
         {/* Brujula */}
-        <div className="absolute z-50 right-0 bottom-0 default-padding">
-          <div className="bg-santa-catarina/60 p-[clamp(4.44px,0.78vw,15px)] rounded-full backdrop-blur-xs">
-            <CompassIcon className="size-[clamp(20.71px,3.65vw,70px)]" />
+        {filter !== FILTERS.MASTERPLAN && (
+          <div className="absolute z-50 right-0 bottom-0 default-padding">
+            <div className="bg-santa-catarina/60 p-[clamp(4.44px,0.78vw,15px)] rounded-full backdrop-blur-xs">
+              <CompassIcon className="size-[clamp(20.71px,3.65vw,70px)]" />
+            </div>
           </div>
-        </div>
+        )}
 
         <Outlet />
       </div>
