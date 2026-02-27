@@ -1,10 +1,11 @@
 {
   "type": "sequence",
-  "loop": true,
+  "loop": false,
   "videos": [
     {
       "type": "idle",
       "id": "position_1",
+      "position": 1,
       "src": "/videos/RDE/2_VALO_VPSC_IDLE_RDE_POS_1.mp4"
     },
     {
@@ -15,6 +16,7 @@
     {
       "type": "idle",
       "id": "position_2",
+      "position": 2,
       "src": "/videos/RDE/4_VALO_VPSC_IDLE_RDE_POS_2.mp4"
     },
     {
@@ -25,6 +27,7 @@
     {
       "type": "idle",
       "id": "position_3",
+      "position": 3,
       "src": "/videos/RDE/6_VALO_VPSC_IDLE_RDE_POS_3.mp4"
     },
     {
@@ -35,6 +38,7 @@
     {
       "type": "idle",
       "id": "position_4",
+      "position": 4,
       "src": "/videos/RDE/8_VALO_VPSC_IDLE_RDE_POS_4.mp4"
     },
     {
@@ -45,6 +49,7 @@
     {
       "type": "idle",
       "id": "position_5",
+      "position": 5,
       "src": "/videos/RDE/10_VALO_VPSC_IDLE_RDE_POS_5.mp4"
     },
     {
@@ -55,6 +60,7 @@
     {
       "type": "idle",
       "id": "menu_360",
+      "position": 6,
       "src": "public/videos/RDE/12_VALO_VPSC_IDLE_RDE_MENU_360.mp4"
     }
   ]
