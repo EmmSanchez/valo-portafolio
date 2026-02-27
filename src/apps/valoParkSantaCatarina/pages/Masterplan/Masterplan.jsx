@@ -1,6 +1,9 @@
+import { useSearchParams } from "react-router";
+import { useContext } from "react";
+import { VideoPlayerContext } from "../../context/VideoPlayerContext";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import { CircleIndicatorIcon } from "../../assets/icons/CicleIndicatorIcon";
-import { useSearchParams } from "react-router";
+import { MODE } from "../../const/Videos";
 
 const POSICIONES = [
   {
@@ -26,6 +29,8 @@ const POSICIONES = [
 ];
 
 export default function Masterplan() {
+  const { mode } = useContext(VideoPlayerContext);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const activePos = searchParams.get("position");
 
@@ -42,7 +47,8 @@ export default function Masterplan() {
           <button
             key={posiciones.id}
             onClick={() => setSearchParams({ position: posiciones.id })}
-            className={`flex justify-between items-center px-[clamp(13.32px,2.34vw,45px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto hover:cursor-pointer ${activePos === posiciones.id ? "bg-santa-catarina-grey" : "bg-santa-catarina hover:bg-santa-catarina-grey"}`}
+            disabled={mode === MODE.TRANSITIONING}
+            className={`flex justify-between items-center px-[clamp(13.32px,2.34vw,45px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer hover:bg-santa-catarina-grey" : ""} ${activePos === posiciones.id ? "bg-santa-catarina-grey" : "bg-santa-catarina"}`}
           >
             <p className="text-paragraph-button font-semibold">
               {posiciones.label}
