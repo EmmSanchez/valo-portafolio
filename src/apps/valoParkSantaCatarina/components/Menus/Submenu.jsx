@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router";
 import { CircleIndicatorIcon } from "../../assets/icons/CicleIndicatorIcon";
 import { useSearchParams } from "react-router";
 
@@ -5,6 +6,7 @@ export default function SubmenuUbicacion({ submenu }) {
   const { label, buttons } = submenu;
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const { pathname } = useLocation();
 
   const handleFilter = (filter) => {
     setSearchParams({ filter });
@@ -19,17 +21,51 @@ export default function SubmenuUbicacion({ submenu }) {
         Menú
       </p>
 
-      <span
-        className={`flex items-center justify-between w-full h-[clamp(40px,3.65vw,70px)] px-3.5 2xl:px-6.25 rounded-[40px] ${isFilterValid ? "" : "bg-santa-catarina-grey"}`}
-      >
-        <p className="text-paragraph-button rounded-[40px] font-bold text-white">
-          {label}
-        </p>
-        <CircleIndicatorIcon
-          isActive
-          className="size-[clamp(16px,1.25vw,24px)]"
-        />
-      </span>
+      {/* SOLO PARA MASTERPLAN */}
+      {pathname === "/valoPark/santaCatarina/masterplan" ? (
+        <div className="flex flex-col">
+          <Link
+            to={"/valoPark/santaCatarina/masterplan?position=1"}
+            data-active={!isFilterValid}
+            className="group rounded-[40px] hover:bg-santa-catarina-grey hover:cursor-pointer"
+          >
+            <span
+              className={`flex items-center justify-between w-full h-[clamp(40px,3.65vw,70px)] px-3.5 2xl:px-6.25 rounded-[40px] ${isFilterValid ? "" : "bg-santa-catarina-grey"}`}
+            >
+              <p className="text-paragraph-button rounded-[40px] font-bold text-white">
+                {label}
+              </p>
+
+              <span className="relative size-[clamp(16px,1.25vw,24px)]">
+                {/* Inactive */}
+                <span className="absolute inset-0 group-hover:hidden group-data-[active=true]:hidden">
+                  <CircleIndicatorIcon isActive={false} />
+                </span>
+
+                {/* Active / Hover */}
+                <span className="absolute inset-0 hidden group-hover:block group-data-[active=true]:block">
+                  <CircleIndicatorIcon isActive />
+                </span>
+              </span>
+            </span>
+          </Link>
+        </div>
+      ) : (
+        <>
+          <span
+            className={`flex items-center justify-between w-full h-[clamp(40px,3.65vw,70px)] px-3.5 2xl:px-6.25 rounded-[40px] ${isFilterValid ? "" : "bg-santa-catarina-grey"}`}
+          >
+            <p className="text-paragraph-button rounded-[40px] font-bold text-white">
+              {label}
+            </p>
+            <CircleIndicatorIcon
+              isActive
+              className="size-[clamp(16px,1.25vw,24px)]"
+            />
+          </span>
+        </>
+      )}
+      <></>
 
       <nav className="flex flex-col">
         {buttons.map((button) => {
