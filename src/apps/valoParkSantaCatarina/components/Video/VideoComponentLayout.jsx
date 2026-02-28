@@ -23,9 +23,8 @@ export default function VideoComponentLayout() {
   });
 
   useEffect(() => {
-    if (position) {
-      goTo(Number(position));
-    }
+    if (!position) return;
+    goTo(Number(position));
   }, [position]);
 
   useEffect(() => {
@@ -37,19 +36,18 @@ export default function VideoComponentLayout() {
     <>
       <video
         ref={videoRefA}
-        autoPlay
         muted
         playsInline
-        className={`absolute inset-0 -z-50 w-dvw h-dvh object-cover ${activePlayer === PLAYER.A ? "opacity-100" : "opacity-0"}`}
+        className={`absolute w-full max-w-full h-dvh object-cover top-0 left-0`}
       ></video>
 
       <video
         ref={videoRefB}
-        autoPlay
         muted
         playsInline
-        className={`absolute inset-0 -z-50 w-dvw h-dvh object-cover ${activePlayer === PLAYER.B ? "opacity-100" : "opacity-0"}`}
+        className={`absolute w-full max-w-full h-dvh object-cover top-0 left-0 ${activePlayer === PLAYER.B ? "opacity-100" : "opacity-0"}`}
       ></video>
+
       <Outlet />
     </>
   );
