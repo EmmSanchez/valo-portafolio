@@ -66,7 +66,8 @@ export default function Masterplan() {
       <div className="absolute bottom-0 right-[clamp(10.36px,1.82vw,35px)] default-bottom-padding">
         <button
           onClick={() => setSearchParams({ position: "6" })}
-          className={`relative flex justify-between items-center px-[clamp(13.32px,2.34vw,45px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto hover:cursor-pointer ${activePos === "360" ? "bg-santa-catarina-grey" : "bg-santa-catarina hover:bg-santa-catarina-grey"}`}
+          disabled={mode === MODE.TRANSITIONING}
+          className={`relative flex justify-between items-center px-[clamp(13.32px,2.34vw,45px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto hover:cursor-pointer ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer hover:bg-santa-catarina-grey" : ""} ${activePos === "6" ? "bg-santa-catarina-grey" : "bg-santa-catarina"}`}
         >
           <p className="absolute inset-0 flex items-center justify-center text-paragraph-button font-semibold">
             360
