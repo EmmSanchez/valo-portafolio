@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import portadas from "../../data/Videos/portadas.json";
 import rde from "../../data/Videos/rde.json";
 import { useVideoPlayer } from "../../hooks/useVideoPlayer";
-import { PLAYER } from "../../const/Videos";
+import { PLAYER, MODE } from "../../const/Videos";
 import { useContext } from "react";
 import { VideoPlayerContext } from "../../context/VideoPlayerContext";
 
@@ -18,9 +18,10 @@ export default function VideoComponentLayout() {
   const [searchParams] = useSearchParams();
   const position = searchParams.get("position");
 
-  const { videoRefA, videoRefB, goTo, activePlayer } = useVideoPlayer({
-    json: rde,
-  });
+  const { videoRefA, videoRefB, goTo, activePlayer, modeState } =
+    useVideoPlayer({
+      json: rde,
+    });
 
   useEffect(() => {
     if (!position) return;
@@ -28,9 +29,9 @@ export default function VideoComponentLayout() {
   }, [position]);
 
   useEffect(() => {
-    if (activePlayer === PLAYER.A) return setIdle();
-    if (activePlayer === PLAYER.B) return setTransitioning();
-  }, [activePlayer]);
+    if (modeState === MODE.IDLE) return setIdle();
+    if (modeState === MODE.TRANSITIONING) return setTransitioning();
+  }, [modeState]);
 
   return (
     <>
