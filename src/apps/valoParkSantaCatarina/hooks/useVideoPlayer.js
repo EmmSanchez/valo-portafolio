@@ -16,12 +16,12 @@ export const useVideoPlayer = ({ json }) => {
 
   // Función que recibe posición actual, objeto con url de transiciones (next, back), y el video final idle
   const transitionTo = (position, transitionSource, targetSrc) => {
-    targetPositionRef.current = position;
-    mode.current = MODE.TRANSITIONING;
-
     // Se asigna transición a B
     videoRefB.current.src = transitionSource;
     videoRefB.current.load();
+
+    targetPositionRef.current = position;
+    mode.current = MODE.TRANSITIONING;
 
     // Esperar a que sea reproducible
     videoRefB.current.oncanplay = () => {
@@ -29,32 +29,36 @@ export const useVideoPlayer = ({ json }) => {
 
       videoRefB.current.play();
 
-      setActivePlayer(PLAYER.B);
+      // Esperar a que el PRIMER FRAME esté pintado antes de mostrar
+      videoRefB.current.requestVideoFrameCallback(() => {
+        requestAnimationFrame(() => {
+          setActivePlayer(PLAYER.B);
+        });
 
-      // Ir cargando target al componente A
-      videoRefA.current.src = targetSrc;
-      videoRefA.current.load();
+        // Ir cargando target al componente A
+        videoRefA.current.src = targetSrc;
+        videoRefA.current.load();
+        // Cuando termine la transición sigue...
+        videoRefB.current.onended = () => {
+          videoRefB.current.onended = null; // limpiar listener
+          targetPositionRef.current = null;
+          currentPositionRef.current = position;
+          mode.current = MODE.IDLE;
 
-      // Cuando termine la transición sigue...
-      videoRefB.current.onended = () => {
-        videoRefB.current.onended = null; // limpiar listener
-        targetPositionRef.current = null;
-        currentPositionRef.current = position;
-        mode.current = MODE.IDLE;
-
-        if (videoRefA.current.readyState >= 3) {
-          videoRefA.current.play();
-          videoRefB.current.src = null; // limpar componente donde estaba la transición
-          setActivePlayer(PLAYER.A);
-        } else {
-          videoRefA.current.oncanplay = () => {
-            videoRefA.current.oncanplay = null;
+          if (videoRefA.current.readyState >= 3) {
             videoRefA.current.play();
             videoRefB.current.src = null; // limpar componente donde estaba la transición
             setActivePlayer(PLAYER.A);
-          };
-        }
-      };
+          } else {
+            videoRefA.current.oncanplay = () => {
+              videoRefA.current.oncanplay = null;
+              videoRefA.current.play();
+              videoRefB.current.src = null; // limpar componente donde estaba la transición
+              setActivePlayer(PLAYER.A);
+            };
+          }
+        };
+      });
     };
   };
 
