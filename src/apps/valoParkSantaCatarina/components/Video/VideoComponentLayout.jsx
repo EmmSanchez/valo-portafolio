@@ -38,17 +38,23 @@ export default function VideoComponentLayout() {
         ref={videoRefA}
         muted
         playsInline
-        className={`absolute w-full max-w-full h-dvh object-cover top-0 left-0`}
+        className={`absolute w-full max-w-full h-dvh object-cover top-0 left-0 ${
+          activePlayer === PLAYER.A ? "z-10" : "z-0"
+        }`}
       ></video>
 
       <video
         ref={videoRefB}
         muted
         playsInline
-        className={`absolute w-full max-w-full h-dvh object-cover top-0 left-0 ${activePlayer === PLAYER.B ? "opacity-100" : "opacity-0"}`}
+        className={`absolute w-full max-w-full h-dvh object-cover top-0 left-0 ${
+          activePlayer === PLAYER.B ? "z-10" : "z-0"
+        }`}
       ></video>
 
-      <Outlet />
+      <div className="relative z-20">
+        <Outlet />
+      </div>
     </>
   );
 }
