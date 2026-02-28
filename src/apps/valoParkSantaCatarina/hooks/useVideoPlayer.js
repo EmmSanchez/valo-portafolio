@@ -14,81 +14,92 @@ export const useVideoPlayer = ({ json }) => {
 
   const { videos } = json;
 
+  // Función que recibe posición actual, objeto con url de transiciones (next, back), y el video final idle
+  const transitionTo = (position, transitionSource, targetSrc) => {
+    targetPositionRef.current = position;
+    mode.current = MODE.TRANSITIONING;
+
+    // Se asigna transición a B
+    videoRefB.current.src = transitionSource;
+    videoRefB.current.load();
+
+    // Esperar a que sea reproducible
+    videoRefB.current.oncanplay = () => {
+      videoRefB.current.oncanplay = null; // limpiar listener
+
+      videoRefB.current.play();
+
+      setActivePlayer(PLAYER.B);
+
+      // Ir cargando target al componente A
+      videoRefA.current.src = targetSrc;
+      videoRefA.current.load();
+
+      // Cuando termine la transición sigue...
+      videoRefB.current.onended = () => {
+        videoRefB.current.onended = null; // limpiar listener
+        targetPositionRef.current = null;
+        currentPositionRef.current = position;
+        mode.current = MODE.IDLE;
+
+        if (videoRefA.current.readyState >= 3) {
+          videoRefA.current.play();
+          videoRefB.current.src = null; // limpar componente donde estaba la transición
+          setActivePlayer(PLAYER.A);
+        } else {
+          videoRefA.current.oncanplay = () => {
+            videoRefA.current.oncanplay = null;
+            videoRefA.current.play();
+            videoRefB.current.src = null; // limpar componente donde estaba la transición
+            setActivePlayer(PLAYER.A);
+          };
+        }
+      };
+    };
+  };
+
+  const loadDirect = (position, targetSrc) => {
+    setActivePlayer(PLAYER.A);
+    targetPositionRef.current = null;
+    currentPositionRef.current = position;
+    videoRefA.current.src = targetSrc;
+    videoRefA.current.load();
+    videoRefA.current.play();
+    videoRefB.current.src = null;
+  };
+
   const goTo = (position) => {
+    // Evitar movimientos al momento de transición
     if (mode.current === MODE.TRANSITIONING) return;
 
-    targetPositionRef.current = position;
-    const diff = position - currentPositionRef.current;
+    const targetVideo = videos.find((video) => video.position === position);
 
     const currentIndex = videos.findIndex(
       (video) => video.position === currentPositionRef.current,
     );
-    const targetVideo = videos.find((video) => video.position === position);
+    const diff = position - currentPositionRef.current; // 1 next, -1 back
 
     // Cuando hay refresh o primera vez cargando
     if (
       !currentPositionRef.current ||
       currentPositionRef.current === position
     ) {
-      setActivePlayer(PLAYER.A);
-      currentPositionRef.current = position;
-      targetPositionRef.current = null;
-      videoRefA.current.src = targetVideo.src;
-      videoRefA.current.load();
-      videoRefA.current.play();
-      videoRefB.current.src = null;
-      return;
+      return loadDirect(position, targetVideo.src);
     }
 
-    // Next with transition
+    // Transición a siguiente
     if (diff === 1) {
-      const transitionSource = videos[currentIndex + 1].next;
-      videoRefB.current.src = transitionSource;
-      mode.current = MODE.TRANSITIONING;
-      setActivePlayer(PLAYER.B);
-
-      setTimeout(() => {
-        targetPositionRef.current = null;
-        currentPositionRef.current = position;
-        videoRefA.current.src = targetVideo.src;
-        videoRefA.current.load();
-        videoRefA.current.play();
-        videoRefB.current.src = null;
-
-        mode.current = MODE.IDLE;
-        setActivePlayer(PLAYER.A);
-      }, 1500);
+      transitionTo(position, videos[currentIndex + 1].next, targetVideo.src);
     }
 
-    // Back with transition
+    // Transición a anterior
     if (diff === -1) {
-      const transitionSource = videos[currentIndex - 1].back;
-      videoRefB.current.src = transitionSource;
-      mode.current = MODE.TRANSITIONING;
-      setActivePlayer(PLAYER.B);
-
-      setTimeout(() => {
-        targetPositionRef.current = null;
-        currentPositionRef.current = position;
-        videoRefA.current.src = targetVideo.src;
-        videoRefA.current.load();
-        videoRefA.current.play();
-        videoRefB.current.src = null;
-        mode.current = MODE.IDLE;
-        setActivePlayer(PLAYER.A);
-      }, 1500);
+      transitionTo(position, videos[currentIndex - 1].back, targetVideo.src);
     }
 
+    // Cuando las posiciones no son consecutivas
     if (diff > 1 || diff < -1) {
-      // Saltar timeout (simulando)
-      setActivePlayer(PLAYER.A);
-      targetPositionRef.current = null;
-      currentPositionRef.current = position;
-      videoRefA.current.src = targetVideo.src;
-      videoRefA.current.load();
-      videoRefA.current.play();
-      videoRefB.current.src = null;
-      return;
+      return loadDirect(position, targetVideo.src);
     }
   };
 
@@ -96,9 +107,6 @@ export const useVideoPlayer = ({ json }) => {
     videoRefA,
     videoRefB,
     goTo,
-    currentPositionRef,
-    targetPositionRef,
-    mode,
     activePlayer,
   };
 };
