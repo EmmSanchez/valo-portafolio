@@ -1,9 +1,6 @@
 import { useSearchParams } from "react-router";
 import { useContext } from "react";
 import { VideoPlayerContext } from "../../context/VideoPlayerContext";
-import BackButton from "@/components/shared/Buttons/BackButton";
-import SubmenuUbicacion from "../../components/Menus/Submenu";
-import { SUBMENU_MASTERPLAN } from "../../data/SubmenuMasterplan";
 import { CircleIndicatorIcon } from "../../assets/icons/CicleIndicatorIcon";
 import { MODE } from "../../const/Videos";
 
@@ -30,30 +27,14 @@ const POSICIONES = [
   },
 ];
 
-const FILTERS = {
-  VENTAJAS: "ventajas",
-  NAVES: "naves-industriales",
-};
-
 export default function Masterplan() {
   const { mode } = useContext(VideoPlayerContext);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const activePos = searchParams.get("position");
-  const activeFilter = searchParams.get("filter");
 
   return (
-    <div className="w-dvw h-dvh flex default-padding">
-      {/* SUBMENU AND BACK BUTTON*/}
-      <div className="absolute z-10 flex flex-col self-end items-start w-fit default-padding">
-        <SubmenuUbicacion submenu={SUBMENU_MASTERPLAN} />
-
-        <BackButton
-          to="/valoPark/santaCatarina"
-          className="self-end bg-santa-catarina hover:bg-santa-catarina-grey"
-        />
-      </div>
-
+    <div className="w-dvw h-dvh flex default-padding pointer-events-none">
       {activePos && (
         <>
           {/* Posiciones */}
@@ -100,10 +81,6 @@ export default function Masterplan() {
           </div>
         </>
       )}
-
-      {activeFilter === FILTERS.VENTAJAS && <></>}
-
-      {activeFilter === FILTERS.NAVES && <></>}
     </div>
   );
 }
