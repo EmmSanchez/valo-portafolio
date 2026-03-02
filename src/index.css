@@ -77,6 +77,11 @@ body {
   @apply pt-[clamp(15.4px,2.71vw,52px)] pl-[clamp(17.75px,3.13vw,60px)];
 }
 
+/* Rotated text */
+.vertical-left {
+  writing-mode: sideways-lr;
+}
+
 /* EMBLA Carousel */
 .embla__viewport {
   overflow: hidden;
