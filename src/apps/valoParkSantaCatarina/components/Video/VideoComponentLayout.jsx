@@ -45,13 +45,11 @@ const EMPTY_JSON = {
 };
 
 export default function VideoComponentLayout() {
-  const { setIdle, setTransitioning, mode } = useContext(VideoPlayerContext);
+  const { setIdle, setTransitioning } = useContext(VideoPlayerContext);
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const position = searchParams.get("position");
   const ventaja = searchParams.get("ventaja");
-
-  console.log(mode);
 
   const videosRunning = VIDEOS_MAP[pathname];
   const portadaRunning = PORTADAS_MAP[pathname];
