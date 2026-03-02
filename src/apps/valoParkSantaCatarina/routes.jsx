@@ -9,6 +9,9 @@ import InformacionLayout from "./pages/Informacion/InformacionLayout";
 import UbicacionLayout from "./pages/Ubicacion/UbicacionLayout";
 import VideoComponentLayout from "./components/Video/VideoComponentLayout";
 import { VideoPlayerProvider } from "./context/VideoPlayerProvider";
+import MasterplanLayout from "./pages/Masterplan/MasterplanLayout";
+import Ventajas from "./pages/Masterplan/Ventajas";
+import Naves from "./pages/Masterplan/Naves";
 
 export default function ValoParkSantaCatarinaRoutes() {
   return (
@@ -36,8 +39,19 @@ export default function ValoParkSantaCatarinaRoutes() {
 
           <Route
             path="/valoPark/santaCatarina/masterplan"
-            element={<Masterplan />}
-          />
+            element={<MasterplanLayout />}
+          >
+            <Route index element={<Masterplan />} />
+            <Route
+              path="/valoPark/santaCatarina/masterplan/ventajas-de-proyecto/*"
+              element={<Ventajas />}
+            />
+
+            <Route
+              path="/valoPark/santaCatarina/masterplan/naves-industriales"
+              element={<Naves />}
+            />
+          </Route>
 
           <Route
             path="/valoPark/santaCatarina/disponibilidad"
