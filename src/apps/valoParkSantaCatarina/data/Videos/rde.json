@@ -1,6 +1,8 @@
 {
   "type": "sequence",
+  "navigation": "bidirectional",
   "loop": false,
+  "autoplay": false,
   "videos": [
     {
       "type": "idle",

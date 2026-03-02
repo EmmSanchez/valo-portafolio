@@ -1,0 +1,68 @@
+{
+  "type": "sequence",
+  "navigation": "unidirectional",
+  "loop": true,
+  "autoplay": true,
+  "videos": [
+    {
+      "type": "idle",
+      "id": "position_1",
+      "position": 1,
+      "src": "/videos/VTI_VENTAJAS/13_VALO_VPSC_VTI_VENTAJAS_UBICACION.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_VENTAJAS/14_VALO_VPSC_VTI_VENTAJAS_TRANSICION_UBICACION_A_COMERCIO.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_2",
+      "position": 2,
+      "src": "/videos/VTI_VENTAJAS/15_VALO_VPSC_VTI_VENTAJAS_COMERCIO.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_VENTAJAS/16_VALO_VPSC_VTI_VENTAJAS_TRANSICION_COMERCIO_A_SEGURIDAD.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_3",
+      "position": 3,
+      "src": "/videos/VTI_VENTAJAS/17_VALO_VPSC_VTI_VENTAJAS_SEGURIDAD.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_VENTAJAS/18_VALO_VPSC_VTI_VENTAJAS_TRANSICION_SEGURIDAD_A_CLASE_A.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_4",
+      "position": 4,
+      "src": "/videos/VTI_VENTAJAS/19_VALO_VPSC_VTI_VENTAJAS_CLASE_A.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_VENTAJAS/20_VALO_VPSC_VTI_VENTAJAS_TRANSICION_CLASE_A_A_PATIO.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_5",
+      "position": 5,
+      "src": "/videos/VTI_VENTAJAS/21_VALO_VPSC_VTI_VENTAJAS_PATIO.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_VENTAJAS/22_VALO_VPSC_VTI_VENTAJAS_TRANSICION_PATIO_A_BODEGA.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_6",
+      "position": 6,
+      "src": "/videos/VTI_VENTAJAS/23_VALO_VPSC_VTI_VENTAJAS_BODEGA.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_VENTAJAS/24_VALO_VPSC_VTI_VENTAJAS_TRANSICION_BODEGA_A_UBICACION.mp4"
+    }
+  ]
+}
