@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { MODE, PLAYER } from "../const/Videos";
 
-export const useVideoPlayer = ({ json }) => {
-  const { videos } = json;
+export const useVideoPlayer = ({ json, onPositionChange }) => {
+  const { videos, navigation, loop } = json;
 
   const videoRefA = useRef(null);
   const videoRefB = useRef(null);
@@ -22,6 +22,10 @@ export const useVideoPlayer = ({ json }) => {
 
   const activeRef = activePlayer === PLAYER.A ? videoRefA : videoRefB;
   const stagingRef = activePlayer === PLAYER.A ? videoRefB : videoRefA;
+
+  // Para detectar cuando es el ultimo idle y hacer loop a posición 1
+  const idleVideos = videos.filter((v) => v.type === "idle");
+  const lastPosition = idleVideos[idleVideos.length - 1].position;
 
   // Función que recibe posición actual y decirle la direción
   const transitionTo = ({ position, direction }) => {
@@ -88,40 +92,55 @@ export const useVideoPlayer = ({ json }) => {
         };
       });
     };
+
+    // Notificar posición actual
+    onPositionChange?.(position);
+
+    // Al terminar el idle, ir al siguiente automáticamente
+    activeRef.current.onended = () => {
+      activeRef.current.onended = null;
+      if (json.autoplay) {
+        const nextPosition =
+          position === lastPosition ? idleVideos[0].position : position + 1;
+        onPositionChange?.(nextPosition);
+      }
+    };
   };
 
   const loadDirect = (position) => {
     const targetVideo = videos.find((video) => video.position === position);
 
-    // Cargar SIEMPRE en el staging (nunca en el visible)
     stagingRef.current.src = targetVideo.src;
     stagingRef.current.load();
 
     stagingRef.current.oncanplay = () => {
-      stagingRef.current.oncanplay = null; // limpiar listener
+      stagingRef.current.oncanplay = null;
 
-      // Esperar primer frame real
+      stagingRef.current.play();
+
+      const showIdle = () => {
+        toggleActivePlayer();
+        currentPositionRef.current = position;
+        targetPositionRef.current = null;
+        activeRef.current.src = null;
+
+        // Autoplay: al terminar el idle ir al siguiente
+        stagingRef.current.onended = () => {
+          stagingRef.current.onended = null;
+          if (json.autoplay) {
+            const nextPosition =
+              position === lastPosition ? idleVideos[0].position : position + 1;
+            onPositionChange?.(nextPosition);
+          }
+        };
+      };
+
       if ("requestVideoFrameCallback" in stagingRef.current) {
         stagingRef.current.requestVideoFrameCallback(() => {
-          requestAnimationFrame(() => {
-            // Ahora sí swap
-            toggleActivePlayer();
-
-            currentPositionRef.current = position;
-            targetPositionRef.current = null;
-
-            // Limpia el viejo staging (que ahora es el oculto)
-            activeRef.current.src = null;
-          });
+          requestAnimationFrame(showIdle);
         });
       } else {
-        // Fallback
-        requestAnimationFrame(() => {
-          toggleActivePlayer();
-          currentPositionRef.current = position;
-          targetPositionRef.current = null;
-          activeRef.current.src = null;
-        });
+        requestAnimationFrame(showIdle);
       }
     };
   };
@@ -131,6 +150,9 @@ export const useVideoPlayer = ({ json }) => {
     if (mode.current === MODE.TRANSITIONING) return;
 
     const diff = position - currentPositionRef.current; // 1 next, -1 back
+    const isLastPosition = currentPositionRef.current === lastPosition;
+    const isLoopForward =
+      loop && isLastPosition && position === idleVideos[0].position;
 
     // Cuando hay refresh o primera vez cargando
     if (
@@ -141,17 +163,18 @@ export const useVideoPlayer = ({ json }) => {
     }
 
     // Transición a siguiente
-    if (diff === 1) {
+    if (diff === 1 || isLoopForward) {
       transitionTo({ position, direction: "next" });
     }
 
     // Transición a anterior
     if (diff === -1) {
+      if (navigation === "unidirectional") return loadDirect(position);
       transitionTo({ position, direction: "back" });
     }
 
     // Cuando las posiciones no son consecutivas
-    if (diff > 1 || diff < -1) {
+    if ((diff > 1 || diff < -1) && !isLoopForward) {
       return loadDirect(position);
     }
   };
