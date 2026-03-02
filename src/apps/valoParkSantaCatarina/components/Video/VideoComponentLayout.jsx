@@ -2,18 +2,19 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { useVideoPlayer } from "../../hooks/useVideoPlayer";
 import { Outlet, useSearchParams } from "react-router";
-// import { useLocation } from "react-router";
-// import portadas from "../../data/Videos/portadas.json";
+import { useLocation } from "react-router";
+import portadas from "../../data/Videos/portadas.json";
 import { PLAYER, MODE } from "../../const/Videos";
 import { VideoPlayerContext } from "../../context/VideoPlayerContext";
 import rde from "../../data/Videos/rde.json";
 import vti_ventajas from "../../data/Videos/vti_ventajas.json";
-import { useLocation } from "react-router";
 
-// const videoMap = {
-//   "/valoPark/santaCatarina": portadas.informacion,
-//   "/valoPark/santaCatarina/informacion": portadas.informacion,
-// };
+const PORTADAS_MAP = {
+  "/valoPark/santaCatarina": portadas.informacion,
+  "/valoPark/santaCatarina/informacion": portadas.informacion,
+  "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto":
+    portadas.masterplan_ventajas,
+};
 
 const VENTAJA_TO_POSITION = {
   "ubicacion-privilegiada": 1,
@@ -37,19 +38,27 @@ const VIDEOS_MAP = {
   "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto/video-tour":
     vti_ventajas,
 };
+const EMPTY_JSON = {
+  videos: [{ type: "idle", position: 1, src: "" }],
+  navigation: "unidirectional",
+  loop: false,
+};
 
 export default function VideoComponentLayout() {
-  const { setIdle, setTransitioning } = useContext(VideoPlayerContext);
+  const { setIdle, setTransitioning, mode } = useContext(VideoPlayerContext);
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const position = searchParams.get("position");
   const ventaja = searchParams.get("ventaja");
 
-  const videosRunning = VIDEOS_MAP[pathname];
+  console.log(mode);
 
-  const { videoRefA, videoRefB, goTo, activePlayer, modeState } =
+  const videosRunning = VIDEOS_MAP[pathname];
+  const portadaRunning = PORTADAS_MAP[pathname];
+
+  const { videoRefA, videoRefB, goTo, loadPortada, activePlayer, modeState } =
     useVideoPlayer({
-      json: videosRunning ?? rde,
+      json: videosRunning ?? EMPTY_JSON,
       onPositionChange: (pos) => {
         if (pathname.includes("video-tour")) {
           setSearchParams({ ventaja: POSITION_TO_VENTAJA[pos] });
@@ -71,6 +80,12 @@ export default function VideoComponentLayout() {
     if (!mappedPosition) return;
     goTo(mappedPosition);
   }, [ventaja]);
+
+  // Portada: cargar video directamente sin pasar por el hook
+  useEffect(() => {
+    if (!portadaRunning) return;
+    loadPortada(portadaRunning);
+  }, [portadaRunning]);
 
   useEffect(() => {
     if (modeState === MODE.IDLE) return setIdle();
