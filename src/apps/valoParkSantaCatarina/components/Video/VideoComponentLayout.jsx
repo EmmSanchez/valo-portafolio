@@ -8,6 +8,8 @@ import { PLAYER, MODE } from "../../const/Videos";
 import { VideoPlayerContext } from "../../context/VideoPlayerContext";
 import rde from "../../data/Videos/rde.json";
 import vti_ventajas from "../../data/Videos/vti_ventajas.json";
+import vti_nave11 from "../../data/Videos/vti_nave11.json";
+import vti_nave12 from "../../data/Videos/vti_nave12.json";
 
 const PORTADAS_MAP = {
   "/valoPark/santaCatarina": portadas.informacion,
@@ -33,10 +35,34 @@ const POSITION_TO_VENTAJA = {
   6: "bodegas-listas",
 };
 
+const CARACTERISTICA_TO_POSITION = {
+  "acceso-privado": 1,
+  altura: 2,
+  anden: 3,
+  "rampa-montacargas": 4,
+  "techo-termico": 5,
+  area: 6,
+  oficinas: 7,
+};
+
+const POSITION_TO_CARACTERISTICA = {
+  1: "acceso-privado",
+  2: "altura",
+  3: "anden",
+  4: "rampa-montacargas",
+  5: "techo-termico",
+  6: "area",
+  7: "oficinas",
+};
+
 const VIDEOS_MAP = {
   "/valoPark/santaCatarina/masterplan": rde,
   "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto/video-tour":
     vti_ventajas,
+  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11/video-tour":
+    vti_nave11,
+  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12/video-tour":
+    vti_nave12,
 };
 const EMPTY_JSON = {
   videos: [{ type: "idle", position: 1, src: "" }],
@@ -50,6 +76,7 @@ export default function VideoComponentLayout() {
   const [searchParams, setSearchParams] = useSearchParams();
   const position = searchParams.get("position");
   const ventaja = searchParams.get("ventaja");
+  const caracteristica = searchParams.get("caracteristica");
 
   const videosRunning = VIDEOS_MAP[pathname];
   const portadaRunning = PORTADAS_MAP[pathname];
@@ -58,14 +85,22 @@ export default function VideoComponentLayout() {
     useVideoPlayer({
       json: videosRunning ?? EMPTY_JSON,
       onPositionChange: (pos) => {
-        if (pathname.includes("video-tour")) {
+        if (pathname.includes("ventajas-de-proyecto")) {
           setSearchParams({ ventaja: POSITION_TO_VENTAJA[pos] });
-        } else {
-          setSearchParams({ position: pos });
+          return;
         }
+
+        if (pathname.includes("naves-industriales")) {
+          setSearchParams({ caracteristica: POSITION_TO_CARACTERISTICA[pos] });
+          return;
+        }
+
+        // default → masterplan
+        setSearchParams({ position: pos });
       },
     });
 
+  // PARA MASTERPLAN
   useEffect(() => {
     if (!position) return;
     goTo(Number(position));
@@ -78,6 +113,14 @@ export default function VideoComponentLayout() {
     if (!mappedPosition) return;
     goTo(mappedPosition);
   }, [ventaja]);
+
+  // PARA VTI NAVES
+  useEffect(() => {
+    if (!caracteristica) return;
+    const mappedPosition = CARACTERISTICA_TO_POSITION[caracteristica];
+    if (!mappedPosition) return;
+    goTo(mappedPosition);
+  }, [caracteristica]);
 
   // Portada: cargar video directamente sin pasar por el hook
   useEffect(() => {

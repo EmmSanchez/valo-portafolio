@@ -14,7 +14,7 @@ const SUBMENU_NAVES = [
   {
     id: "video_tour",
     label: "Video Tour",
-    to: "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12/video-tour?ventaja=ubicacion-privilegiada",
+    to: "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12/video-tour?caracteristica=acceso-privado",
   },
   {
     id: "galeria",
