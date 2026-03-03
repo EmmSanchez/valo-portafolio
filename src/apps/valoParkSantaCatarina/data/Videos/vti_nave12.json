@@ -1,0 +1,78 @@
+{
+  "type": "sequence",
+  "navigation": "unidirectional",
+  "loop": true,
+  "autoplay": true,
+  "videos": [
+    {
+      "type": "idle",
+      "id": "position_1",
+      "position": 1,
+      "src": "/videos/VTI_NAVE12/42_VALO_VPSC_VTI_B12_ACCESO.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_NAVE12/43_VALO_VPSC_VTI_B12_TRANCISION_ACCESO_A_ALTURA.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_2",
+      "position": 2,
+      "src": "/videos/VTI_NAVE12/44_VALO_VPSC_VTI_B12_ALTURA.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_NAVE12/45_VALO_VPSC_VTI_B12_TRANCISION_ALTURA_A_ANDEN.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_3",
+      "position": 3,
+      "src": "/videos/VTI_NAVE12/46_VALO_VPSC_VTI_B12_ANDEN.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_NAVE12/47_VALO_VPSC_VTI_B12_TRANCISION_ANDEN_A_RAMPA.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_4",
+      "position": 4,
+      "src": "/videos/VTI_NAVE12/48_VALO_VPSC_VTI_B12_RAMPA.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_NAVE12/49_VALO_VPSC_VTI_B12_TRANCISION_RAMPA_A_TECHO.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_5",
+      "position": 5,
+      "src": "/videos/VTI_NAVE12/50_VALO_VPSC_VTI_B12_TECHO.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_NAVE12/51_VALO_VPSC_VTI_B12_TRANCISION_TECHO_A_600_METROS.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_6",
+      "position": 6,
+      "src": "/videos/VTI_NAVE12/52_VALO_VPSC_VTI_B12_600_METROS.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_NAVE12/52_VALO_VPSC_VTI_B12_TRANCISION_600_METROS_A_OFICINAS.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_7",
+      "position": 7,
+      "src": "/videos/VTI_NAVE12/53_VALO_VPSC_VTI_B12_OFICINAS.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/videos/VTI_NAVE12/54_VALO_VPSC_VTI_B12_TRANCISION_OFICINAS_A_ACCESO.mp4"
+    }
+  ]
+}
