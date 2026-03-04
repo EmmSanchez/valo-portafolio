@@ -2,9 +2,6 @@ import { useRef, useState } from "react";
 import { MODE, PLAYER } from "../const/Videos";
 
 export const useVideoPlayer = ({ json, onPositionChange }) => {
-  const engineTypeRef = useRef("sequence");
-  const isPortada = !json?.videos || json.videos.length === 1;
-
   const { videos, navigation, loop } = json;
 
   const videoRefA = useRef(null);
@@ -30,33 +27,14 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
   const idleVideos = videos.filter((v) => v.type === "idle");
   const lastPosition = idleVideos[idleVideos.length - 1].position;
 
-  if (engineTypeRef.current !== (isPortada ? "portada" : "sequence")) {
-    engineTypeRef.current = isPortada ? "portada" : "sequence";
-
-    // 🔥 HARD RESET
-    currentPositionRef.current = null;
-    targetPositionRef.current = null;
-    mode.current = MODE.IDLE;
-    setModeState(MODE.IDLE);
-
-    if (videoRefA.current) {
-      videoRefA.current.pause();
-      videoRefA.current.src = null;
-      videoRefA.current.onended = null;
-      videoRefA.current.oncanplay = null;
-      videoRefA.current.loop = false;
-    }
-
-    if (videoRefB.current) {
-      videoRefB.current.pause();
-      videoRefB.current.src = null;
-      videoRefB.current.onended = null;
-      videoRefB.current.oncanplay = null;
-      videoRefB.current.loop = false;
-    }
-
-    setActivePlayer(PLAYER.A);
-  }
+  const clearListeners = () => {
+    videoRefA.current.onended = null;
+    videoRefB.current.onended = null;
+    videoRefA.current.oncanplay = null;
+    videoRefB.current.oncanplay = null;
+    videoRefA.current.loop = false;
+    videoRefB.current.loop = false;
+  };
 
   // Función que recibe posición actual y decirle la direción
   const transitionTo = ({ position, direction }) => {
@@ -139,6 +117,7 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
   };
 
   const loadDirect = (position) => {
+    clearListeners();
     const targetVideo = videos.find((video) => video.position === position);
 
     stagingRef.current.src = targetVideo.src;
@@ -178,7 +157,7 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
 
   const goTo = (position) => {
     // Evitar movimientos al momento de transición
-    if (mode.current === MODE.TRANSITIONING) return;
+    if (modeState === MODE.TRANSITIONING) return;
 
     const diff = position - currentPositionRef.current; // 1 next, -1 back
     const isLastPosition = currentPositionRef.current === lastPosition;
@@ -211,43 +190,31 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
   };
 
   const loadPortada = (src) => {
-    currentPositionRef.current = null;
-    targetPositionRef.current = null;
+    clearListeners();
+    const targetVideoSrc = src;
     mode.current = MODE.IDLE;
     setModeState(MODE.IDLE);
 
-    // Limpiar listeners
-    videoRefA.current.onended = null;
-    videoRefB.current.onended = null;
-    videoRefA.current.oncanplay = null;
-    videoRefB.current.oncanplay = null;
+    // Cargar video Portada a componente oculto
+    stagingRef.current.src = targetVideoSrc;
+    stagingRef.current.loop = true;
+    stagingRef.current.load();
 
-    videoRefA.current.loop = false;
-    videoRefB.current.loop = false;
+    // Una vez cargado, hacer transición
+    stagingRef.current.oncanplay = () => {
+      stagingRef.current.oncanplay = null;
+      stagingRef.current.play();
 
-    // Reset: siempre cargar portada en B y mostrar A → B
-    setActivePlayer(PLAYER.A); // 👈 forzar estado conocido
-    videoRefB.current.src = src;
-    videoRefB.current.loop = true;
-    videoRefB.current.load();
-
-    videoRefB.current.oncanplay = () => {
-      videoRefB.current.oncanplay = null;
-      videoRefB.current.play();
-
-      if ("requestVideoFrameCallback" in videoRefB.current) {
-        videoRefB.current.requestVideoFrameCallback(() => {
-          requestAnimationFrame(() => {
-            setActivePlayer(PLAYER.B); // 👈 directo, sin toggle
-            videoRefA.current.src = null;
-          });
-        });
-      } else {
+      stagingRef.current.requestVideoFrameCallback(() => {
         requestAnimationFrame(() => {
-          setActivePlayer(PLAYER.B);
-          videoRefA.current.src = null;
+          toggleActivePlayer();
+          activeRef.current.src = null;
+          activeRef.current.loop = false;
         });
-      }
+      });
+
+      currentPositionRef.current = null;
+      targetPositionRef.current = null;
     };
   };
 
