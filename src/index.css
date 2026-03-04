@@ -73,6 +73,10 @@ body {
   @apply pb-1 sm:pb-1.5 md:pb-2.5 lg:pb-4 xl:pb-4.5 2xl:pb-5;
 }
 
+.default-logo-padding-around {
+  @apply py-[clamp(15.4px,2.71vw,40px)] px-[clamp(17.75px,3.13vw,60px)];
+}
+
 /* Valo Logo (Left Corner) */
 .default-logo-padding {
   @apply pt-[clamp(15.4px,2.71vw,52px)] pl-[clamp(17.75px,3.13vw,60px)];
