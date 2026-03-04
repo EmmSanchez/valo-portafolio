@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import { CircleIndicatorIcon } from "@/apps/valoParkSantaCatarina/assets/icons/CicleIndicatorIcon";
-import naveBg from "../../../assets/images/navesbg.png";
 import AlmacenIcon from "../../../assets/icons/naves/AlmacenIcon";
 import CintaMedicionIcon from "../../../assets/icons/naves/CintaMedicionIcon";
 import LamicaIcon from "../../../assets/icons/naves/LamicaIcon";
@@ -11,12 +10,6 @@ import VentanaIcon from "../../../assets/icons/naves/VentanaIcon";
 export default function NavesIndustriales() {
   return (
     <div className="absolute inset-0 w-dvw h-dvh pointer-events-none">
-      <img
-        src={naveBg}
-        alt="Fondo de Nave Industrial"
-        className="absolute inset-0 w-full h-full object-cover -z-10"
-      />
-
       <div className="flex w-dvw h-dvh items-center justify-end gap-[clamp(9.47px,1.67vw,32px)] pointer-events-auto default-padding">
         <div className="flex flex-col items-center gap-[clamp(7.39px,1.30vw,25px)] pointer-events-auto">
           <div className="flex w-[clamp(287.15px,50.57vw,971px)] h-[clamp(23.70px,7.41vh,80px)] items-center justify-center border-b-2 border-santa-catarina backdrop-blur-xs bg-white/85">

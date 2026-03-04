@@ -54,6 +54,8 @@ const VIDEOS_MAP = {
   "/valoPark/santaCatarina/informacion": portadas.informacion,
   "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto":
     portadas.masterplan_ventajas,
+  "/valoPark/santaCatarina/masterplan/naves-industriales":
+    portadas.naves_industriales,
   "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11":
     portadas.nave_11,
   "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12":

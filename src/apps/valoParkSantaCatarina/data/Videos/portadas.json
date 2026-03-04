@@ -9,6 +9,11 @@
     "loop": false,
     "src": "/videos/RDE/12_VALO_VPSC_IDLE_RDE_MENU_360.mp4"
   },
+  "naves_industriales": {
+    "type": "portada",
+    "loop": true,
+    "src": "/videos/Portada/25_VALO_VPSC_IDLE_MENU_BODEGAS.mp4"
+  },
   "nave_11": {
     "type": "portada",
     "loop": true,
