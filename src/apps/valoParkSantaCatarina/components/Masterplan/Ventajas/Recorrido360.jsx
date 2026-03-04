@@ -6,7 +6,7 @@ export default function Recorrido360() {
     <div className="flex w-dvw h-dvh default-padding pointer-events-none">
       <KuulaComponent
         src={
-          "https://kuula.co/share/collection/7DZBj?logo=-1&info=0&fs=1&vr=1&zoom=1&initload=0&thumbs=-1"
+          "https://kuula.co/share/collection/7DZBj?logo=-1&info=0&fs=0&vr=0&zoom=1&initload=1&thumbs=-&1margin=30&keys=0"
         }
       />
 
