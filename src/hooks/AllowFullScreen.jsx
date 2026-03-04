@@ -1,8 +1,10 @@
 import { useEffect } from "react";
+import { IS_DEVELOPMENT } from "@/config";
 
 export function useAutoFullscreen() {
   useEffect(() => {
     const enableFullscreen = (event) => {
+      if (IS_DEVELOPMENT) return;
       const elem = document.documentElement;
 
       if (!document.fullscreenElement) {
