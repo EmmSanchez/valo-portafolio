@@ -60,6 +60,7 @@ const VIDEOS_MAP = {
     portadas.nave_11,
   "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12":
     portadas.nave_12,
+  "/valoPark/santaCatarina/disponibilidad": portadas.naves_industriales,
 
   // Video tours y recorridos
   "/valoPark/santaCatarina/masterplan": rde,
