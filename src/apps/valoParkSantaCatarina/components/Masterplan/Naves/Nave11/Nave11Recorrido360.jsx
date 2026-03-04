@@ -1,11 +1,14 @@
 import BackButton from "@/components/shared/Buttons/BackButton";
+import KuulaComponent from "@/components/shared/Kuula/KuulaComponent";
 
 export default function Nave11Recorrido360() {
   return (
     <div className="flex w-dvw h-dvh default-padding pointer-events-none">
-      <div className="absolute inset-0 w-dvw h-dvh flex items-center justify-center pointer-events-auto">
-        <p className="bg-green-500">Recorrido Nave 11 360</p>
-      </div>
+      <KuulaComponent
+        src={
+          "https://kuula.co/share/collection/7DZR8?logo=0&info=1&fs=1&vr=1&sd=1&thumbs=1"
+        }
+      />
 
       <BackButton
         to="/valoPark/santaCatarina/masterplan/naves-industriales/nave-11"
