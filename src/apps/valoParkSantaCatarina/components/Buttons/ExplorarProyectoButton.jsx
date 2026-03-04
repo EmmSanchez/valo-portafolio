@@ -5,7 +5,7 @@ export default function ExplorarProyectoButton() {
   return (
     <div className="absolute w-dvw h-dvh flex items-center justify-center">
       <Link
-        to={"/valoPark/santaCatarina/masterplan"}
+        to={"/valoPark/santaCatarina/masterplan?position=1"}
         className="relative z-10 flex items-center justify-between px-[clamp(13.32px,2.34vw,45px)] py-[clamp(6.81px,1.2vw,23px)] gap-[clamp(7.4px,1.3vw,25px)] bg-santa-catarina hover:cursor-pointer"
       >
         <p className="text-paragraph-button font-semibold whitespace-nowrap">
