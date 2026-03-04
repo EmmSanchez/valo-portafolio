@@ -13,7 +13,7 @@ function PopupContainer({ onClose }) {
       >
         <iframe
           className="w-full h-full"
-          src="https://www.youtube.com/embed/AL0UF8oz54M?autoplay=1&mute=1&controls=1&rel=0playlist=AL0UF8oz54M"
+          src="https://www.youtube.com/embed/AL0UF8oz54M?autoplay=1&mute=1&controls=1&rel=0&playlist=AL0UF8oz54M"
           title="Valo Park Santa Catarina"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
