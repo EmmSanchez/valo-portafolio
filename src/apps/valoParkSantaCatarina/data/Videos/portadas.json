@@ -1,6 +1,22 @@
 {
-  "informacion": "/videos/Portada/1_VALO_VPSC_IDLE_PORTADA.mp4",
-  "masterplan_ventajas": "/videos/RDE/12_VALO_VPSC_IDLE_RDE_MENU_360.mp4",
-  "nave_11": "/videos/Portada/26_VALO_VPSC_IDLE_MENU_BODEGA_11.mp4",
-  "nave_12": "/videos/Portada/41_VALO_VPSC_IDLE_MENU_BODEGA_12.mp4"
+  "informacion": {
+    "type": "portada",
+    "loop": true,
+    "src": "/videos/Portada/1_VALO_VPSC_IDLE_PORTADA.mp4"
+  },
+  "masterplan_ventajas": {
+    "type": "portada",
+    "loop": false,
+    "src": "/videos/RDE/12_VALO_VPSC_IDLE_RDE_MENU_360.mp4"
+  },
+  "nave_11": {
+    "type": "portada",
+    "loop": true,
+    "src": "/videos/Portada/26_VALO_VPSC_IDLE_MENU_BODEGA_11.mp4"
+  },
+  "nave_12": {
+    "type": "portada",
+    "loop": true,
+    "src": "/videos/Portada/41_VALO_VPSC_IDLE_MENU_BODEGA_12.mp4"
+  }
 }

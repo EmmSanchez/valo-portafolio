@@ -11,17 +11,6 @@ import vti_ventajas from "../../data/Videos/vti_ventajas.json";
 import vti_nave11 from "../../data/Videos/vti_nave11.json";
 import vti_nave12 from "../../data/Videos/vti_nave12.json";
 
-const PORTADAS_MAP = {
-  "/valoPark/santaCatarina": portadas.informacion,
-  "/valoPark/santaCatarina/informacion": portadas.informacion,
-  "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto":
-    portadas.masterplan_ventajas,
-  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11":
-    portadas.nave_11,
-  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12":
-    portadas.nave_12,
-};
-
 const VENTAJA_TO_POSITION = {
   "ubicacion-privilegiada": 1,
   "cercania-centro-comercial": 2,
@@ -60,6 +49,17 @@ const POSITION_TO_CARACTERISTICA = {
 };
 
 const VIDEOS_MAP = {
+  // PORTADAS
+  "/valoPark/santaCatarina": portadas.informacion,
+  "/valoPark/santaCatarina/informacion": portadas.informacion,
+  "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto":
+    portadas.masterplan_ventajas,
+  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11":
+    portadas.nave_11,
+  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12":
+    portadas.nave_12,
+
+  // Video tours y recorridos
   "/valoPark/santaCatarina/masterplan": rde,
   "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto/video-tour":
     vti_ventajas,
@@ -83,7 +83,6 @@ export default function VideoComponentLayout() {
   const caracteristica = searchParams.get("caracteristica");
 
   const videosRunning = VIDEOS_MAP[pathname];
-  const portadaRunning = PORTADAS_MAP[pathname];
 
   const { videoRefA, videoRefB, goTo, loadPortada, activePlayer, modeState } =
     useVideoPlayer({
@@ -128,9 +127,12 @@ export default function VideoComponentLayout() {
 
   // Portada: cargar video directamente sin pasar por el hook
   useEffect(() => {
-    if (!portadaRunning) return;
-    loadPortada(portadaRunning);
-  }, [portadaRunning]);
+    if (!videosRunning) return;
+    if (videosRunning.type === "portada") {
+      loadPortada(videosRunning);
+      return;
+    }
+  }, [videosRunning]);
 
   useEffect(() => {
     if (modeState === MODE.IDLE) return setIdle();

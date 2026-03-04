@@ -3,6 +3,7 @@ import { MODE, PLAYER } from "../const/Videos";
 
 export const useVideoPlayer = ({ json, onPositionChange }) => {
   const { videos, navigation, loop } = json;
+  const isPortada = json?.type === "portada";
 
   const videoRefA = useRef(null);
   const videoRefB = useRef(null);
@@ -24,8 +25,8 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
   const stagingRef = activePlayer === PLAYER.A ? videoRefB : videoRefA;
 
   // Para detectar cuando es el ultimo idle y hacer loop a posición 1
-  const idleVideos = videos.filter((v) => v.type === "idle");
-  const lastPosition = idleVideos[idleVideos.length - 1].position;
+  const idleVideos = videos?.filter((v) => v.type === "idle") ?? [];
+  const lastPosition = idleVideos[idleVideos.length - 1]?.position ?? null;
 
   const clearListeners = () => {
     videoRefA.current.onended = null;
@@ -156,6 +157,7 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
   };
 
   const goTo = (position) => {
+    if (isPortada) return;
     // Evitar movimientos al momento de transición
     if (modeState === MODE.TRANSITIONING) return;
 
@@ -189,15 +191,16 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
     }
   };
 
-  const loadPortada = (src) => {
+  const loadPortada = (video) => {
     clearListeners();
-    const targetVideoSrc = src;
+
+    const targetVideoSrc = video.src;
     mode.current = MODE.IDLE;
     setModeState(MODE.IDLE);
 
     // Cargar video Portada a componente oculto
     stagingRef.current.src = targetVideoSrc;
-    stagingRef.current.loop = true;
+    stagingRef.current.loop = video.loop;
     stagingRef.current.load();
 
     // Una vez cargado, hacer transición
