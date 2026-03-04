@@ -1,5 +1,8 @@
 import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
 import PinIcon from "@/apps/valoParkSantaCatarina/assets/icons/PinIcon";
+import { useMap } from "@vis.gl/react-google-maps";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const LOCATIONS = [
   {
@@ -65,6 +68,25 @@ const LOCATIONS = [
 ];
 
 export default function VialidadesMarkers() {
+  const map = useMap();
+  const [zoom, setZoom] = useState(null);
+
+  useEffect(() => {
+    if (!map) return;
+
+    const updateOpacityValue = () => {
+      setZoom(map.getZoom());
+      const listener = map.addListener("zoom_changed", () => {
+        setZoom(map.getZoom());
+      });
+      return () => listener.remove();
+    };
+
+    updateOpacityValue();
+  }, [map]);
+
+  const opacity =
+    zoom === null ? 1 : Math.min(1, Math.max(0, (zoom - 13.5) / 0.1));
   return (
     <>
       {LOCATIONS.map((location) => {
@@ -72,7 +94,12 @@ export default function VialidadesMarkers() {
           <AdvanceMarker key={location.id} position={location.coordinates}>
             <div
               className="relative flex"
-              style={{ transform: `rotate(${location.rotation}deg)` }}
+              style={{
+                transform: `rotate(${location.rotation}deg)`,
+                opacity,
+                transition: "opacity 0.3s ease",
+                pointerEvents: opacity < 0.1 ? "none" : "auto",
+              }}
             >
               <div
                 className={`absolute flex items-center top-1/2 -translate-y-1/2 -z-10 w-fit px-[clamp(2.96px,0.52vw,10px)] py-[clamp(1.48px,0.26vw,5px)] gap-[clamp(1.48px,0.26vw,5px)] whitespace-nowrap bg-santa-catarina font-semibold uppercase`}

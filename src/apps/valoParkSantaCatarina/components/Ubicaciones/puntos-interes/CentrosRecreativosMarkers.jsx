@@ -1,14 +1,43 @@
 import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
 import gymLandmark from "@/apps/valoParkSantaCatarina/assets/icons/ubicacion/puntos_interes/gymLandmark.svg";
 import { COORDENADAS } from "@/apps/valoParkSantaCatarina/data/Ubicaciones";
+import { useMap } from "@vis.gl/react-google-maps";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function CentrosRecreativosMarkers() {
+  const map = useMap();
+  const [zoom, setZoom] = useState(null);
+
+  useEffect(() => {
+    if (!map) return;
+
+    const updateOpacityValue = () => {
+      setZoom(map.getZoom());
+      const listener = map.addListener("zoom_changed", () => {
+        setZoom(map.getZoom());
+      });
+      return () => listener.remove();
+    };
+
+    updateOpacityValue();
+  }, [map]);
+
+  const opacity =
+    zoom === null ? 1 : Math.min(1, Math.max(0, (zoom - 13) / 0.1));
   return (
     <>
       {COORDENADAS.CENTROS_RECREATIVOS.map((item) => {
         return (
           <AdvanceMarker key={item.id} position={item.coordinates}>
-            <div className="relative flex">
+            <div
+              className="relative flex"
+              style={{
+                opacity,
+                transition: "opacity 0.3s ease",
+                pointerEvents: opacity < 0.1 ? "none" : "auto",
+              }}
+            >
               <img
                 src={gymLandmark}
                 alt="Bus Landmark"
