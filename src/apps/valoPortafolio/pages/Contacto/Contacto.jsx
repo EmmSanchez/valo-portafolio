@@ -1,6 +1,7 @@
 import { SendIcon } from "@/apps/valoPortafolio/assets/icons/SendIcon";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
+import { Link } from "react-router";
 
 export default function Contacto() {
   const handleSubmit = (e) => {
@@ -15,9 +16,9 @@ export default function Contacto() {
     <div className="flex items-center justify-center w-dvw h-dvh bg-white">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <div className="relative w-[clamp(50px,7.34vw,141px)]">
-          <span className="absolute inset-0">
+          <Link to="/" className="absolute inset-0">
             <LogoValoMark className="text-valo" />
-          </span>
+          </Link>
         </div>
       </div>
 

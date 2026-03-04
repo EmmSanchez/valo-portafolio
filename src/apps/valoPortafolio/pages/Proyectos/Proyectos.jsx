@@ -11,7 +11,7 @@ export default function Proyectos() {
       <img
         src={masterplanBg}
         alt="Imagen del masterplan de fondo"
-        className="absolute z-0 inset-0 w-full h-full object-cover"
+        className="absolute z-0 inset-0 w-full h-full object-cover pointer-events-none select-none"
       />
 
       {/* Overlay */}

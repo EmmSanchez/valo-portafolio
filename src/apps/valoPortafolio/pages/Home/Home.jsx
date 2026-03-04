@@ -8,6 +8,7 @@ import BackButton from "@/components/shared/Buttons/BackButton";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 import { SPLASH_KEYS } from "@/components/shared/SplashScreen/const";
 import { LogoValo } from "@/apps/valoPortafolio/assets/logos/logo-valo";
+import { Link } from "react-router";
 
 export default function Home() {
   const { showSplashScreen } = useContext(AppContext);
@@ -27,9 +28,9 @@ export default function Home() {
         <>
           <div className="absolute top-0 left-0 default-logo-padding">
             <div className="relative w-[clamp(50px,7.34vw,141px)]">
-              <span className="absolute inset-0">
+              <Link to="/" className="absolute inset-0">
                 <LogoValoMark className="text-valo" />
-              </span>
+              </Link>
             </div>
           </div>
           <div className="self-end flex items-end w-full justify-between default-padding">
