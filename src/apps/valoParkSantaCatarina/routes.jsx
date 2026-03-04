@@ -36,6 +36,7 @@ export default function ValoParkSantaCatarinaRoutes() {
         >
           <Route index element={<Home />} />
 
+          {/* Información */}
           <Route
             path="/valoPark/santaCatarina/informacion"
             element={<InformacionLayout />}
@@ -43,6 +44,7 @@ export default function ValoParkSantaCatarinaRoutes() {
             <Route index element={<Informacion />} />
           </Route>
 
+          {/* Ubicación */}
           <Route
             path="/valoPark/santaCatarina/ubicacion"
             element={<UbicacionLayout />}
@@ -50,6 +52,7 @@ export default function ValoParkSantaCatarinaRoutes() {
             <Route index element={<Ubicacion />} />
           </Route>
 
+          {/* Masterplan */}
           <Route
             path="/valoPark/santaCatarina/masterplan"
             element={<MasterplanBaseLayout />}
@@ -99,11 +102,13 @@ export default function ValoParkSantaCatarinaRoutes() {
             </Route>
           </Route>
 
+          {/* Disponibilidad */}
           <Route
             path="/valoPark/santaCatarina/disponibilidad"
             element={<Disponibilidad />}
           />
 
+          {/* Contacto */}
           <Route
             path="/valoPark/santaCatarina/contacto"
             element={<Contacto />}
