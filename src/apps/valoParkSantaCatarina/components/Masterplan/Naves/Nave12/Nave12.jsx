@@ -61,7 +61,7 @@ export default function Nave12() {
 
       {/* Botón CTA */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-        <button className="pointer-events-auto group w-[clamp(92.01px,16.20vw,311px)] h-[clamp(20.74px,6.48vh,70px)] landscape:w-[clamp(110px,19vw,360px)] landscape:h-[clamp(28px,8vh,90px)] landscape:px-[clamp(16px,3vw,55px)] flex justify-between items-center px-[clamp(13.31px,2.34vw,45px)] bg-white/70 backdrop-blur-2xl hover:bg-santa-catarina hover:cursor-pointer">
+        <button className="pointer-events-auto group w-[clamp(92.01px,16.20vw,311px)] h-[clamp(20.74px,6.48vh,70px)] landscape:w-[clamp(110px,19vw,360px)] landscape:h-[clamp(28px,8vh,90px)] landscape:px-[clamp(16px,3vw,55px)] flex justify-between items-center px-[clamp(13.31px,2.34vw,45px)] bg-white border-[clamp(0.89px,0.16vw,3px)] border-valo backdrop-blur-2xl hover:bg-santa-catarina hover:cursor-pointer">
           <p className="text-nave-button font-semibold text-santa-catarina group-hover:text-white whitespace-nowrap">
             Me interesa
           </p>
