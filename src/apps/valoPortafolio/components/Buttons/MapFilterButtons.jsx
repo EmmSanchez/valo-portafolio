@@ -5,6 +5,7 @@ import { UsosMixtosIcon } from "@/apps/valoPortafolio/assets/icons/proyectos/Uso
 import { AppContext } from "@/context/AppContext";
 import { useContext } from "react";
 import { FILTERS_ID } from "@/apps/valoPortafolio/const/FiltersId";
+import { useEffect } from "react";
 
 const BUTTONS = [
   {
@@ -35,6 +36,12 @@ const BUTTONS = [
 
 export const MapFilterButtons = () => {
   const { selectMapFilter, mapFilter } = useContext(AppContext);
+
+  // Resetear filter en cada renderizado
+  useEffect(() => {
+    selectMapFilter(null);
+  }, []);
+
   return (
     <div className="fixed z-30 top-0 right-0 py-[clamp(5.92px,1.04vw,20px)] px-[clamp(4.44px,0.78vw,15px)]">
       <div className="flex flex-col items-end gap-[clamp(4.44px,0.78vw,15px)]">
