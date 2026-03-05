@@ -1,5 +1,5 @@
 import { MapFilterButtons } from "@/apps/valoPortafolio/components/Buttons/MapFilterButtons";
-import MapView from "@/apps/valoPortafolio/components/Mapbox/Map.jsx";
+import MapaNuevoLeon from "@/apps/valoPortafolio/components/GoogleMaps/NuevoLeon/MapaNuevoLeon";
 import BackButton from "@/components/shared/Buttons/BackButton";
 
 export default function NuevoLeon() {
@@ -10,7 +10,7 @@ export default function NuevoLeon() {
 
       {/* Map and Markers */}
       <div className="absolute z-0 inset-0">
-        <MapView />
+        <MapaNuevoLeon />
       </div>
 
       {/* Return button */}
