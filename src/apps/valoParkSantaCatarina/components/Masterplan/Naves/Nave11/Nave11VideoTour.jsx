@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { useSearchParams } from "react-router";
 import { VideoPlayerContext } from "@/apps/valoParkSantaCatarina/context/VideoPlayerContext";
 import { MODE } from "@/apps/valoParkSantaCatarina/const/Videos";
-import BodegaIconVTI from "@/apps/valoParkSantaCatarina/assets/icons/ventajas_vti/BodegaIconVTI";
-import ClaseAIcon from "@/apps/valoParkSantaCatarina/assets/icons/ventajas_vti/ClaseAIcon";
 import PinIconVTI from "@/apps/valoParkSantaCatarina/assets/icons/ventajas_vti/PinIconVTI";
-import PortonIconVTI from "@/apps/valoParkSantaCatarina/assets/icons/ventajas_vti/PortonIconVTI";
-import ViaIcon from "@/apps/valoParkSantaCatarina/assets/icons/ventajas_vti/ViaIcon";
 import BackButton from "@/components/shared/Buttons/BackButton";
-import PatioIconVTI from "@/apps/valoParkSantaCatarina/assets/icons/ventajas_vti/PatioIconVTI";
+import AlturaVTI from "@/apps/valoParkSantaCatarina/assets/icons/naves/AlturaVTI";
+import AndenVTI from "@/apps/valoParkSantaCatarina/assets/icons/naves/AndenVTI";
+import RampaVTI from "@/apps/valoParkSantaCatarina/assets/icons/naves/RampaVTI";
+import TechoVTI from "@/apps/valoParkSantaCatarina/assets/icons/naves/TechoVTI";
+import MetrosVTI from "@/apps/valoParkSantaCatarina/assets/icons/naves/MetrosVTI";
+import OficinaVTI from "@/apps/valoParkSantaCatarina/assets/icons/naves/OficinaVTI";
 
 const CARACTERISTICAS = [
   {
@@ -20,37 +21,37 @@ const CARACTERISTICAS = [
   {
     id: "2",
     label: "8 metros de altura",
-    icon: ViaIcon,
+    icon: AlturaVTI,
     slug: "altura",
   },
   {
     id: "3",
     label: "Andén para carga / descarga",
-    icon: PortonIconVTI,
+    icon: AndenVTI,
     slug: "anden",
   },
   {
     id: "4",
     label: "Rampa para montacargas",
-    icon: ClaseAIcon,
+    icon: RampaVTI,
     slug: "rampa-montacargas",
   },
   {
     id: "5",
     label: "Techo Térmico",
-    icon: BodegaIconVTI,
+    icon: TechoVTI,
     slug: "techo-termico",
   },
   {
     id: "6",
     label: "600 m2",
-    icon: PatioIconVTI,
+    icon: MetrosVTI,
     slug: "area",
   },
   {
     id: "7",
     label: "Oficinas",
-    icon: PatioIconVTI,
+    icon: OficinaVTI,
     slug: "oficinas",
   },
 ];
