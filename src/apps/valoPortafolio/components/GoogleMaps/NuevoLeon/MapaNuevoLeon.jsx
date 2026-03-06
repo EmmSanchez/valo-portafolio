@@ -7,9 +7,9 @@ const MAP_ID = import.meta.env.VITE_GOOGLE_MAPID;
 
 const MAP_CONFIG = {
   id: MAP_ID,
-  zoom: 12,
+  zoom: 11,
   heading: 9,
-  center: { lat: 25.744191, lng: -100.347887 },
+  center: { lat: 25.756332, lng: -100.35618 },
 };
 
 export default function MapaNuevoLeon() {

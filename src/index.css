@@ -11,6 +11,7 @@
   --color-valo: #00245c;
   --color-santa-catarina: #2d2273;
   --color-santa-catarina-grey: #8d8d8d;
+  --color-montevo: #204037;
   --font-eurostile: "Eurostile Next";
   --font-lumarc: "LuMarc";
 
@@ -30,6 +31,7 @@
   --text-filter-button: clamp(14px, 1.56vw, 30px);
   --text-datos: clamp(9.48px, 1.67vw, 32px);
   --text-ubicacion: clamp(8px, 1.56vw, 30px);
+  --text-ubicacion-paragraph: clamp(6px, 1vw, 21px);
   --text-puntos-interes: clamp(5.33px, 0.94vw, 18px);
   --text-nave-button: clamp(10px, 1.09vw, 21px);
 
