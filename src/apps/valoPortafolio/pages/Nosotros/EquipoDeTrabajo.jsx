@@ -54,7 +54,7 @@ const TEAM = [
 
 export default function EquipoDeTrabajo() {
   return (
-    <div className="w-dvw h-dvh default-padding flex flex-col gap-2 lg:gap-6">
+    <div className="w-dvw h-dvh default-padding flex flex-col gap-2 lg:gap-6 bg-white">
       <div className="flex flex-1 items-center justify-center pt-[clamp(24px,3vw,96px)]">
         <div className="grid grid-cols-8 gap-x-4 gap-y-2.5 md:gap-x-6 md:gap-y-3 xl:gap-x-12.75 xl:gap-y-6.5 2xl:gap-x-15.75 2xl:gap-y-7.5">
           {TEAM.map((member, index) => (
@@ -68,17 +68,17 @@ export default function EquipoDeTrabajo() {
               <img
                 src={member.image}
                 alt={member.name}
-                className="absolute inset-0 w-full h-full object-cover object-top -z-50"
+                className="absolute inset-0 w-full h-full object-cover object-top z-0"
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 w-full h-full -z-30 bg-black/35" />
+              <div className="absolute inset-0 w-full h-full z-5 bg-black/35" />
 
               {/* Content */}
-              <p className="text-subtitle-mobile text-shadow-lg font-lumarc leading-[100%] uppercase">
+              <p className="relative z-10 text-subtitle-mobile text-shadow-lg font-lumarc leading-[100%] uppercase">
                 {member.name}
               </p>
-              <p className="text-puesto-mobile text-shadow-lg font-eurostile font-light tracking-wider uppercase">
+              <p className="relative z-10 text-puesto-mobile text-shadow-lg font-eurostile font-light tracking-wider uppercase">
                 {member.role}
               </p>
             </div>

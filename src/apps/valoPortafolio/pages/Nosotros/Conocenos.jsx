@@ -16,7 +16,7 @@ const navIndicator = (index, isActive) =>
 
 export default function Conocenos() {
   return (
-    <div className="w-dvw h-dvh flex flex-col default-padding">
+    <div className="w-dvw h-dvh flex flex-col default-padding bg-white">
       <div className="flex flex-1">
         <Carrousel
           slides={[<Slide1 />, <Slide2 />, <Slide3 />]}

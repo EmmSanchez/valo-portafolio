@@ -9,23 +9,29 @@ import ProyectosLayout from "./pages/Proyectos/ProyectosLayout";
 import Proyectos from "./pages/Proyectos/Proyectos";
 import NuevoLeon from "./pages/Proyectos/Ciudades/NuevoLeon";
 import Contacto from "./pages/Contacto/Contacto";
+import { VideoPlayerPortafolioProvider } from "./context/VideoPlayerPortafolioProvider.jsx";
+import VideoComponentLayout from "./Video/VideoComponentLayout";
 
 export default function ValoPortafolioRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
+    <VideoPlayerPortafolioProvider>
+      <Routes>
+        <Route element={<VideoComponentLayout />}>
+          <Route path="/" element={<Home />} />
 
-      <Route path="/nosotros" element={<NosotrosLayout />}>
-        <Route index element={<Nosotros />} />
-        <Route path="conoce-valo-developers" element={<Conocenos />} />
-        <Route path="equipo-de-trabajo" element={<EquipoDeTrabajo />} />
-      </Route>
+          <Route path="/nosotros" element={<NosotrosLayout />}>
+            <Route index element={<Nosotros />} />
+            <Route path="conoce-valo-developers" element={<Conocenos />} />
+            <Route path="equipo-de-trabajo" element={<EquipoDeTrabajo />} />
+          </Route>
 
-      <Route path="/proyectos" element={<ProyectosLayout />}>
-        <Route index element={<Proyectos />} />
-        <Route path="nuevo-leon" element={<NuevoLeon />} />
-      </Route>
-      <Route path="/contacto" element={<Contacto />} />
-    </Routes>
+          <Route path="/proyectos" element={<ProyectosLayout />}>
+            <Route index element={<Proyectos />} />
+            <Route path="nuevo-leon" element={<NuevoLeon />} />
+          </Route>
+          <Route path="/contacto" element={<Contacto />} />
+        </Route>
+      </Routes>
+    </VideoPlayerPortafolioProvider>
   );
 }
