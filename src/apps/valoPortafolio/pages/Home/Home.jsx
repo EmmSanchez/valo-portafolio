@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "@/context/AppContext";
 import SplashScreen from "@/components/shared/SplashScreen/SplashScreen";
-import bgImage from "@/apps/valoPortafolio/assets/images/home-screen.webp";
+import bgVideo from "/videos/Portada/1_PORTADA_PORTAFOLIO.mp4";
 import MainMenu from "@/apps/valoPortafolio/components/Menus/MainMenu";
 import PlayButton from "@/apps/valoPortafolio/components/Buttons/PlayButton";
 import BackButton from "@/components/shared/Buttons/BackButton";
@@ -45,9 +45,12 @@ export default function Home() {
 
       {/* Background */}
       <div className="absolute -z-50">
-        <img
-          src={bgImage}
-          alt="Imagen de fondo"
+        <video
+          src={bgVideo}
+          autoPlay
+          muted
+          playsInline
+          loop
           className="w-dvw h-dvh object-cover"
         />
       </div>

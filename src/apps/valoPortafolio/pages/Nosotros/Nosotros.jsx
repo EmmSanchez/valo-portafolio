@@ -1,4 +1,4 @@
-import bgImage from "@/apps/valoPortafolio/assets/images/home-screen.webp";
+import bgVideo from "/videos/Portada/1_PORTADA_PORTAFOLIO.mp4";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import NosotrosSubMenu from "@/apps/valoPortafolio/components/Menus/NosotrosSubMenu";
 
@@ -12,9 +12,12 @@ export default function Nosotros() {
 
       {/* Background */}
       <div className="absolute -z-50">
-        <img
-          src={bgImage}
-          alt="Imagen de fondo"
+        <video
+          src={bgVideo}
+          autoPlay
+          muted
+          playsInline
+          loop
           className="w-dvw h-dvh object-cover"
         />
       </div>
