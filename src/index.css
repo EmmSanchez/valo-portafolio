@@ -12,6 +12,9 @@
   --color-santa-catarina: #2d2273;
   --color-santa-catarina-grey: #8d8d8d;
   --color-montevo: #204037;
+  --color-foro4-morado: #492f87;
+
+  /* Fonts */
   --font-eurostile: "Eurostile Next";
   --font-lumarc: "LuMarc";
 
@@ -113,4 +116,9 @@ body {
 /* Input Contact Properties */
 .contact-input {
   @apply h-[clamp(14.47px,2.54vw,49px)] w-full p-[clamp(3.5px,0.44vw,8.54px)] border-b-[clamp(0.6px,0.08vw,1.5px)] border-valo text-datos placeholder:text-datos text-valo placeholder:text-valo/80 font-lumarc placeholder:font-lumarc leading-[100%] placeholder:leading-[100%] focus:outline-none;
+}
+
+/* Padding menu foro 4 */
+.default-foro4-padding {
+  @apply py-[clamp(15.4px,2.71vw,52px)] px-[clamp(17.75px,3.13vw,60px)];
 }
