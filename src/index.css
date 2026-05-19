@@ -13,6 +13,7 @@
   --color-santa-catarina-grey: #8d8d8d;
   --color-montevo: #204037;
   --color-foro4-morado: #492f87;
+  --color-foro4-verde: #82b14b;
 
   /* Fonts */
   --font-eurostile: "Eurostile Next";
@@ -37,6 +38,8 @@
   --text-ubicacion-paragraph: clamp(6px, 1vw, 21px);
   --text-puntos-interes: clamp(5.33px, 0.94vw, 18px);
   --text-nave-button: clamp(10px, 1.09vw, 21px);
+  --text-subtitle-slide: clamp(9.9px, 1.71875vw, 33px);
+  --text-title-lg: clamp(13.31px, 2.34375vw, 45px);
 
   /* Animación pop-in para markers */
   /* Bounce solo una vez al aparecer */

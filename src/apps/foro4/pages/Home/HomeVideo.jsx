@@ -1,9 +1,8 @@
-import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-purple-green.svg";
 import { Link } from "react-router";
-import MainMenuForo4 from "../../components/MainMenuForo4";
-import PlayButton from "@/apps/foro4/components/PlayButton";
+import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-purple-green.svg";
+import BackButton from "@/components/shared/Buttons/BackButton";
 
-export default function Home() {
+export default function HomeVideo() {
   return (
     <div className="w-full h-svh default-foro4-padding bg-cyan-800">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
@@ -16,12 +15,11 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="flex w-full h-full justify-between items-end ">
-        <MainMenuForo4 />
-
-        <Link to={"/foro4/video"}>
-          <PlayButton />
-        </Link>
+      <div className="flex w-full h-full items-end ">
+        <BackButton
+          to="/foro4"
+          className="bg-white hover:bg-foro4-morado text-foro4-morado hover:text-white"
+        />
       </div>
     </div>
   );

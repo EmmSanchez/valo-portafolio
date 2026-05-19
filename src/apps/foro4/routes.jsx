@@ -4,11 +4,13 @@ import Informacion from "./pages/Informacion/Informacion";
 import Ubicacion from "./pages/Ubicacion/Ubicacion";
 import Masterplan from "./pages/Masterplan/Masterplan";
 import Contacto from "./pages/Contacto/Contacto";
+import HomeVideo from "./pages/Home/HomeVideo";
 
 export default function Foro4Routes() {
   return (
     <Routes>
       <Route path="/foro4" element={<Home />} />
+      <Route path="/foro4/video" element={<HomeVideo />} />
       <Route path="/foro4/informacion" element={<Informacion />} />
       <Route path="/foro4/ubicacion" element={<Ubicacion />} />
       <Route path="/foro4/masterplan" element={<Masterplan />} />
