@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router";
-import { CircleIndicatorIcon } from "@/apps/valoParkSantaCatarina/assets/icons/CicleIndicatorIcon";
 import { SUBMENU_MASTERPLAN_FORO4 } from "../data/submenuMasterplan";
 import CircleIcon from "../assets/icons/ubicacion/CircleIcon";
 
@@ -34,7 +33,7 @@ export default function SubmenuMasterplan() {
             </p>
 
             <span className="relative size-[clamp(16px,1.25vw,24px)]">
-              <CircleIcon className="text-foro4-morado group-hover:text-white group-data-[active=true]:text-white" />
+              <CircleIcon className="text-foro4-morado fill-foro4-morado group-hover:text-white group-data-[active=true]:text-white group-data-[active=true]:fill-white" />
             </span>
           </span>
         </Link>

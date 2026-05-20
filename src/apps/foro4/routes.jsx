@@ -1,24 +1,49 @@
 import { Route, Routes } from "react-router";
 
 import Home from "./pages/Home/Home";
+import HomeVideo from "./pages/Home/HomeVideo";
+
 import Informacion from "./pages/Informacion/Informacion";
 import Ubicacion from "./pages/Ubicacion/Ubicacion";
-import Masterplan from "./pages/Masterplan/Masterplan";
 import Contacto from "./pages/Contacto/Contacto";
-import HomeVideo from "./pages/Home/HomeVideo";
+
+import Masterplan from "./pages/Masterplan/Masterplan";
+import VistaCenital from "./pages/Masterplan/VistaCenital";
+import LocalesDisponibles from "./pages/Masterplan/LocalesDisponibles";
+import RotacionOrbital from "./pages/Masterplan/RotacionOrbital";
+import Recorrido360 from "./pages/Masterplan/Recorrido360";
+import VideoTour from "./pages/Masterplan/VideoTour";
+import FotoGaleria from "./pages/Masterplan/FotoGaleria";
 
 export default function Foro4Routes() {
   return (
     <Routes>
       <Route path="/foro4">
+        {/* Home */}
         <Route index element={<Home />} />
         <Route path="video" element={<HomeVideo />} />
+
+        {/* Pages */}
         <Route path="informacion" element={<Informacion />} />
         <Route path="ubicacion" element={<Ubicacion />} />
-        <Route path="masterplan" element={<Masterplan />} />
-        <Route path="masterplan/vista-cenital" element={<Masterplan />} />
-        <Route path="masterplan/locales-disponibles" element={<Masterplan />} />
         <Route path="contacto" element={<Contacto />} />
+
+        {/* Masterplan */}
+        <Route path="masterplan">
+          <Route index element={<Masterplan />} />
+
+          <Route path="vista-cenital" element={<VistaCenital />} />
+
+          <Route path="locales-disponibles" element={<LocalesDisponibles />} />
+
+          <Route path="rotacion-orbital" element={<RotacionOrbital />} />
+
+          <Route path="recorrido-360" element={<Recorrido360 />} />
+
+          <Route path="video-tour" element={<VideoTour />} />
+
+          <Route path="foto-galeria" element={<FotoGaleria />} />
+        </Route>
       </Route>
     </Routes>
   );
