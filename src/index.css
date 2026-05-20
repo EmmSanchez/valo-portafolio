@@ -40,6 +40,8 @@
   --text-nave-button: clamp(10px, 1.09vw, 21px);
   --text-subtitle-slide: clamp(9.9px, 1.71875vw, 33px);
   --text-title-lg: clamp(13.31px, 2.34375vw, 45px);
+  --text-datos-disp: clamp(12px, 1.25vw, 24px);
+  --text-card-lote: clamp(17.5px, 1.822917vw, 35px);
 
   /* Animación pop-in para markers */
   /* Bounce solo una vez al aparecer */

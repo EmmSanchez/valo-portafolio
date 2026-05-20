@@ -52,7 +52,7 @@ export default function SubmenuMasterplan() {
               {button.label}
 
               <span className="relative size-[clamp(16px,1.25vw,24px)]">
-                <CircleIcon className="text-foro4-morado group-hover:text-white group-data-[active=true]:text-white" />
+                <CircleIcon className="text-foro4-morado group-hover:text-white group-data-[active=true]:text-white group-data-[active=true]:fill-white" />
               </span>
             </Link>
           );
