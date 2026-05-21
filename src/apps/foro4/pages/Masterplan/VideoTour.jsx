@@ -3,18 +3,31 @@ import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-purple-green.svg";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import MenuVTI from "../../components/masterplan/MenuVTI";
 
+const VALID_VENTAJAS = new Set([
+  "ubicacion",
+  "motor-lobby",
+  "area-central",
+  "zona-de-comida",
+  "area-de-juegos",
+  "terraza-techada",
+  "edificio-oficinas",
+  "hotel-5-estrellas",
+  "estacionamiento-subterraneo",
+  "locales-disponibles",
+]);
+
 export default function VideoTour() {
   const [searchParams] = useSearchParams();
   const ventaja = searchParams.get("ventaja");
 
-  if (!ventaja) {
+  if (!ventaja || !VALID_VENTAJAS.has(ventaja)) {
     return (
-      <Navigate to="/foro4/masterplan/video-tour?ventaja=motor-lobby" replace />
+      <Navigate to="/foro4/masterplan/video-tour?ventaja=ubicacion" replace />
     );
   }
 
   return (
-    <div className="w-full h-svh default-foro4-padding bg-foro4-morado">
+    <div className="w-full h-svh default-foro4-padding">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img

@@ -5,14 +5,18 @@ import { PLAYER, MODE } from "./const/Videos";
 import { VideoPlayerContext } from "./context/VideoPlayerContext";
 import portadas from "../data/videos/portadas.json";
 import masterplanRDE from "../data/videos/masterplan-rde.json";
+import masterplanVTI from "../data/videos/masterplan-vti.json";
 
 // PORTADAS
 const VIDEOS_MAP = {
   "/foro4": portadas.home,
 
-  // Recorridos
+  // Rotación de exteriores
   "/foro4/masterplan": masterplanRDE,
   "/foro4/masterplan/vista-cenital": masterplanRDE,
+
+  // Masterplan VTI
+  "/foro4/masterplan/video-tour": masterplanVTI,
 };
 const EMPTY_JSON = {
   videos: [{ type: "idle", position: 1, src: "" }],
@@ -20,11 +24,29 @@ const EMPTY_JSON = {
   loop: false,
 };
 
+// Masterplan VTI
+const VENTAJA_TO_POSITION = {
+  ubicacion: 1,
+  "motor-lobby": 2,
+  "area-central": 3,
+  "zona-de-comida": 4,
+  "area-de-juegos": 5,
+  "terraza-techada": 6,
+  "edificio-oficinas": 7,
+  "hotel-5-estrellas": 8,
+  "estacionamiento-subterraneo": 9,
+  "locales-disponibles": 10,
+};
+const POSITION_TO_VENTAJA = Object.fromEntries(
+  Object.entries(VENTAJA_TO_POSITION).map(([k, v]) => [v, k]),
+);
+
 export default function VideoComponentLayout() {
   const { setIdle, setTransitioning } = useContext(VideoPlayerContext);
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const position = searchParams.get("position");
+  const ventaja = searchParams.get("ventaja");
 
   const videosRunning = VIDEOS_MAP[pathname];
 
@@ -33,16 +55,29 @@ export default function VideoComponentLayout() {
   const { videoRefA, videoRefB, loadPortada, goTo, activePlayer, modeState } =
     useVideoPlayer({
       json: videosRunning ?? EMPTY_JSON,
+      onPositionChange: (pos) => {
+        if (pathname.includes("/foro4/masterplan/video-tour")) {
+          setSearchParams({ ventaja: POSITION_TO_VENTAJA[pos] });
+          return;
+        }
+      },
     });
 
-  // Masterplan Position
+  // Masterplan RDE Position
   useEffect(() => {
     if (pathname === "/foro4/masterplan/vista-cenital") {
       goTo(5);
     } else if (pathname === "/foro4/masterplan") {
-      goTo(position ? Number(position) : 1);
+      goTo(Number(position));
     }
   }, [position, pathname]);
+
+  // Masterplan VTI ventajas
+  useEffect(() => {
+    if (!ventaja) return;
+    const mappedPositon = VENTAJA_TO_POSITION[ventaja];
+    goTo(ventaja ? mappedPositon : 1);
+  }, [ventaja]);
 
   // Portada: Manejo de portadas o limpiar componentes al cambiar de ruta sin video
   useEffect(() => {

@@ -178,6 +178,11 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
 
   const goTo = (position) => {
     if (isPortada) return;
+
+    // Guard: posición inválida
+    const targetVideo = videos.find((v) => v.position === position);
+    if (!targetVideo) return;
+
     // Al momento de transición, cargar de manera directa
     if (modeState === MODE.TRANSITIONING) {
       loadDirect(position);

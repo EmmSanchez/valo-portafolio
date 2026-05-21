@@ -8,6 +8,9 @@ import OficinasIcon from "@/apps/foro4/assets/icons/masterplan/video-tour/edific
 import HotelIcon from "@/apps/foro4/assets/icons/masterplan/video-tour/hotel.svg";
 import EstacionamientoIcon from "@/apps/foro4/assets/icons/masterplan/video-tour/estacionamiento.svg";
 import LocalesIcon from "@/apps/foro4/assets/icons/masterplan/video-tour/local.svg";
+import { useContext } from "react";
+import { VideoPlayerContext } from "../../video/context/VideoPlayerContext";
+import { MODE } from "../../video/const/Videos";
 
 const VENTAJAS = [
   {
@@ -67,6 +70,8 @@ const VENTAJAS = [
 ];
 
 export default function VideoTour() {
+  const { mode } = useContext(VideoPlayerContext);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const activeVentaja = searchParams.get("ventaja");
   return (
@@ -78,8 +83,8 @@ export default function VideoTour() {
               <button
                 key={ventaja.id}
                 onClick={() => setSearchParams({ ventaja: ventaja.slug })}
-                // disabled={mode === MODE.TRANSITIONING}
-                className={`group flex justify-between items-center h-full py-[clamp(6.5px,1.145833vw,22px)] px-[clamp(5.91px,1.041667vw,20px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto hover:bg-santa-catarina-grey hover:cursor-pointer ${activeVentaja === ventaja.slug ? "font-bold bg-santa-catarina-grey" : "bg-santa-catarina"}`}
+                disabled={mode === MODE.TRANSITIONING}
+                className={`group flex justify-between items-center h-full py-[clamp(6.5px,1.145833vw,22px)] px-[clamp(5.91px,1.041667vw,20px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto  ${mode === MODE.TRANSITIONING ? "" : "hover:cursor-pointer hover:bg-santa-catarina-grey"} ${activeVentaja === ventaja.slug ? "font-bold bg-santa-catarina-grey" : "bg-santa-catarina"}`}
               >
                 <p className="text-paragraph-button font-semibold whitespace-nowrap">
                   {ventaja.label}

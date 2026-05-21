@@ -1,0 +1,109 @@
+{
+  "id": "masterplan_ventajas",
+  "type": "sequence",
+  "navigation": "unidirectional",
+  "loop": true,
+  "autoplay": true,
+  "videos": [
+    {
+      "type": "idle",
+      "id": "position_1",
+      "position": 1,
+      "src": "/foro4-videos/VTI/12 VALO FORO 4 VTI UBICACION.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/13 VALO FORO 4 VTI TRANSICION UBICACION A MOTOR.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_2",
+      "position": 2,
+      "src": "/foro4-videos/VTI/14 VALO FORO 4 VTI MOTOR.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/15 VALO FORO 4 VTI TRANSICION MOTOR A CENTRAL.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_3",
+      "position": 3,
+      "src": "/foro4-videos/VTI/16 VALO FORO 4 VTI CENTRAL.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/17 VALO FORO 4 VTI TRANSICION CENTRAL A COMIDA.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_4",
+      "position": 4,
+      "src": "/foro4-videos/VTI/18 VALO FORO 4 VTI COMIDA.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/19 VALO FORO 4 VTI TRANSICION COMIDA A JUEGOS.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_5",
+      "position": 5,
+      "src": "/foro4-videos/VTI/20 VALO FORO 4 VTI JUEGOS.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/21 VALO FORO 4 VTI TRANSICION JUEGOS A TERRAZA.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_6",
+      "position": 6,
+      "src": "/foro4-videos/VTI/22 VALO FORO 4 VTI TERRAZA.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/23 VALO FORO 4 VTI TRANSICION TERRAZA A OFICINAS.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_7",
+      "position": 7,
+      "src": "/foro4-videos/VTI/24 VALO FORO 4 VTI OFICINAS.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/25 VALO FORO 4 VTI TRANSICION OFICINAS A HOTEL.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_8",
+      "position": 8,
+      "src": "/foro4-videos/VTI/26 VALO FORO 4 VTI HOTEL.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/27 VALO FORO 4 VTI TRANSICION HOTEL A ESTACIONAMIENTO.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_9",
+      "position": 9,
+      "src": "/foro4-videos/VTI/28 VALO FORO 4 VTI ESTACIONAMIENTO.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/29 VALO FORO 4 VTI TRANSICION ESTACIONAMIENTO A LOCALES.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_10",
+      "position": 10,
+      "src": "/foro4-videos/VTI/30 VALO FORO 4 VTI LOCALES.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/VTI/31 VALO FORO 4 VTI TRANSICION LOCALES A UBICACION.mp4"
+    }
+  ]
+}

@@ -4,11 +4,13 @@ import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-white-green.svg";
 import SubmenuMasterplan from "../../components/SubmenuMasterplan";
 import MenuRE from "../../components/masterplan/MenuRE";
 
+const VALID_POSITIONS = new Set([1, 2, 3, 4]);
+
 export default function Masterplan() {
   const [searchParams] = useSearchParams();
-  const position = searchParams.get("position");
+  const position = Number(searchParams.get("position"));
 
-  if (!position) {
+  if (!position || !VALID_POSITIONS.has(position)) {
     return <Navigate to="/foro4/masterplan?position=1" replace />;
   }
 
