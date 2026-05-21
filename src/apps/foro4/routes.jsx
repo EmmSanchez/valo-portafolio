@@ -21,41 +21,53 @@ import DetalleLocalRecorrido360 from "./pages/Masterplan/DetalleLocal/DetalleLoc
 import DetalleLocalFotoGaleria from "./pages/Masterplan/DetalleLocal/DetalleLocalFotoGaleria";
 import DetalleLocalInformacion from "./pages/Masterplan/DetalleLocal/DetalleLocalInformacion";
 
+// Videos
+import { VideoPlayerProvider } from "./video/context/VideoPlayerProvider";
+import VideoComponentLayout from "./video/VideoComponentLayout";
+
 export default function Foro4Routes() {
   return (
-    <Routes>
-      <Route path="/foro4">
-        {/* Home */}
-        <Route index element={<Home />} />
-        <Route path="video" element={<HomeVideo />} />
+    <VideoPlayerProvider>
+      <Routes>
+        <Route path="/foro4" element={<VideoComponentLayout />}>
+          {/* Home */}
+          <Route index element={<Home />} />
+          <Route path="video" element={<HomeVideo />} />
 
-        {/* Pages */}
-        <Route path="informacion" element={<Informacion />} />
-        <Route path="ubicacion" element={<Ubicacion />} />
-        <Route path="contacto" element={<Contacto />} />
+          {/* Pages */}
+          <Route path="informacion" element={<Informacion />} />
+          <Route path="ubicacion" element={<Ubicacion />} />
+          <Route path="contacto" element={<Contacto />} />
 
-        {/* Masterplan */}
-        <Route path="masterplan">
-          <Route index element={<Masterplan />} />
-          <Route path="vista-cenital" element={<VistaCenital />} />
-          <Route path="locales-disponibles" element={<LocalesDisponibles />} />
-
-          <Route path="rotacion-orbital" element={<RotacionOrbital />} />
-          <Route path="recorrido-360" element={<Recorrido360 />} />
-          <Route path="video-tour" element={<VideoTour />} />
-          <Route path="foto-galeria" element={<FotoGaleria />} />
-
-          {/* DetalleLocal como layout con sus subrutas */}
-          <Route path="locales-disponibles/:slug" element={<DetalleLocal />}>
+          {/* Masterplan */}
+          <Route path="masterplan">
+            <Route index element={<Masterplan />} />
+            <Route path="vista-cenital" element={<VistaCenital />} />
             <Route
-              path="recorrido-360"
-              element={<DetalleLocalRecorrido360 />}
+              path="locales-disponibles"
+              element={<LocalesDisponibles />}
             />
-            <Route path="informacion" element={<DetalleLocalInformacion />} />
-            <Route path="foto-galeria" element={<DetalleLocalFotoGaleria />} />
+
+            <Route path="rotacion-orbital" element={<RotacionOrbital />} />
+            <Route path="recorrido-360" element={<Recorrido360 />} />
+            <Route path="video-tour" element={<VideoTour />} />
+            <Route path="foto-galeria" element={<FotoGaleria />} />
+
+            {/* DetalleLocal como layout con sus subrutas */}
+            <Route path="locales-disponibles/:slug" element={<DetalleLocal />}>
+              <Route
+                path="recorrido-360"
+                element={<DetalleLocalRecorrido360 />}
+              />
+              <Route path="informacion" element={<DetalleLocalInformacion />} />
+              <Route
+                path="foto-galeria"
+                element={<DetalleLocalFotoGaleria />}
+              />
+            </Route>
           </Route>
         </Route>
-      </Route>
-    </Routes>
+      </Routes>
+    </VideoPlayerProvider>
   );
 }

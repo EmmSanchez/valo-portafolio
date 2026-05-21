@@ -29,7 +29,7 @@ const SUBMENU_VISTA_CENITAL = [
 
 export default function VistaCenital() {
   return (
-    <div className="w-full h-svh bg-foro4-morado">
+    <div className="w-full h-svh">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img
@@ -42,9 +42,7 @@ export default function VistaCenital() {
 
       {/* Content */}
       <div className="relative flex w-full h-full">
-        <div className="flex flex-1 min-w-0 h-full justify-center items-center">
-          <p>video</p>
-        </div>
+        <div className="flex flex-1 min-w-0 h-full justify-center items-center"></div>
 
         <div className="shrink-0 h-full flex items-center">
           <SubmenuLateral buttons={SUBMENU_VISTA_CENITAL} />

@@ -19,7 +19,7 @@ export default function SubmenuMasterplan() {
 
       <div className="flex flex-col">
         <Link
-          to={"/foro4/masterplan"}
+          to={"/foro4/masterplan?position=4"}
           data-active={pathname === "/foro4/masterplan"}
           className="group rounded-[40px] hover:bg-foro4-morado hover:cursor-pointer"
         >

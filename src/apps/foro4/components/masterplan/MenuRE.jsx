@@ -1,9 +1,12 @@
+import { useSearchParams } from "react-router";
+import { useContext } from "react";
 import pos1 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos1.jpg";
 import pos2 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos2.jpg";
 import pos3 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos3.jpg";
 import pos4 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos4.jpg";
 import CircleIcon from "../../assets/icons/ubicacion/CircleIcon";
-import { useSearchParams } from "react-router";
+import { VideoPlayerContext } from "../../video/context/VideoPlayerContext";
+import { MODE } from "../../video/const/Videos";
 
 const ROTACION_BUTTONS = [
   {
@@ -25,6 +28,8 @@ const ROTACION_BUTTONS = [
 ];
 
 export default function MenuRE() {
+  const { mode } = useContext(VideoPlayerContext);
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const position = Number(searchParams.get("position")) || 1;
@@ -44,8 +49,9 @@ export default function MenuRE() {
           <button
             key={button.id}
             data-active={isActive}
+            disabled={mode === MODE.TRANSITIONING}
             onClick={() => handleChangePosition(button.id)}
-            className="group relative flex justify-end items-center w-full h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(2.95px,0.520833vw,10px)] bg-foro4-morado hover:cursor-pointer overflow-hidden"
+            className={`group relative flex justify-end items-center w-full h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(2.95px,0.520833vw,10px)] bg-foro4-morado overflow-hidden ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer" : "pointer-events-none"}`}
           >
             <img
               src={button.img}

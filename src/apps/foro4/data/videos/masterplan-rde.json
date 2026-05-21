@@ -1,0 +1,59 @@
+{
+  "id": "rde_masterplan",
+  "type": "sequence",
+  "navigation": "bidirectional",
+  "loop": false,
+  "autoplay": false,
+  "videos": [
+    {
+      "type": "idle",
+      "id": "position_1",
+      "position": 1,
+      "src": "/foro4-videos/RDE/3 VALO FORO 4 NO POS 1.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/RDE/4 VALO FORO 4 TRANS POS 1 A POS 2.mp4",
+      "back": "/foro4-videos/RDE/4R VALO FORO 4 TRANS POS 2 A POS 1.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_2",
+      "position": 2,
+      "src": "/foro4-videos/RDE/5 VALO FORO 4 NO POS 2.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/RDE/6 VALO FORO 4 TRANS POS 2 A POS 3.mp4",
+      "back": "/foro4-videos/RDE/6R VALO FORO 4 TRANS POS 3 A POS 2.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_3",
+      "position": 3,
+      "src": "/foro4-videos/RDE/7 VALO FORO 4 NO POS 3.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/RDE/8 VALO FORO 4 TRANS POS 3 A POS 4.mp4",
+      "back": "/foro4-videos/RDE/8R VALO FORO 4 TRANS POS 4 A POS 3.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_4",
+      "position": 4,
+      "src": "/foro4-videos/RDE/9 VALO FORO 4 NO POS 4.mp4"
+    },
+    {
+      "type": "transition",
+      "next": "/foro4-videos/RDE/10 VALO FORO 4 TRANS POS 4 A VISTA CENITAL.mp4",
+      "back": "/foro4-videos/RDE/10R VALO FORO 4 TRANS VISTA CENITAL A POS 4.mp4"
+    },
+    {
+      "type": "idle",
+      "id": "position_5",
+      "position": 5,
+      "src": "/foro4-videos/RDE/11 VALO FORO 4 VISTA CENITAL.mp4"
+    }
+  ]
+}

@@ -73,6 +73,11 @@ body {
   font-family:
     "Eurostile Next", system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: white;
+  background-color: color-mix(
+    in srgb,
+    var(--color-foro4-morado) 70%,
+    transparent
+  );
 }
 
 /* Default Screen Padding */
