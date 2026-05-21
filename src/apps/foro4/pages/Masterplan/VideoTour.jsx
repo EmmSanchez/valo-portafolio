@@ -1,9 +1,18 @@
-import { Link } from "react-router";
+import { Link, Navigate, useSearchParams } from "react-router";
 import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-purple-green.svg";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import MenuVTI from "../../components/masterplan/MenuVTI";
 
 export default function VideoTour() {
+  const [searchParams] = useSearchParams();
+  const ventaja = searchParams.get("ventaja");
+
+  if (!ventaja) {
+    return (
+      <Navigate to="/foro4/masterplan/video-tour?ventaja=motor-lobby" replace />
+    );
+  }
+
   return (
     <div className="w-full h-svh default-foro4-padding bg-cyan-800">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">

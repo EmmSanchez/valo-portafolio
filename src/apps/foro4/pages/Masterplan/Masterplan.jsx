@@ -1,10 +1,17 @@
+import { Link, Navigate, useSearchParams } from "react-router";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-white-green.svg";
-import { Link } from "react-router";
 import SubmenuMasterplan from "../../components/SubmenuMasterplan";
 import MenuRE from "../../components/masterplan/MenuRE";
 
 export default function Masterplan() {
+  const [searchParams] = useSearchParams();
+  const position = searchParams.get("position");
+
+  if (!position) {
+    return <Navigate to="/foro4/masterplan?position=1" replace />;
+  }
+
   return (
     <div className="w-full h-svh default-foro4-padding bg-cyan-800">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">

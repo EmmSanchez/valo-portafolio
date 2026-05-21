@@ -89,7 +89,7 @@ export default function Ubicacion() {
           </div>
 
           {/* Brujula */}
-          <div className="absolute right-0 bottom-0 default-padding">
+          <div className="absolute right-0 bottom-0">
             <div className="bg-foro4-morado p-[clamp(4.44px,0.78vw,15px)] rounded-full backdrop-blur-xs">
               <CompassIcon className="size-[clamp(20.71px,3.65vw,70px)]" />
             </div>
