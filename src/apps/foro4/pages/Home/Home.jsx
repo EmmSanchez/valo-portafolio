@@ -5,7 +5,7 @@ import PlayButton from "@/apps/foro4/components/PlayButton";
 
 export default function Home() {
   return (
-    <div className="w-full h-svh default-foro4-padding bg-cyan-800">
+    <div className="w-full h-svh default-foro4-padding bg-foro4-morado/70">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img

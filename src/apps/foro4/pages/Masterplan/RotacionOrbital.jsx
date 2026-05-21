@@ -5,7 +5,7 @@ import ScrollIcon from "@/apps/foro4/assets/icons/masterplan/rotacion-orbital/sc
 
 export default function RotacionOrbital() {
   return (
-    <div className="w-full h-svh default-foro4-padding bg-cyan-800">
+    <div className="w-full h-svh default-foro4-padding bg-foro4-morado">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img

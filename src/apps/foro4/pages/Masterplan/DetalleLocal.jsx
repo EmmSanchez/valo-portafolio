@@ -28,7 +28,7 @@ const SUBMENU_DETALLE_LOCAL = [
 
 export default function DetalleLocal() {
   return (
-    <div className="w-full h-svh bg-cyan-800">
+    <div className="w-full h-svh bg-foro4-morado">
       {/* Logo */}
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>

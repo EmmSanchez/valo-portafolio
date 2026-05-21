@@ -29,7 +29,7 @@ const SUBMENU_VISTA_CENITAL = [
 
 export default function VistaCenital() {
   return (
-    <div className="w-full h-svh bg-cyan-800">
+    <div className="w-full h-svh bg-foro4-morado">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img

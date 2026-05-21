@@ -37,7 +37,7 @@ const navIndicator = (index, isActive) =>
 
 export default function FotoGaleria() {
   return (
-    <div className="w-full h-svh default-foro4-padding bg-cyan-800">
+    <div className="w-full h-svh default-foro4-padding bg-foro4-morado">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img

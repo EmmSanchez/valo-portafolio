@@ -12,7 +12,7 @@ export default function CircleIcon({ className = "" }) {
         r="6.75"
         fill="fillCurrent"
         stroke="currentColor"
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
       <circle
         cx="12"
@@ -20,7 +20,7 @@ export default function CircleIcon({ className = "" }) {
         r="11.25"
         fill="none"
         stroke="currentColor"
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
     </svg>
   );

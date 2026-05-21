@@ -4,6 +4,8 @@ import BackButton from "@/components/shared/Buttons/BackButton";
 import { UBICACION_FILTERS } from "../../data/ubicacionFilters";
 import CompassIcon from "@/apps/valoParkSantaCatarina/assets/icons/CompassIcon";
 import CircleIcon from "../../assets/icons/ubicacion/CircleIcon";
+import GoogleMapForo4 from "../../components/ubicacion/GoogleMapForo4";
+import { useEffect } from "react";
 
 export default function Ubicacion() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,9 +16,16 @@ export default function Ubicacion() {
   };
 
   const activeFiler = searchParams.get("filter");
+  const isValidFilter = UBICACION_FILTERS.some((f) => f.id === activeFiler);
+
+  useEffect(() => {
+    if (activeFiler && !isValidFilter) {
+      setSearchParams({});
+    }
+  }, [activeFiler]);
 
   return (
-    <div className="w-full h-svh default-foro4-padding bg-cyan-800">
+    <div className="w-full h-svh default-foro4-padding bg-foro4-morado/70">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img
@@ -27,24 +36,31 @@ export default function Ubicacion() {
         </Link>
       </div>
 
-      {/* Content */}
-      <div className="flex w-full h-full items-end justify-between">
+      {/* Map */}
+      <div className="absolute z-0 inset-0 w-full h-full">
+        <GoogleMapForo4 />
+      </div>
+
+      {/* Buttons and Submenu */}
+      <div className="relative z-10 flex w-full h-full items-end justify-between pointer-events-none">
         {/* Texto y botón de regresar */}
         <div className="flex flex-col">
-          <div className="flex flex-col w-[42%] bg-foro4-morado border-b-4 border-foro4-verde px-[clamp(5.91px,1.041667vw,20px)] py-[clamp(8.86px,1.5625vw,30px)] gap-[clamp(4.43px,0.78125vw,15px)]">
-            <h3 className="text-center text-title-lg font-lumarc font-bold uppercase">
-              Ubicación
-            </h3>
-            <p className="text-paragraph text-center leading-[110%] max-w-[66ch]">
-              Su ubicación privilegiada en la zona Norte de León sobre Blvd.
-              Manuel J. Clouthier es una de las principales avenidas comerciales
-              donde transitan más de{" "}
-              <span className="font-semibold">30,000 vehículos diarios.</span>
-            </p>
-          </div>
+          {!activeFiler && (
+            <div className="flex flex-col w-[42%] bg-foro4-morado border-b-4 border-foro4-verde px-[clamp(5.91px,1.041667vw,20px)] py-[clamp(8.86px,1.5625vw,30px)] gap-[clamp(4.43px,0.78125vw,15px)] pointer-events-auto">
+              <h3 className="text-center text-title-lg font-lumarc font-bold uppercase">
+                Ubicación
+              </h3>
+              <p className="text-paragraph text-center leading-[110%] max-w-[66ch]">
+                Su ubicación privilegiada en la zona Norte de León sobre Blvd.
+                Manuel J. Clouthier es una de las principales avenidas
+                comerciales donde transitan más de{" "}
+                <span className="font-semibold">30,000 vehículos diarios.</span>
+              </p>
+            </div>
+          )}
           <BackButton
-            to="/foro4"
-            className="bg-white text-foro4-morado translate-y-0.5"
+            to={activeFiler ? "/foro4/ubicacion" : "/foro4"}
+            className="bg-white text-foro4-morado translate-y-0.5 pointer-events-auto"
           />
         </div>
 
