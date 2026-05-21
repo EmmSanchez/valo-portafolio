@@ -29,7 +29,7 @@ const SUBMENU_VISTA_CENITAL = [
 
 export default function VistaCenital() {
   return (
-    <div className="w-full h-svh default-foro4-padding bg-cyan-800">
+    <div className="w-full h-svh bg-cyan-800">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img
@@ -41,15 +41,24 @@ export default function VistaCenital() {
       </div>
 
       {/* Content */}
-      <div className="flex w-full h-full items-end justify-between">
+      <div className="relative flex w-full h-full">
+        <div className="flex flex-1 min-w-0 h-full justify-center items-center">
+          <p>video</p>
+        </div>
+
+        <div className="shrink-0 h-full flex items-center">
+          <SubmenuLateral buttons={SUBMENU_VISTA_CENITAL} />
+        </div>
+      </div>
+
+      {/* Botones y submenu en absolute */}
+      <div className="absolute bottom-0 left-0 default-foro4-padding">
         {/* Texto y botón de regresar */}
         <div className="flex flex-col">
           <SubmenuMasterplan />
           <BackButton to="/foro4" className="bg-white text-foro4-morado" />
         </div>
       </div>
-
-      <SubmenuLateral buttons={SUBMENU_VISTA_CENITAL} />
     </div>
   );
 }

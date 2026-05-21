@@ -45,7 +45,7 @@ export default function MenuRE() {
             key={button.id}
             data-active={isActive}
             onClick={() => handleChangePosition(button.id)}
-            className="group relative flex justify-end items-center w-full h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(2.95px,0.520833vw,10px)] bg-foro4-morado hover:cursor-pointer"
+            className="group relative flex justify-end items-center w-full h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(2.95px,0.520833vw,10px)] bg-foro4-morado hover:cursor-pointer overflow-hidden"
           >
             <img
               src={button.img}

@@ -3,148 +3,8 @@ import { Link } from "react-router";
 import useEmblaCarousel from "embla-carousel-react";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-white-green.svg";
-import ClickIcon from "@/apps/foro4/assets/icons/masterplan/locales-disponibles/icon_click.svg";
-import BannerLocal109 from "@/apps/foro4/assets/images/masterplan/locales-disponibles/banners/LOCAL-109.jpg";
-import BannerLocal110 from "@/apps/foro4/assets/images/masterplan/locales-disponibles/banners/LOCAL-110.jpg";
-import BannerLocal120 from "@/apps/foro4/assets/images/masterplan/locales-disponibles/banners/LOCAL-120.jpg";
-import BannerLocal201 from "@/apps/foro4/assets/images/masterplan/locales-disponibles/banners/LOCAL-201.jpg";
-import BannerLocal301 from "@/apps/foro4/assets/images/masterplan/locales-disponibles/banners/LOCAL-301.jpg";
-import BannerLocal309 from "@/apps/foro4/assets/images/masterplan/locales-disponibles/banners/LOCAL-309.jpg";
-import BannerLocal310 from "@/apps/foro4/assets/images/masterplan/locales-disponibles/banners/LOCAL-310.jpg";
-
-// Reemplaza con tus datos reales
-const SLIDES = [
-  {
-    id: "locales-piso-1",
-    piso: "Piso 1",
-    descripcion:
-      "Explora los locales disponibles y encuentra el espacio ideal para tu negocio.",
-    locales: [
-      {
-        id: "L-109",
-        precio: "$80,923.92",
-        superficie: "166",
-        preciom2: "$360",
-        img: BannerLocal109,
-      },
-      {
-        id: "L-110",
-        precio: "$69,693.96",
-        superficie: "143.05",
-        preciom2: "$360",
-        img: BannerLocal110,
-      },
-      {
-        id: "L-120",
-        precio: "$107,298.49",
-        superficie: "181",
-        preciom2: "$450",
-        img: BannerLocal120,
-      },
-    ],
-  },
-  {
-    id: "locales-piso-2",
-    piso: "Piso 2",
-    descripcion:
-      "Explora los locales disponibles y encuentra el espacio ideal para tu negocio",
-    locales: [
-      {
-        id: "L-201",
-        precio: "$94,284.80",
-        superficie: "254",
-        preciom2: "$260",
-        img: BannerLocal201,
-      },
-    ],
-  },
-  {
-    id: "locales-piso-3",
-    piso: "Piso 3",
-    descripcion:
-      "Explora los locales disponibles y encuentra el espacio ideal para tu negocio",
-    locales: [
-      {
-        id: "L-301 Y 310 A",
-        precio: "$333,098.64",
-        superficie: "883.19",
-        preciom2: "$300",
-        img: BannerLocal301,
-      },
-      {
-        id: "L-309",
-        precio: "$92,805.57",
-        superficie: "258.08",
-        preciom2: "$250",
-        img: BannerLocal309,
-      },
-      {
-        id: "L-310",
-        precio: "$114,874",
-        superficie: "319.92",
-        preciom2: "$250",
-        img: BannerLocal310,
-      },
-    ],
-  },
-];
-
-function LocalCard({ local }) {
-  return (
-    <div className="flex flex-col bg-white border rounded overflow-hidden min-w-0 w-[clamp(145.8px,25.729167vw,494px)] h-[clamp(184.13px,32.5vw,624px)] p-[clamp(4.43px,0.78125vw,15px)] gap-[clamp(2.95px,0.520833vw,10px)]">
-      {/* Foto placeholder — reemplaza con <img src={local.imagen} /> */}
-      <div className="relative w-full aspect-464/378 bg-foro4-morado/50 flex items-center justify-center">
-        <img
-          src={local.img}
-          alt={`Imagen del lote ${local.id}`}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Info */}
-      <div className="flex flex-col h-full justify-between gap-[clamp(2.95px,0.520833vw,10px)]">
-        <div className="flex items-center justify-between h-[clamp(20.08px,3.541667vw,64px)]">
-          <span className="text-foro4-morado font-bold text-card-lote font-lumarc">
-            {local.id}
-          </span>
-          <div className="text-center px-[clamp(4.43px,0.78125vw,15px)] py-[clamp(2.95px,0.520833vw,10px)]">
-            <p className="text-foro4-morado text-paragraph-sub-button leading-[100%]">
-              Precio de Renta
-            </p>
-            <p className="text-foro4-morado font-semibold text-datos-disp ">
-              {local.precio}
-            </p>
-          </div>
-        </div>
-
-        <div className="flex gap-[clamp(2.95px,0.520833vw,10px)]">
-          <div className="flex flex-col flex-1 justify-center items-center text-center px-[clamp(4.43px,0.78125vw,15px)] py-[clamp(2.95px,0.520833vw,7px)] bg-foro4-morado/80">
-            <p className="text-paragraph-sub-button">Superficie</p>
-            <p className="text-white text-datos-disp font-semibold leading-[100%]">
-              {local.superficie} m²
-            </p>
-          </div>
-          <div className="flex flex-col flex-1 justify-center items-center px-[clamp(4.43px,0.78125vw,15px)] py-[clamp(2.95px,0.520833vw,7px)] text-center bg-foro4-morado/80">
-            <p className="text-paragraph-button">Precio por m²</p>
-            <p className="text-white text-datos-disp font-semibold leading-[100%]">
-              {local.preciom2}
-            </p>
-          </div>
-        </div>
-
-        {/* Botón Explocar Local */}
-        <button className="flex w-full h-[clamp(14.77px,2.804167vw,58px)] justify-center items-center bg-foro4-morado text-white text-paragraph-button gap-[clamp(4.43px,0.78125vw,15px)] font-semibold transition-colors tracking-wide hover:cursor-pointer">
-          Explorar Local
-          <img
-            src={ClickIcon}
-            alt="Icono de click"
-            className="w-[clamp(7.09px,1.25vw,24px)]"
-          />
-        </button>
-      </div>
-    </div>
-  );
-}
+import { LOCALES_DISPONIBLES } from "../../data/locales-disponibles";
+import LocalCard from "../../components/masterplan/LocalCard";
 
 export default function LocalesDisponibles() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -182,7 +42,7 @@ export default function LocalesDisponibles() {
         <div className="relative w-full flex flex-1 overflow-hidden">
           <div className="overflow-hidden w-full h-full" ref={emblaRef}>
             <div className="flex h-full">
-              {SLIDES.map((slide) => (
+              {LOCALES_DISPONIBLES.map((slide) => (
                 <div
                   key={slide.id}
                   className="flex-[0_0_100%] min-w-0 h-full flex flex-col items-center justify-center px-[4vw] gap-[clamp(11.81px,2.083333vw,40px)]"
@@ -212,7 +72,7 @@ export default function LocalesDisponibles() {
         {/* Footer: BackButton + Nav */}
         <div className="relative flex w-full items-center pointer-events-none">
           <BackButton
-            to="/foro4/masterplan/vista-cenital"
+            to="/foro4/masterplan"
             className="bg-white text-foro4-morado pointer-events-auto"
           />
 
@@ -238,7 +98,7 @@ export default function LocalesDisponibles() {
             </button>
 
             <div className="flex gap-[clamp(2.95px,0.520833vw,10px)]">
-              {SLIDES.map((_, i) => (
+              {LOCALES_DISPONIBLES.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => emblaApi?.scrollTo(i)}
