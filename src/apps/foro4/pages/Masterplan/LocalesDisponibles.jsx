@@ -25,7 +25,11 @@ export default function LocalesDisponibles() {
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <div className="w-full h-svh default-foro4-padding bg-foro4-morado">
+    <div className="w-full h-svh default-foro4-padding">
+      {/* Overlay */}
+      <div className="absolute inset-0 w-full h-full bg-foro4-morado/80 backdrop-blur-sm" />
+
+      {/* Logo */}
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img

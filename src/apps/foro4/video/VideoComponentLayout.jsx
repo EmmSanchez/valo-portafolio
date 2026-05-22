@@ -10,6 +10,7 @@ import masterplanVTI from "../data/videos/masterplan-vti.json";
 // PORTADAS
 const VIDEOS_MAP = {
   "/foro4": portadas.home,
+  "/foro4/masterplan/locales-disponibles": portadas.locales,
 
   // Rotación de exteriores
   "/foro4/masterplan": masterplanRDE,

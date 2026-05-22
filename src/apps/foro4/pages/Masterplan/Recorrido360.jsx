@@ -1,11 +1,16 @@
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-purple-green.svg";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import KuulaComponent from "@/components/shared/Kuula/KuulaComponent";
 
 export default function Recorrido360() {
+  const { sceneId } = useParams();
+  const src = sceneId
+    ? `https://kuula.co/share/${sceneId}/collection/7M6Rh?logo=-1&info=0&fs=0&vr=0&zoom=1&initload=1&thumbs=-1&margin=30&alpha=0.81&inst=0&keys=0`
+    : "https://kuula.co/share/collection/7M6Rh?logo=-1&info=0&fs=0&vr=0&zoom=1&initload=1&thumbs=-1&margin=30&alpha=0.81&inst=0&keys=0";
+
   return (
-    <div className="w-full h-svh default-foro4-padding bg-foro4-morado">
+    <div className="w-full h-svh default-foro4-padding">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img
@@ -30,11 +35,7 @@ export default function Recorrido360() {
       {/* Galería */}
       <div className="absolute inset-0 w-dvw h-svh flex items-center justify-center pointer-events-auto">
         <div className="w-full h-full flex">
-          <KuulaComponent
-            src={
-              "https://kuula.co/share/collection/7M6Rh?logo=-1&info=0&fs=0&vr=0&zoom=1&initload=1&thumbs=-1&margin=30&alpha=0.81&inst=0&keys=0"
-            }
-          />
+          <KuulaComponent src={src} />
         </div>
       </div>
     </div>

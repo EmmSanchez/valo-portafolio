@@ -49,7 +49,8 @@ export default function Foro4Routes() {
             />
 
             <Route path="rotacion-orbital" element={<RotacionOrbital />} />
-            <Route path="recorrido-360" element={<Recorrido360 />} />
+            <Route path="recorrido-360/" element={<Recorrido360 />} />
+            <Route path="recorrido-360/:sceneId" element={<Recorrido360 />} />
             <Route path="video-tour" element={<VideoTour />} />
             <Route path="foto-galeria" element={<FotoGaleria />} />
 

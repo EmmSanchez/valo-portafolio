@@ -3,5 +3,10 @@
     "type": "portada",
     "loop": true,
     "src": "/foro4-videos/portadas/2 VALO FORO 4 PORTADA IDLE.mp4"
+  },
+  "locales": {
+    "type": "portada",
+    "loop": true,
+    "src": "/foro4-videos/portadas/33 VALO FORO 4 MENU DE DISPONIBILIDADES.mp4"
   }
 }

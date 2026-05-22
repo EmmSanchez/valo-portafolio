@@ -15,6 +15,11 @@ export default function HomeVideo() {
         </Link>
       </div>
 
+      {/* Video */}
+      <div className="absolute top-1/2 left-1/2">
+        <p className="font-bold">video comercial</p>
+      </div>
+
       <div className="flex w-full h-full items-end ">
         <BackButton
           to="/foro4"
