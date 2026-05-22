@@ -224,6 +224,8 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
     }
   };
 
+  const [portadaEnded, setPortadaEnded] = useState(false);
+
   const loadPortada = (video) => {
     clearListeners();
 
@@ -249,6 +251,14 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
         });
       });
 
+      // Videos sin loop, detectar cuando termina
+      if (!video.loop) {
+        stagingRef.current.onended = () => {
+          stagingRef.current.onended = null;
+          setPortadaEnded(true);
+        };
+      }
+
       currentPositionRef.current = null;
       targetPositionRef.current = null;
     };
@@ -261,5 +271,6 @@ export const useVideoPlayer = ({ json, onPositionChange }) => {
     loadPortada,
     activePlayer,
     modeState,
+    portadaEnded,
   };
 };

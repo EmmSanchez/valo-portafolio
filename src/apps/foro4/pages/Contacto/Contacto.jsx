@@ -20,7 +20,7 @@ export default function Contacto() {
   return (
     <div className="relative w-full h-svh default-foro4-padding">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
-        <Link to={"/foro4"}>
+        <Link to={"/foro4/inicio"}>
           <img
             src={logo}
             alt="Lofo de FORO 4"
@@ -150,7 +150,7 @@ export default function Contacto() {
       {/* Content */}
       <div className="flex w-full h-full items-end pointer-events-none">
         <BackButton
-          to="/foro4"
+          to={"/foro4/inicio"}
           className="bg-white text-foro4-morado pointer-events-auto"
         />
       </div>

@@ -33,7 +33,7 @@ export default function DetalleLocal() {
     <div className="w-full h-svh bg-foro4-morado">
       {/* Logo */}
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
-        <Link to={"/foro4"}>
+        <Link to={"/foro4/inicio"}>
           <img
             src={logo}
             alt="Logo de FORO 4"

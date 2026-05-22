@@ -12,7 +12,7 @@ export default function Recorrido360() {
   return (
     <div className="w-full h-svh default-foro4-padding">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
-        <Link to={"/foro4"}>
+        <Link to={"/foro4/inicio"}>
           <img
             src={logo}
             alt="Lofo de FORO 4"

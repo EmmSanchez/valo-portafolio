@@ -18,7 +18,7 @@ export default function Informacion() {
   return (
     <div className="w-full h-svh default-foro4-padding bg-foro4-morado">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
-        <Link to={"/foro4"}>
+        <Link to={"/foro4/inicio"}>
           <img
             src={logo}
             alt="Lofo de FORO 4"
@@ -35,7 +35,10 @@ export default function Informacion() {
             navIndicator={navIndicator}
           />
         </div>
-        <BackButton to="/foro4" className="bg-white text-foro4-morado" />
+        <BackButton
+          to={"/foro4/inicio"}
+          className="bg-white text-foro4-morado"
+        />
       </div>
     </div>
   );

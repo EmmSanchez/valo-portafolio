@@ -84,7 +84,7 @@ export default function VistaCenital() {
   return (
     <div className="w-full h-svh">
       <div className="absolute top-0 left-0 z-60 default-logo-padding">
-        <Link to={"/foro4"}>
+        <Link to={"/foro4/inicio"}>
           <img
             src={logo}
             alt="Lofo de FORO 4"
@@ -110,7 +110,10 @@ export default function VistaCenital() {
         {/* Texto y botón de regresar */}
         <div className="flex flex-col">
           <SubmenuMasterplan />
-          <BackButton to="/foro4" className="bg-white text-foro4-morado" />
+          <BackButton
+            to={"/foro4/inicio"}
+            className="bg-white text-foro4-morado"
+          />
         </div>
       </div>
 

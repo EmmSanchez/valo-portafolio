@@ -4,6 +4,11 @@
     "loop": true,
     "src": "/foro4-videos/portadas/2 VALO FORO 4 PORTADA IDLE.mp4"
   },
+  "bienvenida": {
+    "type": "portada",
+    "loop": false,
+    "src": "/foro4-videos/portadas/1 VALO FORO 4 PORTADA.mp4"
+  },
   "locales": {
     "type": "portada",
     "loop": true,

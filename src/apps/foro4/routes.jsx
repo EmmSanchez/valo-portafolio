@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 
 import Home from "./pages/Home/Home";
 import HomeVideo from "./pages/Home/HomeVideo";
@@ -24,14 +24,19 @@ import DetalleLocalInformacion from "./pages/Masterplan/DetalleLocal/DetalleLoca
 // Videos
 import { VideoPlayerProvider } from "./video/context/VideoPlayerProvider";
 import VideoComponentLayout from "./video/VideoComponentLayout";
+import Bienvenida from "./pages/Bienvenida/Bienvenida";
 
 export default function Foro4Routes() {
   return (
     <VideoPlayerProvider>
       <Routes>
         <Route path="/foro4" element={<VideoComponentLayout />}>
+          {/* Bienvenida */}
+          <Route index element={<Navigate to="/foro4/bienvenida" replace />} />
+          <Route path="bienvenida" element={<Bienvenida />} />
+
           {/* Home */}
-          <Route index element={<Home />} />
+          <Route path="inicio" element={<Home />} />
           <Route path="video" element={<HomeVideo />} />
 
           {/* Pages */}

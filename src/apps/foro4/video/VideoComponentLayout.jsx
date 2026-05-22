@@ -9,7 +9,8 @@ import masterplanVTI from "../data/videos/masterplan-vti.json";
 
 // PORTADAS
 const VIDEOS_MAP = {
-  "/foro4": portadas.home,
+  "/foro4/bienvenida": portadas.bienvenida,
+  "/foro4/inicio": portadas.home,
   "/foro4/contacto": portadas.home,
   "/foro4/masterplan/locales-disponibles": portadas.locales,
 
@@ -54,16 +55,23 @@ export default function VideoComponentLayout() {
 
   const hasVideo = videosRunning ? true : false;
 
-  const { videoRefA, videoRefB, loadPortada, goTo, activePlayer, modeState } =
-    useVideoPlayer({
-      json: videosRunning ?? EMPTY_JSON,
-      onPositionChange: (pos) => {
-        if (pathname.includes("/foro4/masterplan/video-tour")) {
-          setSearchParams({ ventaja: POSITION_TO_VENTAJA[pos] });
-          return;
-        }
-      },
-    });
+  const {
+    videoRefA,
+    videoRefB,
+    loadPortada,
+    goTo,
+    activePlayer,
+    modeState,
+    portadaEnded,
+  } = useVideoPlayer({
+    json: videosRunning ?? EMPTY_JSON,
+    onPositionChange: (pos) => {
+      if (pathname.includes("/foro4/masterplan/video-tour")) {
+        setSearchParams({ ventaja: POSITION_TO_VENTAJA[pos] });
+        return;
+      }
+    },
+  });
 
   // Masterplan RDE Position
   useEffect(() => {
@@ -130,7 +138,7 @@ export default function VideoComponentLayout() {
       ></video>
 
       <div className="relative z-20">
-        <Outlet />
+        <Outlet context={{ portadaEnded }} />
       </div>
     </>
   );
