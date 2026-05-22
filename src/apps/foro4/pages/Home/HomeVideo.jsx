@@ -4,7 +4,7 @@ import BackButton from "@/components/shared/Buttons/BackButton";
 
 export default function HomeVideo() {
   return (
-    <div className="w-full h-svh default-foro4-padding bg-foro4-morado">
+    <div className="w-full h-svh default-foro4-padding">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <Link to={"/foro4"}>
           <img
