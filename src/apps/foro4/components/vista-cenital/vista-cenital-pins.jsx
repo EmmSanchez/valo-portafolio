@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router";
+import { VideoPlayerContext } from "../../video/context/VideoPlayerContext";
 import Icon360 from "@/apps/foro4/assets/icons/masterplan/360Icon.svg";
 import HotelIcon from "@/apps/foro4/assets/icons/masterplan/hotelIcon.svg";
 import HotelLabel from "@/apps/foro4/assets/icons/masterplan/hotelLabel.svg";
 import EdificioIcon from "@/apps/foro4/assets/icons/masterplan/edificioIcon.svg";
 import EdificioLabel from "@/apps/foro4/assets/icons/masterplan/edificioLabel.svg";
-import { useNavigate, useSearchParams } from "react-router";
+import { MODE } from "../../video/const/Videos";
 
 const PINS_DATA = [
   {
@@ -53,9 +55,24 @@ const PINS_DATA = [
 ];
 
 export default function VistaCenitalPins() {
+  const { mode } = useContext(VideoPlayerContext);
+
   const navigate = useNavigate();
   const [_, setSearchParams] = useSearchParams();
   const [hoveredId, setHoveredId] = useState(null);
+
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (mode === MODE.IDLE) {
+      const timer = setTimeout(() => setVisible(true), 300);
+      return () => clearTimeout(timer);
+    } else {
+      const timer = setTimeout(() => setVisible(false), 0);
+      return () => clearTimeout(timer);
+    }
+  }, [mode]);
+
   return (
     <div className="fixed inset-0 z-20 pointer-events-none">
       <svg
@@ -70,7 +87,9 @@ export default function VistaCenitalPins() {
             <g
               key={item.id}
               transform={`translate(${item.x},${item.y}) scale(${item.type === "recorrido" ? 1 : 1.258})`}
-              className="transition hover:cursor-pointer pointer-events-auto hover:drop-shadow-xl"
+              className={`transition-opacity duration-300 hover:cursor-pointer pointer-events-auto hover:drop-shadow-xl ${
+                visible ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
               onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}
               onClick={() => {

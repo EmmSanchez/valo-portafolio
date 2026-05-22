@@ -1,14 +1,30 @@
 import { Link, Navigate, useSearchParams } from "react-router";
+import { useContext, useState, useEffect } from "react";
+import { VideoPlayerContext } from "../../video/context/VideoPlayerContext";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-white-green.svg";
 import SubmenuMasterplan from "../../components/SubmenuMasterplan";
 import MenuRE from "../../components/masterplan/MenuRE";
+import PINForo4 from "@/apps/foro4/assets/main/pin-foro-4.svg";
+import { MODE } from "../../video/const/Videos";
 
 const VALID_POSITIONS = new Set([1, 2, 3, 4]);
 
 export default function Masterplan() {
+  const { mode } = useContext(VideoPlayerContext);
   const [searchParams] = useSearchParams();
+  const [pinVisible, setPinVisible] = useState(false);
   const position = Number(searchParams.get("position"));
+
+  useEffect(() => {
+    if (mode === MODE.IDLE && position !== 1) {
+      const timer = setTimeout(() => setPinVisible(true), 300);
+      return () => clearTimeout(timer);
+    } else {
+      const timer = setTimeout(() => setPinVisible(false), 0);
+      return () => clearTimeout(timer);
+    }
+  }, [mode, position]);
 
   if (!position || !VALID_POSITIONS.has(position)) {
     return <Navigate to="/foro4/masterplan?position=1" replace />;
@@ -38,6 +54,22 @@ export default function Masterplan() {
         <div className="flex w-full h-full max-w-[271px] justify-end items-center">
           <MenuRE />
         </div>
+      </div>
+
+      {/* Layout para pin */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <svg
+          viewBox="0 0 1920 1080"
+          preserveAspectRatio="xMidYMid slice"
+          className="w-full h-full"
+        >
+          <g transform={`translate(960,710)`}>
+            <image
+              href={PINForo4}
+              className={`transition-opacity duration-300 ease-in-out ${pinVisible ? "opacity-100" : "opacity-0"}`}
+            />
+          </g>
+        </svg>
       </div>
     </div>
   );
