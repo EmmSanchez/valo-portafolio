@@ -1,32 +1,34 @@
-import { Link, Outlet } from "react-router";
+import { Link, Outlet, useParams } from "react-router";
 import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-white-green.svg";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import SubmenuLateral from "../../components/shared/SubmenuLateral";
 
-const SUBMENU_DETALLE_LOCAL = [
-  {
-    id: "me-interesa",
-    label: "Me interesa",
-    to: "/foro4/contacto",
-  },
-  {
-    id: "recorrido",
-    label: "Recorrido 360",
-    to: "recorrido-360",
-  },
-  {
-    id: "informacion",
-    label: "Información",
-    to: "informacion",
-  },
-  {
-    id: "galeria",
-    label: "Foto Galería",
-    to: "foto-galeria",
-  },
-];
-
 export default function DetalleLocal() {
+  const { slug } = useParams();
+
+  const submenuButtons = [
+    {
+      id: "me-interesa",
+      label: "Me interesa",
+      to: `/foro4/contacto?local=${slug}`,
+    },
+    {
+      id: "recorrido",
+      label: "Recorrido 360",
+      to: "recorrido-360",
+    },
+    {
+      id: "informacion",
+      label: "Información",
+      to: "informacion",
+    },
+    {
+      id: "galeria",
+      label: "Foto Galería",
+      to: "foto-galeria",
+    },
+  ];
+
   return (
     <div className="w-full h-svh bg-foro4-morado">
       {/* Logo */}
@@ -47,7 +49,7 @@ export default function DetalleLocal() {
         </div>
 
         <div className="shrink-0 h-full flex items-center">
-          <SubmenuLateral buttons={SUBMENU_DETALLE_LOCAL} />
+          <SubmenuLateral buttons={submenuButtons} />
         </div>
       </div>
 
