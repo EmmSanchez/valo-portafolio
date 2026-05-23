@@ -24,63 +24,78 @@ const INFORMACION = [
 ];
 
 const VALORES = [
-  {
-    id: "compromiso",
-    label: "Compromiso",
-    icon: <CompromisoIcon />,
-  },
-  {
-    id: "franqueza",
-    label: "Franqueza",
-    icon: <ValoresIcon />,
-  },
-  {
-    id: "asertividad",
-    label: "Asertividad",
-    icon: <IdeaIcon />,
-  },
-  {
-    id: "excelencia",
-    label: "Excelencia",
-    icon: <EscudoIcon />,
-  },
+  { id: "compromiso", label: "Compromiso", icon: <CompromisoIcon /> },
+  { id: "franqueza", label: "Franqueza", icon: <ValoresIcon /> },
+  { id: "asertividad", label: "Asertividad", icon: <IdeaIcon /> },
+  { id: "excelencia", label: "Excelencia", icon: <EscudoIcon /> },
 ];
 
 export default function Slide1() {
   return (
-    <div className="flex w-full h-full items-center justify-center gap-1 xl:gap-4 2xl:gap-12.5">
-      <div className="flex flex-col gap-[clamp(8px,1.56vw,30px)]">
-        {INFORMACION.map((info) => {
-          return (
-            <div key={info.id} className="flex flex-col xl:gap-1.25">
-              <h2 className="text-title font-lumarc font-bold uppercase tracking-widest">
-                {info.label}
-              </h2>
-              <p className="w-[clamp(200px,55.73vw,1070px)] text-paragraph max-xl:leading-none">
-                {info.description}
-              </p>
-            </div>
-          );
-        })}
+    <div
+      className="flex w-full h-full items-center justify-center"
+      style={{ gap: "clamp(10px, 3vw, 60px)" }}
+    >
+      {/* Texto: Misión, Visión, Valores */}
+      <div className="flex flex-col" style={{ gap: "clamp(6px, 1.8vh, 32px)" }}>
+        {INFORMACION.map((info) => (
+          <div
+            key={info.id}
+            className="flex flex-col"
+            style={{ gap: "clamp(2px, 0.6vh, 8px)" }}
+          >
+            <h2
+              className="font-lumarc font-bold uppercase tracking-widest"
+              style={{ fontSize: "clamp(11px, 1.9vw, 34px)" }}
+            >
+              {info.label}
+            </h2>
+            <p
+              className="leading-tight"
+              style={{
+                fontSize: "clamp(9px, 1.45vw, 26px)",
+                maxWidth: "clamp(180px, 52vw, 960px)",
+              }}
+            >
+              {info.description}
+            </p>
+          </div>
+        ))}
       </div>
 
-      {/* Íconos */}
-      <div className="grid grid-cols-2 gap-[clamp(8px,1.56vw,30px)]">
-        {VALORES.map((valor) => {
-          return (
-            <div
-              key={valor.id}
-              className="size-[clamp(110px,12.5vw,240px)] flex flex-col justify-center items-center gap-3 2xl:gap-5 p-2 2xl:p-5"
+      {/* Íconos 2×2 */}
+      <div
+        className="grid grid-cols-2 flex-shrink-0"
+        style={{ gap: "clamp(6px, 1.4vw, 26px)" }}
+      >
+        {VALORES.map((valor) => (
+          <div
+            key={valor.id}
+            className="flex flex-col justify-center items-center"
+            style={{
+              width: "clamp(90px, 12vw, 220px)",
+              height: "clamp(90px, 12vw, 220px)",
+              gap: "clamp(10px, 4vh, 28px)",
+              padding: "clamp(6px, 1vw, 20px)",
+            }}
+          >
+            <span
+              style={{
+                width: "clamp(32px, 4.2vw, 82px)",
+                height: "clamp(32px, 4.2vw, 82px)",
+                display: "block",
+              }}
             >
-              <span className="size-[clamp(40px,4.17vw,80px)]">
-                {valor.icon}
-              </span>
-              <p className="text-paragraph font-lumarc uppercase">
-                {valor.label}
-              </p>
-            </div>
-          );
-        })}
+              {valor.icon}
+            </span>
+            <p
+              className="font-lumarc uppercase text-center leading-none"
+              style={{ fontSize: "clamp(8px, 1.05vw, 19px)" }}
+            >
+              {valor.label}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
