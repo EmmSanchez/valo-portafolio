@@ -374,6 +374,7 @@ export const MapaMexico = ({ ACTIVE_STATES, className = "" }) => {
               ? "text-[#12274C] cursor-pointer"
               : "text-[#979797]"
           }`}
+          onClick={() => navigate("guanajuato")}
         />
         <path
           id="guerrero"

@@ -22,6 +22,7 @@ export default function ContenidoNuevoLeon() {
           key={project.landmarkId}
           project={project}
           imageUrl={LANDMARK_MAP[project.landmarkId]}
+          type="popup"
         />
       ))}
 

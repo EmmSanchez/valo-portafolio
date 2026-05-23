@@ -23,7 +23,10 @@ export const PROYECTOS_NUEVO_LEON = [
       colors: {
         border: "#2d2273", // morado
         button: "#00245c", // azul valo
+        buttonActive: "#fff", // blanco
         background: "#00245c", // morado con opacidad
+        textColor: "#fff",
+        textColorActive: "#00245c",
       },
       cta: {
         label: "Página",
@@ -93,7 +96,10 @@ export const PROYECTOS_NUEVO_LEON = [
       colors: {
         border: "#d9843b", // naranja
         button: "#d9843b",
-        background: "#00245c",
+        buttonActive: "#204037",
+        background: "#00245c", // valo azul
+        textColor: "#fff",
+        textColorActive: "#00245c",
       },
       cta: {
         label: "Reproducir video",

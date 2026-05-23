@@ -1,19 +1,17 @@
 import { Map } from "@vis.gl/react-google-maps";
 import { APIProvider } from "@vis.gl/react-google-maps";
-import ContenidoNuevoLeon from "./ContenidoNuevoLeon";
+import { useParams } from "react-router";
+import { MAPAS_CONFIG } from "../../data/Valo/mapas-config";
+import ContenidoNuevoLeon from "./NuevoLeon/ContenidoNuevoLeon";
+import ContenidoGuanajuato from "./Guanajuato/ContenidoGuanajuato";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
-const MAP_ID = import.meta.env.VITE_GOOGLE_MAPID;
 
-const MAP_CONFIG = {
-  id: MAP_ID,
-  zoom: 11,
-  maxZoom: 6,
-  heading: 9,
-  center: { lat: 25.756332, lng: -100.35618 },
-};
+export default function MapaProyectos() {
+  const { estado } = useParams();
 
-export default function MapaNuevoLeon() {
+  const MAP_CONFIG = MAPAS_CONFIG[estado];
+
   return (
     <APIProvider apiKey={API_KEY}>
       <Map
@@ -37,6 +35,7 @@ export default function MapaNuevoLeon() {
         ]}
       >
         <ContenidoNuevoLeon />
+        <ContenidoGuanajuato />
       </Map>
     </APIProvider>
   );

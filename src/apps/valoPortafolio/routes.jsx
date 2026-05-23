@@ -5,10 +5,10 @@ import NosotrosLayout from "./pages/Nosotros/NosotrosLayout";
 import Nosotros from "./pages/Nosotros/Nosotros";
 import ProyectosLayout from "./pages/Proyectos/ProyectosLayout";
 import Proyectos from "./pages/Proyectos/Proyectos";
-import NuevoLeon from "./pages/Proyectos/Ciudades/NuevoLeon";
 import Contacto from "./pages/Contacto/Contacto";
 import { VideoPlayerPortafolioProvider } from "./context/VideoPlayerPortafolioProvider.jsx";
 import VideoComponentLayout from "./Video/VideoComponentLayout";
+import EstadoDetalle from "./pages/Proyectos/EstadoDetalle";
 
 export default function ValoPortafolioRoutes() {
   return (
@@ -23,7 +23,7 @@ export default function ValoPortafolioRoutes() {
 
           <Route path="/proyectos" element={<ProyectosLayout />}>
             <Route index element={<Proyectos />} />
-            <Route path="nuevo-leon" element={<NuevoLeon />} />
+            <Route path=":estado" element={<EstadoDetalle />} />
           </Route>
           <Route path="/contacto" element={<Contacto />} />
         </Route>

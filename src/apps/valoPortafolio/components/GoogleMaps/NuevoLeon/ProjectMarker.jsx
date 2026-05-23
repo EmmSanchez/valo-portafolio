@@ -1,20 +1,21 @@
-import { useSearchParams } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
-import ClickIcon from "@/apps/valoPortafolio/assets/icons/proyectos/ClickIcon";
 
-export default function ProjectMarker({ project, imageUrl }) {
+export default function ProjectMarker({ project, imageUrl, type = "popup" }) {
   const [_, setSearchParams] = useSearchParams();
-  const { properties } = project;
+  const navigate = useNavigate();
 
-  const isExternal = !properties.url.startsWith("/");
-
-  const handleClickProject = () => {
-    setSearchParams({ popup: project.landmarkId });
+  const handleClick = () => {
+    if (type === "popup") {
+      setSearchParams({ popup: project.landmarkId });
+    } else if (type === "link") {
+      navigate(project.redirectTo);
+    }
   };
 
   return (
     <AdvanceMarker position={project.coordinates}>
-      <div className="relative" onClick={handleClickProject}>
+      <div className="relative" onClick={handleClick}>
         <img
           src={imageUrl}
           width={project.size}
