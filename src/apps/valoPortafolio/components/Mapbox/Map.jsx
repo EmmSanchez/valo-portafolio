@@ -3,9 +3,6 @@ import { useNavigate } from "react-router";
 import mapboxgl from "mapbox-gl";
 import Marker from "./Marker";
 import LOCATIONS from "@/apps/valoPortafolio/data/Valo/geojsonData.json";
-import { FILTERS_ID } from "@/apps/valoPortafolio/const/FiltersId";
-import { useContext } from "react";
-import { AppContext } from "@/context/AppContext";
 import { IS_DEVELOPMENT } from "@/config";
 
 const ACCESS_TOKEN = import.meta.env.VITE_PUBLIC_MAPBOX_TOKEN;
@@ -26,20 +23,11 @@ const INITIAL_CONFIG = {
   style: "mapbox://styles/emmsanchez/cmlkb6klk006e01sk40lig6he",
 };
 
-const CATEGORIES = {
-  [FILTERS_ID.INDUSTRIAL]: ["valo-santa-catarina", "valo-apodaca", "torreluna"],
-  [FILTERS_ID.RESIDENCIAL_VERTICAL]: ["montevo"],
-  [FILTERS_ID.RESIDENCIAL_HORIZONTAL]: [],
-  [FILTERS_ID.USOS_MIXTOS]: [],
-};
-
 export default function Map() {
   const mapContainerRef = useRef();
   const navigate = useNavigate();
   const [map, setMap] = useState(null);
   const [locationsData] = useState(LOCATIONS);
-  const { mapFilter } = useContext(AppContext);
-  const filteredLocations = mapFilter ? CATEGORIES[mapFilter] : null;
 
   const [activeFeature, setActiveFeature] = useState();
 
@@ -147,18 +135,12 @@ export default function Map() {
       >
         {map &&
           locationsData.features?.map((feature) => {
-            // if filteredLocations = null (cause map filter is null) => show all markers
-            const isVisible = filteredLocations
-              ? filteredLocations.includes(feature.properties.landmarkId)
-              : true;
-
             return (
               <Marker
                 key={feature.properties.id}
                 map={map}
                 feature={feature}
                 handleMarkerClick={handleMarkerClick}
-                isVisible={isVisible}
                 activeFeature={activeFeature}
               />
             );

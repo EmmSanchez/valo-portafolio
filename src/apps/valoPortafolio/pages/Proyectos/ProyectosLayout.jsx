@@ -5,6 +5,7 @@ export default function ProyectosLayout() {
   return (
     <>
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
+        {/* Logo Valo */}
         <div className="relative w-[clamp(50px,7.34vw,141px)]">
           <Link to="/" className="absolute inset-0">
             <LogoValoMark className="text-white" />

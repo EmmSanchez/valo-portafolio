@@ -12,15 +12,10 @@ export default function BackButton({
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { toggleSplashScreen } = useContext(AppContext);
-  const { selectMapFilter } = useContext(AppContext);
 
   const handleBack = () => {
     if (pathname === "/") {
       toggleSplashScreen(SPLASH_KEYS.PORTAFOLIO_SPLASH_KEY);
-    } else if (pathname.includes("/proyectos/")) {
-      // Clean useContext mapFilter
-      selectMapFilter(null);
-      navigate(to);
     } else {
       navigate(to);
     }

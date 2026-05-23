@@ -24,19 +24,11 @@ export function AppContextProvider({ children }) {
     setShowSplashScreen((prev) => ({ ...prev, [key]: nextValue }));
   };
 
-  const [mapFilter, setMapFilter] = useState(null);
-  const selectMapFilter = (value) => {
-    if (mapFilter === value) return setMapFilter(null);
-    setMapFilter(value);
-  };
-
   return (
     <AppContext.Provider
       value={{
         showSplashScreen,
         toggleSplashScreen,
-        selectMapFilter,
-        mapFilter,
       }}
     >
       {children}

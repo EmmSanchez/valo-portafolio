@@ -25,7 +25,7 @@ const Marker = ({
   map,
   feature,
   handleMarkerClick,
-  isVisible,
+  isVisible = true,
   activeFeature,
 }) => {
   const { geometry, properties } = feature;
