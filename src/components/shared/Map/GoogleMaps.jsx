@@ -12,20 +12,12 @@ import { FILTERS } from "@/apps/valoParkSantaCatarina/const/Filters";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
-const PUNTOS_INTERES_SUBFILTERS = {
-  TRANSPORTE_PUBLICO: "transporte",
-  CENTRO_COMERCIAL: "centro-comercial",
-  CENTROS_RECREATIVOS: "centros-recreativos",
-  SUPERMERCADOS: "supermercados",
-  CENTRO_DE_SALUD: "centro-salud",
-};
-
 const MARKER_COMPONENTS = {
-  [PUNTOS_INTERES_SUBFILTERS.TRANSPORTE_PUBLICO]: TransporteMarkers,
-  [PUNTOS_INTERES_SUBFILTERS.CENTRO_COMERCIAL]: CentroComercialMarkers,
-  [PUNTOS_INTERES_SUBFILTERS.CENTROS_RECREATIVOS]: CentrosRecreativosMarkers,
-  [PUNTOS_INTERES_SUBFILTERS.SUPERMERCADOS]: SupermercadosMarkers,
-  [PUNTOS_INTERES_SUBFILTERS.CENTRO_DE_SALUD]: CentrosSaludMarkers,
+  [FILTERS.TRANSPORTE_PUBLICO]: TransporteMarkers,
+  [FILTERS.CENTRO_COMERCIAL]: CentroComercialMarkers,
+  [FILTERS.CENTROS_RECREATIVOS]: CentrosRecreativosMarkers,
+  [FILTERS.SUPERMERCADOS]: SupermercadosMarkers,
+  [FILTERS.CENTRO_DE_SALUD]: CentrosSaludMarkers,
   [FILTERS.VIALIDADES]: () => (
     <>
       <VialidadesLayer />
@@ -34,9 +26,9 @@ const MARKER_COMPONENTS = {
   ),
 };
 
-export default function GoogleMaps({ filter, subFilter, isFilterValid }) {
-  const selectedFilter = filter === FILTERS.PUNTOS_INTERES ? subFilter : filter;
-  const ActiveMarkers = MARKER_COMPONENTS[selectedFilter] ?? null;
+export default function GoogleMaps({ filter, isFilterValid }) {
+  const ActiveMarkers = MARKER_COMPONENTS[filter] ?? null;
+
   return (
     <APIProvider apiKey={API_KEY}>
       <Map
