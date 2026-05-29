@@ -9,23 +9,26 @@ import Contacto from "./pages/Contacto/Contacto";
 import { VideoPlayerPortafolioProvider } from "./context/VideoPlayerPortafolioProvider.jsx";
 import VideoComponentLayout from "./Video/VideoComponentLayout";
 import EstadoDetalle from "./pages/Proyectos/EstadoDetalle";
+import RotationMessageLayout from "../valoParkSantaCatarina/layouts/valo-rotation-message-layout";
 
 export default function ValoPortafolioRoutes() {
   return (
     <VideoPlayerPortafolioProvider>
       <Routes>
         <Route element={<VideoComponentLayout />}>
-          <Route path="/" element={<Home />} />
+          <Route element={<RotationMessageLayout />}>
+            <Route path="/" element={<Home />} />
 
-          <Route path="/nosotros" element={<NosotrosLayout />}>
-            <Route index element={<Nosotros />} />
-          </Route>
+            <Route path="/nosotros" element={<NosotrosLayout />}>
+              <Route index element={<Nosotros />} />
+            </Route>
 
-          <Route path="/proyectos" element={<ProyectosLayout />}>
-            <Route index element={<Proyectos />} />
-            <Route path=":estado" element={<EstadoDetalle />} />
+            <Route path="/proyectos" element={<ProyectosLayout />}>
+              <Route index element={<Proyectos />} />
+              <Route path=":estado" element={<EstadoDetalle />} />
+            </Route>
+            <Route path="/contacto" element={<Contacto />} />
           </Route>
-          <Route path="/contacto" element={<Contacto />} />
         </Route>
       </Routes>
     </VideoPlayerPortafolioProvider>
