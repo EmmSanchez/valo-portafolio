@@ -8,6 +8,10 @@ import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 import { SPLASH_KEYS } from "@/components/shared/SplashScreen/const";
 import { LogoValo } from "@/apps/valoPortafolio/assets/logos/logo-valo";
 import { Link } from "react-router";
+import SocialIcon from "../../components/Buttons/social-icon";
+import Instagram from "../../assets/icons/social-icons/instagram";
+import Facebook from "../../assets/icons/social-icons/facebook";
+import Linkedin from "../../assets/icons/social-icons/linkedin";
 
 export default function Home() {
   const { showSplashScreen } = useContext(AppContext);
@@ -37,7 +41,23 @@ export default function Home() {
               <MainMenu />
               <BackButton />
             </div>
-            <PlayButton />
+            <div className="flex gap-[clamp(4px,1.197917vw,23px)]">
+              <SocialIcon
+                icon={Instagram}
+                href={"https://www.instagram.com/valodevelopers/"}
+                className="text-valo group-hover:text-white"
+              />
+              <SocialIcon
+                icon={Facebook}
+                href={"https://www.facebook.com/valodevelopers"}
+                className="text-valo group-hover:text-white"
+              />
+              <SocialIcon
+                icon={Linkedin}
+                href={"https://www.linkedin.com/company/valo-developers/"}
+                className="text-valo group-hover:text-white"
+              />
+            </div>
           </div>
         </>
       )}
