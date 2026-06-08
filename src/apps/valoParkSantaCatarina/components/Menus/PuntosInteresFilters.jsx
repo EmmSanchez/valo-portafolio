@@ -1,5 +1,5 @@
-import CircleIcon from "@/apps/foro4/assets/icons/ubicacion/CircleIcon";
 import { useSearchParams } from "react-router";
+import CircleIcon from "@/apps/foro4/assets/icons/ubicacion/CircleIcon";
 
 export default function PuntosInteresFilters({ activeFilter, filters }) {
   const [_, setSearchParams] = useSearchParams();
@@ -11,7 +11,7 @@ export default function PuntosInteresFilters({ activeFilter, filters }) {
 
   return (
     <div className="absolute z-50 right-[clamp(10.36px,1.82vw,35px)] top-1/2 -translate-y-1/2 pointer-events-none">
-      <div className="flex flex-col w-[clamp(103.95px,18.28vw,351px)] h-[clamp(118.75px,20.89vw,401px)] p-[clamp(7.4px,1.3vw,25px)] bg-santa-catarina pointer-events-auto">
+      <div className="flex flex-col w-[clamp(103.95px,18.28vw,351px)] h-[clamp(162.8px,28vw,551px)] p-[clamp(7.4px,1.3vw,25px)] bg-santa-catarina pointer-events-auto">
         {filters.map((button) => {
           const IconComponent = button.icon;
           return (
