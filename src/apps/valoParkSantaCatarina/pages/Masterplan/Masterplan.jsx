@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router";
+import { Navigate, useSearchParams } from "react-router";
 import { useContext } from "react";
 import { VideoPlayerContext } from "../../context/VideoPlayerContext";
 import { CircleIndicatorIcon } from "../../assets/icons/CicleIndicatorIcon";
@@ -11,6 +11,7 @@ import sc_pos3 from "../../assets/images/masterplan/submenu/sc_pos3.jpg";
 import sc_pos4 from "../../assets/images/masterplan/submenu/sc_pos4.jpg";
 import sc_pos5 from "../../assets/images/masterplan/submenu/sc_pos5.jpg";
 import sc360 from "../../assets/images/masterplan/submenu/sc_361.jpg";
+import MasterplanPin from "../../components/Masterplan/MasterplanPin";
 
 const POSICIONES = [
   {
@@ -45,6 +46,11 @@ export default function Masterplan() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const activePos = searchParams.get("position");
+  const validIds = [...POSICIONES.map((p) => p.id), "6"];
+
+  if (!activePos || !validIds.includes(activePos)) {
+    return <Navigate to="?position=1" replace />;
+  }
 
   return (
     <div className="w-dvw h-dvh flex default-padding pointer-events-none">
@@ -99,6 +105,16 @@ export default function Masterplan() {
                 isActive={activePos === "6"}
               />
             </button>
+          </div>
+
+          {/* Titulo y pin */}
+          <div className="absolute w-full h-full inset-0 z-10 pointer-events-none">
+            <p className="absolute left-1/2 -translate-x-[50%] top-[19vh] w-[clamp(286.85px,50.572917vw,971px)] py-[0.2vh] bg-white text-title-lg text-center text-santa-catarina font-lumarc font-bold uppercase border-b-[0.7vh] border-santa-catarina pointer-events-auto">
+              Visualicación Orbital
+            </p>
+
+            {/* Pin */}
+            <MasterplanPin />
           </div>
         </>
       )}

@@ -1,7 +1,6 @@
 import { Link, Outlet } from "react-router";
 import LogoValoParkSantaCatarina from "../../../assets/logos/logo-valoParkSC";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
-import MasterplanPin from "@/apps/valoParkSantaCatarina/components/Masterplan/MasterplanPin";
 
 export default function MasterplanBaseLayout() {
   return (
@@ -21,15 +20,6 @@ export default function MasterplanBaseLayout() {
             <LogoValoParkSantaCatarina />
           </Link>
         </div>
-      </div>
-
-      <div className="absolute w-full h-full inset-0 z-10 pointer-events-none">
-        <p className="absolute left-1/2 -translate-x-[50%] top-[19vh] w-[clamp(286.85px,50.572917vw,971px)] py-[0.2vh] bg-white text-title-lg text-center text-santa-catarina font-lumarc font-bold uppercase border-b-[0.7vh] border-santa-catarina pointer-events-auto">
-          Visualicación Orbital
-        </p>
-
-        {/* Pin */}
-        <MasterplanPin />
       </div>
 
       <Outlet />
