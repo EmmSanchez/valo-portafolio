@@ -16,11 +16,6 @@
       "to": "/valoPark/santaCatarina/masterplan?position=1"
     },
     {
-      "id": "vpsc_disponibilidad",
-      "label": "Disponibilidad",
-      "to": "/valoPark/santaCatarina/disponibilidad"
-    },
-    {
       "id": "vpsc_contacto",
       "label": "Contacto",
       "to": "/valoPark/santaCatarina/contacto"
