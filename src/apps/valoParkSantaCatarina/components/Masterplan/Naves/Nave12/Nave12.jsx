@@ -4,6 +4,7 @@ import BackButton from "@/components/shared/Buttons/BackButton";
 import SubmenuMasterplan from "../../../Menus/SubmenuMasterplan";
 import { SUBMENU_MASTERPLAN } from "@/apps/valoParkSantaCatarina/data/SubmenuMasterplan";
 import WhastappIcon from "@/apps/valoParkSantaCatarina/assets/icons/WhastappIcon";
+import MailIcon from "@/apps/valoParkSantaCatarina/assets/icons/MailIcon";
 
 const SUBMENU_NAVES = [
   {
@@ -59,13 +60,14 @@ export default function Nave12() {
         </div>
       </div>
 
-      {/* Botón CTA */}
-      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-        <button className="pointer-events-auto group w-[clamp(92.01px,16.20vw,311px)] h-[clamp(20.74px,6.48vh,70px)] landscape:w-[clamp(110px,19vw,360px)] landscape:h-[clamp(28px,8vh,90px)] landscape:px-[clamp(16px,3vw,55px)] flex justify-between items-center px-[clamp(13.31px,2.34vw,45px)] bg-white border-[clamp(0.89px,0.16vw,3px)] border-valo backdrop-blur-2xl hover:bg-santa-catarina hover:cursor-pointer">
-          <p className="text-nave-button font-semibold text-santa-catarina group-hover:text-white whitespace-nowrap">
-            Me interesa
-          </p>
-          <WhastappIcon className="size-[clamp(7.99px,1.41vw,27px)] text-santa-catarina group-hover:text-white" />
+      {/* Botón Whatsapp y Correo */}
+      <div className="absolute inset-0 flex justify-center items-end default-padding gap-[clamp(5.02px,0.885417vw,17px)] pointer-events-none">
+        <button className="pointer-events-auto group p-[clamp(5.02px,0.885417vw,17px)] bg-santa-catarina hover:bg-santa-catarina-grey hover:cursor-pointer">
+          <WhastappIcon className="size-[clamp(13.9px,2.447917vw,47px)] text-white group-hover:text-white" />
+        </button>
+
+        <button className="pointer-events-auto group p-[clamp(5.02px,0.885417vw,17px)] bg-santa-catarina hover:bg-santa-catarina-grey hover:cursor-pointer">
+          <MailIcon className="size-[clamp(13.9px,2.447917vw,47px)] text-white group-hover:text-white" />
         </button>
       </div>
 
