@@ -1,13 +1,13 @@
 {
   "home": {
     "type": "portada",
-    "loop": true,
-    "src": "/foro4-videos/portadas/2 VALO FORO 4 PORTADA IDLE.mp4"
+    "loop": false,
+    "src": "/foro4-videos/portadas/1 VALO FORO 4 PORTADA.mp4"
   },
   "bienvenida": {
     "type": "portada",
     "loop": false,
-    "src": "/foro4-videos/portadas/1 VALO FORO 4 PORTADA.mp4"
+    "src": "/foro4-videos/portadas/0 VALO FORO 4 BIENVENIDA IDLE.mp4"
   },
   "locales": {
     "type": "portada",

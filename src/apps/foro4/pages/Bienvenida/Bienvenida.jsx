@@ -1,9 +1,8 @@
-import { Link, useOutletContext } from "react-router";
+import { Link } from "react-router";
 import ClickIcon from "../../assets/icons/ClickIcon";
 import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-white-green.svg";
 
 export default function Bienvenida() {
-  const { portadaEnded } = useOutletContext();
   return (
     <div
       className={`w-full h-svh flex flex-col justify-center items-center bg-foro4-morado/70 gap-[clamp(29.54px,5.208333vw,100px)] backdrop-blur-[5px]`}
@@ -19,7 +18,7 @@ export default function Bienvenida() {
       </div>
       <Link
         to={"/foro4/inicio"}
-        className={`group relative flex items-center justify-center overflow-hidden p-[clamp(7.39px,1.302083vw,25px)] gap-[clamp(4.43px,0.78125vw,15px)] bg-white shadow-[0_10px_35px_rgba(0,0,0,0.22)] hover:shadow-[0_14px_45px_rgba(0,0,0,0.32)] hover:scale-[1.03] active:scale-[0.985] hover:cursor-pointer transition-all duration-500 ease-out ${portadaEnded ? "translate-y-0 opacity-100 blur-0" : "translate-y-[1vw] opacity-0 blur-[10px] pointer-events-none"}`}
+        className={`group relative flex items-center justify-center overflow-hidden p-[clamp(7.39px,1.302083vw,25px)] gap-[clamp(4.43px,0.78125vw,15px)] bg-white shadow-[0_10px_35px_rgba(0,0,0,0.22)] hover:shadow-[0_14px_45px_rgba(0,0,0,0.32)] hover:scale-[1.03] active:scale-[0.985] hover:cursor-pointer transition-all duration-500 ease-out`}
       >
         <p className="text-paragraph-button text-foro4-morado font-semibold uppercase">
           Iniciar Experiencia
