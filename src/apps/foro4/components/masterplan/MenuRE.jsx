@@ -1,9 +1,9 @@
 import { useSearchParams } from "react-router";
 import { useContext } from "react";
-import pos1 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos1.jpg";
-import pos2 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos2.jpg";
-import pos3 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos3.jpg";
-import pos4 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos4.jpg";
+import pos1 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos1.webp";
+import pos2 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos2.webp";
+import pos3 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos3.webp";
+import pos4 from "@/apps/foro4/assets/images/masterplan/rotacion-exteriores/foro4-pos4.webp";
 import CircleIcon from "../../assets/icons/ubicacion/CircleIcon";
 import { VideoPlayerContext } from "../../video/context/VideoPlayerContext";
 import { MODE } from "../../video/const/Videos";
@@ -56,7 +56,7 @@ export default function MenuRE() {
             <img
               src={button.img}
               alt={`Posición ${button.id}`}
-              className="absolute inset-0 object-fill"
+              className="absolute inset-0 w-full h-full object-cover"
             />
 
             {/* Overlay */}
