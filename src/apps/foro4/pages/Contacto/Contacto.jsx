@@ -17,6 +17,7 @@ export default function Contacto() {
     const data = Object.fromEntries(formData);
     console.log(data);
   };
+
   return (
     <div className="relative w-full h-svh default-foro4-padding">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
@@ -150,7 +151,11 @@ export default function Contacto() {
       {/* Content */}
       <div className="flex w-full h-full items-end pointer-events-none">
         <BackButton
-          to={"/foro4/inicio"}
+          to={
+            local
+              ? `/foro4/masterplan/locales-disponibles/${localSlug}/recorrido-360`
+              : "/foro4/inicio"
+          }
           className="bg-white text-foro4-morado pointer-events-auto"
         />
       </div>
