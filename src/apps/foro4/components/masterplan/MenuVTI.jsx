@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router";
+import PinIcon from "@/apps/foro4/assets/icons/masterplan/video-tour/pin.svg";
 import LobbyIcon from "@/apps/foro4/assets/icons/masterplan/video-tour/elevador.svg";
 import CentralIcon from "@/apps/foro4/assets/icons/masterplan/video-tour/central.svg";
 import ComidaIcon from "@/apps/foro4/assets/icons/masterplan/video-tour/restaurante.svg";
@@ -15,54 +16,60 @@ import { MODE } from "../../video/const/Videos";
 const VENTAJAS = [
   {
     id: "1",
+    label: "Ubicación",
+    icon: PinIcon,
+    slug: "ubicacion",
+  },
+  {
+    id: "2",
     label: "Motor Lobby",
     icon: LobbyIcon,
     slug: "motor-lobby",
   },
   {
-    id: "2",
+    id: "3",
     label: "Área Central",
     icon: CentralIcon,
     slug: "area-central",
   },
   {
-    id: "3",
+    id: "4",
     label: "Zona de Comida",
     icon: ComidaIcon,
     slug: "zona-de-comida",
   },
   {
-    id: "4",
+    id: "5",
     label: "Área de Juegos",
     icon: JuegosIcon,
     slug: "area-de-juegos",
   },
   {
-    id: "5",
+    id: "6",
     label: "Terraza Techada",
     icon: TerrazaIcon,
     slug: "terraza-techada",
   },
   {
-    id: "6",
+    id: "7",
     label: "Edificio de Oficinas",
     icon: OficinasIcon,
     slug: "edificio-oficinas",
   },
   {
-    id: "7",
+    id: "8",
     label: "Hotel 5 estrellas",
     icon: HotelIcon,
     slug: "hotel-5-estrellas",
   },
   {
-    id: "8",
+    id: "9",
     label: "Estacionamiento Subterráneo",
     icon: EstacionamientoIcon,
     slug: "estacionamiento-subterraneo",
   },
   {
-    id: "9",
+    id: "10",
     label: "Locales disponibles",
     icon: LocalesIcon,
     slug: "locales-disponibles",
