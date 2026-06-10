@@ -25,51 +25,63 @@ import DetalleLocalInformacion from "./pages/Masterplan/DetalleLocal/DetalleLoca
 import { VideoPlayerProvider } from "./video/context/VideoPlayerProvider";
 import VideoComponentLayout from "./video/VideoComponentLayout";
 import Bienvenida from "./pages/Bienvenida/Bienvenida";
+import RotationMessageLayout from "./layouts/RotationMessageLayout";
 
 export default function Foro4Routes() {
   return (
     <VideoPlayerProvider>
       <Routes>
         <Route path="/foro4" element={<VideoComponentLayout />}>
-          {/* Bienvenida */}
-          <Route index element={<Navigate to="/foro4/bienvenida" replace />} />
-          <Route path="bienvenida" element={<Bienvenida />} />
-
-          {/* Home */}
-          <Route path="inicio" element={<Home />} />
-          <Route path="video" element={<HomeVideo />} />
-
-          {/* Pages */}
-          <Route path="informacion" element={<Informacion />} />
-          <Route path="ubicacion" element={<Ubicacion />} />
-          <Route path="contacto" element={<Contacto />} />
-
-          {/* Masterplan */}
-          <Route path="masterplan">
-            <Route index element={<Masterplan />} />
-            <Route path="vista-cenital" element={<VistaCenital />} />
+          <Route element={<RotationMessageLayout />}>
+            {/* Bienvenida */}
             <Route
-              path="locales-disponibles"
-              element={<LocalesDisponibles />}
+              index
+              element={<Navigate to="/foro4/bienvenida" replace />}
             />
+            <Route path="bienvenida" element={<Bienvenida />} />
 
-            <Route path="rotacion-orbital" element={<RotacionOrbital />} />
-            <Route path="recorrido-360/" element={<Recorrido360 />} />
-            <Route path="recorrido-360/:sceneId" element={<Recorrido360 />} />
-            <Route path="video-tour" element={<VideoTour />} />
-            <Route path="foto-galeria" element={<FotoGaleria />} />
+            {/* Home */}
+            <Route path="inicio" element={<Home />} />
+            <Route path="video" element={<HomeVideo />} />
 
-            {/* DetalleLocal como layout con sus subrutas */}
-            <Route path="locales-disponibles/:slug" element={<DetalleLocal />}>
+            {/* Pages */}
+            <Route path="informacion" element={<Informacion />} />
+            <Route path="ubicacion" element={<Ubicacion />} />
+            <Route path="contacto" element={<Contacto />} />
+
+            {/* Masterplan */}
+            <Route path="masterplan">
+              <Route index element={<Masterplan />} />
+              <Route path="vista-cenital" element={<VistaCenital />} />
               <Route
-                path="recorrido-360"
-                element={<DetalleLocalRecorrido360 />}
+                path="locales-disponibles"
+                element={<LocalesDisponibles />}
               />
-              <Route path="informacion" element={<DetalleLocalInformacion />} />
+
+              <Route path="rotacion-orbital" element={<RotacionOrbital />} />
+              <Route path="recorrido-360/" element={<Recorrido360 />} />
+              <Route path="recorrido-360/:sceneId" element={<Recorrido360 />} />
+              <Route path="video-tour" element={<VideoTour />} />
+              <Route path="foto-galeria" element={<FotoGaleria />} />
+
+              {/* DetalleLocal como layout con sus subrutas */}
               <Route
-                path="foto-galeria"
-                element={<DetalleLocalFotoGaleria />}
-              />
+                path="locales-disponibles/:slug"
+                element={<DetalleLocal />}
+              >
+                <Route
+                  path="recorrido-360"
+                  element={<DetalleLocalRecorrido360 />}
+                />
+                <Route
+                  path="informacion"
+                  element={<DetalleLocalInformacion />}
+                />
+                <Route
+                  path="foto-galeria"
+                  element={<DetalleLocalFotoGaleria />}
+                />
+              </Route>
             </Route>
           </Route>
         </Route>

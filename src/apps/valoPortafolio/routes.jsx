@@ -9,7 +9,7 @@ import Contacto from "./pages/Contacto/Contacto";
 import { VideoPlayerPortafolioProvider } from "./context/VideoPlayerPortafolioProvider.jsx";
 import VideoComponentLayout from "./Video/VideoComponentLayout";
 import EstadoDetalle from "./pages/Proyectos/EstadoDetalle";
-import RotationMessageLayout from "../valoParkSantaCatarina/layouts/valo-rotation-message-layout";
+import RotationMessageLayout from "./layouts/valo-rotation-message-layout";
 
 export default function ValoPortafolioRoutes() {
   return (
