@@ -4,7 +4,6 @@ import Slide2 from "../../components/Carousel/Slides/Slide2";
 import Slide3 from "../../components/Carousel/Slides/Slide3";
 import { CircleIndicatorIcon } from "../../assets/icons/CircleIndicatorIcon";
 import { Carrousel } from "@/components/shared/Carrousel/Carrousel";
-import Slide4 from "../../components/Carousel/Slides/Slide4";
 
 // BOTÓNES DE NAVEGACIÓN
 const navIndicator = (index, isActive) =>
@@ -23,7 +22,7 @@ export default function Nosotros() {
       <div className="relative z-10 flex flex-col self-end items-start w-full h-full default-padding">
         <div className="w-full h-full">
           <Carrousel
-            slides={[<Slide1 />, <Slide2 />, <Slide3 />, <Slide4 />]}
+            slides={[<Slide1 />, <Slide2 />, <Slide3 />]}
             navIndicator={navIndicator}
           />
         </div>
