@@ -4,14 +4,29 @@ import LogoValoParkSantaCatarina from "../../assets/logos/logo-valoParkSC";
 import { SendIcon } from "@/apps/valoPortafolio/assets/icons/SendIcon";
 import { Link } from "react-router";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
+import { useState } from "react";
+import { submitContactForm } from "@/lib/api";
 
 export default function Contacto() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
-    console.log(data);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    const form = e.currentTarget;
+    setIsSubmitting(true);
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      await submitContactForm("valo-park-santa-catarina", data);
+      form.reset();
+      console.log("Correo enviado con éxito");
+    } catch (error) {
+      console.error("Error:", error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return (
     <div className="flex w-dvw h-dvh default-padding pointer-events-none">
@@ -139,10 +154,11 @@ export default function Contacto() {
             <div className="absolute z-10 bottom-0 right-0 default-padding">
               <button
                 type="submit"
-                className="group flex w-[clamp(180px,16.2vw,311px)] h-[clamp(38px,3.65vw,70px)] justify-between items-center px-[29px] 2xl:px-11.25 bg-santa-catarina hover:bg-santa-catarina-grey hover:cursor-pointer -translate-y-0.5"
+                disabled={isSubmitting}
+                className="group flex w-[clamp(180px,16.2vw,311px)] h-[clamp(38px,3.65vw,70px)] justify-between items-center px-[29px] 2xl:px-11.25 bg-santa-catarina hover:bg-santa-catarina-grey hover:cursor-pointer -translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="text-paragraph-button font-semibold text-white group-hover:font-bold">
-                  Enviar
+                  {isSubmitting ? "Enviando..." : "Enviar"}
                 </span>
 
                 <span className="relative w-[clamp(13px,1.3vw,25px)] h-[clamp(15px,1.46vw,28px)]">

@@ -1,23 +1,36 @@
+import { useState } from "react";
 import { Link, useSearchParams } from "react-router";
 import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-purple-green.svg";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import { SendIcon } from "@/apps/valoPortafolio/assets/icons/SendIcon";
 import { LOCALES } from "../../data/locales-caracteristicas";
+import { submitContactForm } from "@/lib/api";
 
 export default function Contacto() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [searchParams] = useSearchParams();
 
   const localSlug = searchParams.get("local");
   const local = LOCALES[localSlug];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
 
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
-    console.log(data);
+    const form = e.currentTarget;
+    setIsSubmitting(true);
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      await submitContactForm("foro4", data);
+      form.reset();
+      console.log("Correo enviado con éxito");
+    } catch (error) {
+      console.error("Error:", error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
   return (
     <div className="relative w-full h-svh default-foro4-padding">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
@@ -131,10 +144,11 @@ export default function Contacto() {
             <div className="absolute z-10 bottom-0 right-0 default-padding">
               <button
                 type="submit"
-                className="group flex w-[clamp(180px,16.2vw,311px)] h-[clamp(38px,3.65vw,70px)] justify-between items-center px-[29px] 2xl:px-11.25 bg-foro4-morado hover:bg-foro4-verde hover:cursor-pointer -translate-y-0.5"
+                disabled={isSubmitting}
+                className="group flex w-[clamp(180px,16.2vw,311px)] h-[clamp(38px,3.65vw,70px)] justify-between items-center px-[29px] 2xl:px-11.25 bg-foro4-morado hover:bg-foro4-verde hover:cursor-pointer -translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="text-paragraph-button font-semibold text-white group-hover:font-bold">
-                  Enviar
+                  {isSubmitting ? "Enviando..." : "Enviar"}
                 </span>
 
                 <span className="relative w-[clamp(13px,1.3vw,25px)] h-[clamp(15px,1.46vw,28px)]">
