@@ -5,6 +5,7 @@ import BackButton from "@/components/shared/Buttons/BackButton";
 import { SendIcon } from "@/apps/valoPortafolio/assets/icons/SendIcon";
 import { LOCALES } from "../../data/locales-caracteristicas";
 import { submitContactForm } from "@/lib/api";
+import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 
 export default function Contacto() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,14 +34,25 @@ export default function Contacto() {
   };
   return (
     <div className="relative w-full h-svh default-foro4-padding">
-      <div className="absolute top-0 left-0 z-50 default-logo-padding">
-        <Link to={"/foro4/inicio"}>
-          <img
-            src={logo}
-            alt="Lofo de FORO 4"
-            className="w-[clamp(59.13px,10.416667vw,200px)] h-[clamp(6.51px,1.145833vw,22px)] "
-          />
-        </Link>
+      <div className="absolute top-0 left-0 z-50 w-full h-fit default-logo-padding-around">
+        <div className="relative flex justify-between items-center w-full h-full">
+          {/* Logo Valo */}
+          <Link
+            to="/"
+            className="flex w-[clamp(50px,7.34vw,141px)] pointer-events-auto"
+          >
+            <LogoValoMark className="text-valo" />
+          </Link>
+
+          {/* Logo Foro */}
+          <Link to={"/foro4/inicio"}>
+            <img
+              src={logo}
+              alt="Logo de FORO 4"
+              className="w-[clamp(59.13px,10.416667vw,200px)]"
+            />
+          </Link>
+        </div>
       </div>
 
       {/* Overlay */}

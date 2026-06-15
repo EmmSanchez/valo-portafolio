@@ -13,6 +13,7 @@ import IMAGE8 from "@/apps/foro4/assets/images/masterplan/foto-galeria/FOTOGALER
 import IMAGE9 from "@/apps/foro4/assets/images/masterplan/foto-galeria/FOTOGALERIA-FORO4-9.jpg";
 import IMAGE10 from "@/apps/foro4/assets/images/masterplan/foto-galeria/FOTOGALERIA-FORO4-10.jpg";
 import IMAGE11 from "@/apps/foro4/assets/images/masterplan/foto-galeria/FOTOGALERIA-FORO4-11.jpg";
+import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 
 const FOTO_GALERIA_IMAGES = [
   IMAGE1,
@@ -38,14 +39,25 @@ const navIndicator = (index, isActive) =>
 export default function FotoGaleria() {
   return (
     <div className="w-full h-svh default-foro4-padding bg-foro4-morado">
-      <div className="absolute top-0 left-0 z-50 default-logo-padding">
-        <Link to={"/foro4/inicio"}>
-          <img
-            src={logo}
-            alt="Lofo de FORO 4"
-            className="w-[clamp(59.13px,10.416667vw,200px)] h-[clamp(6.51px,1.145833vw,22px)] "
-          />
-        </Link>
+      <div className="absolute top-0 left-0 z-50 w-full h-fit default-logo-padding-around">
+        <div className="relative flex justify-between items-center w-full h-full">
+          {/* Logo Valo */}
+          <Link
+            to="/"
+            className="flex w-[clamp(50px,7.34vw,141px)] pointer-events-auto"
+          >
+            <LogoValoMark className="text-valo" />
+          </Link>
+
+          {/* Logo Foro */}
+          <Link to={"/foro4/inicio"}>
+            <img
+              src={logo}
+              alt="Logo de FORO 4"
+              className="w-[clamp(59.13px,10.416667vw,200px)]"
+            />
+          </Link>
+        </div>
       </div>
 
       {/* Content */}

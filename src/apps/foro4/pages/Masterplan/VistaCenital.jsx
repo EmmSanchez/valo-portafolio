@@ -18,6 +18,7 @@ import edificioIcon from "@/apps/foro4/assets/icons/masterplan/popup/edificio.sv
 import camaIcon from "@/apps/foro4/assets/icons/masterplan/popup/cama.svg";
 import amenidadesIcon from "@/apps/foro4/assets/icons/masterplan/popup/amenidades.svg";
 import salonIcon from "@/apps/foro4/assets/icons/masterplan/popup/salon.svg";
+import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 
 const SUBMENU_VISTA_CENITAL = [
   {
@@ -83,22 +84,33 @@ export default function VistaCenital() {
 
   return (
     <div className="w-full h-svh">
-      <div className="absolute top-0 left-0 z-60 default-logo-padding">
-        <Link to={"/foro4/inicio"}>
-          <img
-            src={logo}
-            alt="Lofo de FORO 4"
-            className="w-[clamp(59.13px,10.416667vw,200px)] h-[clamp(6.51px,1.145833vw,22px)] "
-          />
-        </Link>
-      </div>
-
       {/* Pines */}
       <VistaCenitalPins />
 
       {/* Content */}
       <div className="relative flex w-full h-full">
-        <div className="flex flex-1 min-w-0 h-full justify-center items-center"></div>
+        <div className="relative flex flex-1 min-w-0 h-full justify-center items-center">
+          <div className="absolute top-0 left-0 z-50 w-full h-fit default-logo-padding-around">
+            <div className="relative flex justify-between items-center w-full h-full">
+              {/* Logo Valo */}
+              <Link
+                to="/"
+                className="flex w-[clamp(50px,7.34vw,141px)] pointer-events-auto"
+              >
+                <LogoValoMark className="text-valo" />
+              </Link>
+
+              {/* Logo Foro */}
+              <Link to={"/foro4/inicio"}>
+                <img
+                  src={logo}
+                  alt="Logo de FORO 4"
+                  className="w-[clamp(59.13px,10.416667vw,200px)]"
+                />
+              </Link>
+            </div>
+          </div>
+        </div>
 
         <div className="shrink-0 h-full flex items-center">
           <SubmenuLateral buttons={SUBMENU_VISTA_CENITAL} />

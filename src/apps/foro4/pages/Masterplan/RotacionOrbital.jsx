@@ -6,6 +6,7 @@ import logo from "@/apps/foro4/assets/logos/main/logo-foro-4-purple-green.svg";
 import BackButton from "@/components/shared/Buttons/BackButton";
 import ScrollIcon from "@/apps/foro4/assets/icons/masterplan/rotacion-orbital/scroll.svg";
 import VideoOrbital from "/foro4-videos/rotacion-orbital/32 VALO FORO 4 ROTACION ORBITAL.mp4";
+import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 
 export default function RotacionOrbital() {
   const videoRef = useRef(null);
@@ -29,14 +30,25 @@ export default function RotacionOrbital() {
 
   return (
     <div className="w-full h-svh default-foro4-padding">
-      <div className="absolute top-0 left-0 z-50 default-logo-padding">
-        <Link to={"/foro4/inicio"}>
-          <img
-            src={logo}
-            alt="Lofo de FORO 4"
-            className="w-[clamp(59.13px,10.416667vw,200px)] h-[clamp(6.51px,1.145833vw,22px)]"
-          />
-        </Link>
+      <div className="absolute top-0 left-0 z-50 w-full h-fit default-logo-padding-around">
+        <div className="relative flex justify-between items-center w-full h-full">
+          {/* Logo Valo */}
+          <Link
+            to="/"
+            className="flex w-[clamp(50px,7.34vw,141px)] pointer-events-auto"
+          >
+            <LogoValoMark className="text-valo" />
+          </Link>
+
+          {/* Logo Foro */}
+          <Link to={"/foro4/inicio"}>
+            <img
+              src={logo}
+              alt="Logo de FORO 4"
+              className="w-[clamp(59.13px,10.416667vw,200px)]"
+            />
+          </Link>
+        </div>
       </div>
 
       {/* Content */}
