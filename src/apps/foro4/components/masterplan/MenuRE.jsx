@@ -41,7 +41,7 @@ export default function MenuRE() {
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col items-end w-full">
       {ROTACION_BUTTONS.map((button) => {
         const isActive = button.id === position;
 
@@ -51,7 +51,7 @@ export default function MenuRE() {
             data-active={isActive}
             disabled={mode === MODE.TRANSITIONING}
             onClick={() => handleChangePosition(button.id)}
-            className={`group relative flex justify-end items-center w-full h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(2.95px,0.520833vw,10px)] bg-foro4-morado overflow-hidden ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer" : "pointer-events-none"}`}
+            className={`group relative flex justify-end items-center w-[clamp(62px,19.231vw,140px)] lg:w-full h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(2.95px,0.520833vw,10px)] bg-foro4-morado overflow-hidden ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer" : "pointer-events-none"}`}
           >
             <img
               src={button.img}
@@ -67,7 +67,7 @@ export default function MenuRE() {
               `}
             />
 
-            <span className="flex relative size-[clamp(16px,1.25vw,24px)]">
+            <span className="flex relative size-[clamp(5.7px,1.786vw,13px)] lg:size-[clamp(16px,1.25vw,24px)]">
               <CircleIcon
                 className="text-white group-hover:fill-white group-data-[active=true]:fill-white
 "

@@ -83,17 +83,17 @@ export default function VideoTour() {
   const activeVentaja = searchParams.get("ventaja");
   return (
     <div className="flex w-dvw h-dvh default-padding pointer-events-none">
-      <div className="absolute h-full right-[clamp(10.36px,1.82vw,35px)] top-1/2 -translate-y-1/2 flex flex-col justify-center gap-[clamp(2.96px,0.52vw,10px)] pointer-events-none">
-        <div className="flex flex-col justify-between w-[clamp(116.87px,20.57vw,395.1px)] h-fit p-[clamp(2.96px,0.52vw,10px)] gap-[clamp(2.96px,0.52vw,10px)] bg-santa-catarina">
+      <div className="absolute h-full right-[clamp(10.36px,1.82vw,35px)] top-1/2 -translate-y-1/2 max-lg:pt-4 flex flex-col justify-center gap-[clamp(2.96px,0.52vw,10px)] pointer-events-none">
+        <div className="flex flex-col justify-between lg:w-[clamp(116.87px,20.57vw,395.1px)] h-fit p-[clamp(2.96px,0.52vw,10px)] gap-[clamp(2.96px,0.52vw,10px)] bg-santa-catarina">
           {VENTAJAS.map((ventaja) => {
             return (
               <button
                 key={ventaja.id}
                 onClick={() => setSearchParams({ ventaja: ventaja.slug })}
                 disabled={mode === MODE.TRANSITIONING}
-                className={`group flex justify-between items-center h-full py-[clamp(6.5px,1.145833vw,22px)] px-[clamp(5.91px,1.041667vw,20px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto  ${mode === MODE.TRANSITIONING ? "" : "hover:cursor-pointer hover:bg-santa-catarina-grey"} ${activeVentaja === ventaja.slug ? "font-bold bg-santa-catarina-grey" : "bg-santa-catarina"}`}
+                className={`group flex justify-between items-center h-full py-[0.8vh] lg:py-[clamp(6.5px,1.145833vw,22px)] px-[clamp(5.91px,1.041667vw,20px)] max-lg:gap-4 rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto  ${mode === MODE.TRANSITIONING ? "" : "hover:cursor-pointer hover:bg-santa-catarina-grey"} ${activeVentaja === ventaja.slug ? "font-bold bg-santa-catarina-grey" : "bg-santa-catarina"}`}
               >
-                <p className="text-paragraph-button font-semibold whitespace-nowrap">
+                <p className="text-mobile-button lg:text-paragraph-button font-semibold whitespace-nowrap">
                   {ventaja.label}
                 </p>
 

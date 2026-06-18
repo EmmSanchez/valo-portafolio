@@ -48,7 +48,7 @@ const ESPECIFICACIONES = [
 
 export default function Slide2() {
   return (
-    <div className="flex flex-col w-full h-full items-center justify-center gap-[clamp(8.86px,1.5625vw,30px)]">
+    <div className="flex flex-col w-full h-full items-center justify-center gap-[1.4vh] lg:gap-[clamp(8.86px,1.5625vw,30px)]">
       {/* Title */}
       <div className="text-center text-title-lg font-lumarc font-bold uppercase text-white leading-[120%]">
         Primer{" "}
@@ -64,14 +64,14 @@ export default function Slide2() {
           return (
             <div
               key={especificacion.id}
-              className="flex flex-col h-[22vh] justify-center items-center py-[clamp(11.52px,2.03125vw,39px)] px-[clamp(4.43px,0.78125vw,15px)] gap-[clamp(4.43px,0.78125vw,15px)] text-foro4-morado bg-white border-b-5 border-foro4-verde"
+              className="flex flex-col h-[19vh] lg:h-[22vh] justify-center items-center py-[clamp(11.52px,2.03125vw,39px)] px-[clamp(4.43px,0.78125vw,15px)] gap-[clamp(4.43px,0.78125vw,15px)] text-foro4-morado bg-white border-b-5 border-foro4-verde"
             >
               <img
                 src={especificacion.icon}
-                className="relative size-[clamp(25px,2.86vw,55px)]"
+                className="relative size-[clamp(8.8px,2.747vw,20px)] lg:size-[clamp(25px,2.86vw,55px)]"
               />
 
-              <p className="text-label text-center max-w-[75%]">
+              <p className="text-mobile-title-md lg:text-label text-center max-w-[75%]">
                 {especificacion.label}
               </p>
             </div>

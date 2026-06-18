@@ -51,6 +51,8 @@
 
   /* Mobile landscape */
   --text-mobile-button: clamp(4.5px, 1.422vw, 12px);
+  --text-mobile-title-2xl: clamp(7.5px, 2.37vw, 20px);
+  --text-mobile-title-xl: clamp(6.8px, 2.133vw, 18px);
   --text-mobile-title-lg: clamp(5.3px, 1.659vw, 14px);
   --text-mobile-title-md: clamp(4.1px, 1.303vw, 11px);
   --text-mobile-title-xs: clamp(3px, 0.948vw, 8px);

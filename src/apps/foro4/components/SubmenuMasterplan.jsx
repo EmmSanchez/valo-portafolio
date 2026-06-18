@@ -12,8 +12,8 @@ export default function SubmenuMasterplan() {
   };
 
   return (
-    <div className="w-[clamp(180px,16.2vw,311px)] py-2 px-3 2xl:px-5 xl:py-6.25 bg-white">
-      <p className="flex justify-center items-center w-full max-w-67.75 2xl:h-17 py-1 2xl:px-6.25 2xl:py-3.75 text-title-button text-foro4-morado uppercase">
+    <div className="w-[clamp(170px,16.2vw,311px)] py-2 px-3 2xl:px-5 xl:py-6.25 bg-white">
+      <p className="flex justify-center items-center w-full max-w-67.75 2xl:h-17 py-1 2xl:px-6.25 2xl:py-3.75 text-mobile-title-lg lg:text-title-button text-foro4-morado uppercase">
         Sub Menú
       </p>
 
@@ -27,12 +27,12 @@ export default function SubmenuMasterplan() {
             className={`flex items-center justify-between w-full h-[clamp(40px,3.65vw,70px)] px-3.5 2xl:px-6.25 rounded-[40px] ${pathname === "/foro4/masterplan" ? "bg-foro4-morado" : ""}`}
           >
             <p
-              className={`text-paragraph-button rounded-[40px] font-bold ${pathname === "/foro4/masterplan" ? "font-bold text-white" : "font-semibold text-foro4-morado group-hover:text-white"}`}
+              className={`text-mobile-button lg:text-paragraph-button rounded-[40px] font-bold ${pathname === "/foro4/masterplan" ? "font-bold text-white" : "font-semibold text-foro4-morado group-hover:text-white"}`}
             >
               {label}
             </p>
 
-            <span className="relative size-[clamp(16px,1.25vw,24px)]">
+            <span className="relative size-[clamp(5.7px,1.786vw,13px)] lg:size-[clamp(16px,1.25vw,24px)]">
               <CircleIcon className="text-foro4-morado fill-foro4-morado group-hover:text-white group-data-[active=true]:text-white group-data-[active=true]:fill-white" />
             </span>
           </span>
@@ -47,11 +47,11 @@ export default function SubmenuMasterplan() {
               to={button.to}
               data-active={isActivePath(button.to)}
               // Si es active bold, si no semibold
-              className={`group flex items-center justify-between w-full h-[clamp(32px,2.34vw,45px)] px-3.5 2xl:px-6.25 text-paragraph-sub-button  tracking-tighter rounded-[40px] hover:font-bold hover:cursor-pointer font-semibold ${isActivePath(button.to) ? "bg-foro4-morado font-bold" : "hover:bg-foro4-morado hover:text-white text-foro4-morado font-semibold"}`}
+              className={`group flex items-center justify-between w-full h-[clamp(32px,2.34vw,45px)] px-3.5 2xl:px-6.25 text-mobile-button lg:text-paragraph-sub-button tracking-tighter rounded-[40px] hover:font-bold hover:cursor-pointer font-semibold ${isActivePath(button.to) ? "bg-foro4-morado font-bold" : "hover:bg-foro4-morado hover:text-white text-foro4-morado font-semibold"}`}
             >
               {button.label}
 
-              <span className="relative size-[clamp(16px,1.25vw,24px)]">
+              <span className="relative size-[clamp(5.7px,1.786vw,13px)] lg:size-[clamp(16px,1.25vw,24px)]">
                 <CircleIcon className="text-foro4-morado group-hover:text-white group-data-[active=true]:text-white group-data-[active=true]:fill-white" />
               </span>
             </Link>

@@ -16,16 +16,16 @@ export default function Slide1() {
 
       {/* Content */}
       <div className="flex w-full landscape:w-[70%] flex-col items-center justify-center px-[1vw] gap-[1vh] landscape:gap-[0.75vh] overflow-y-auto h-full py-2">
-        <h3 className="text-title text-center font-lumarc font-semibold uppercase tracking-widest text-foro4-verde shrink-0">
+        <h3 className="text-mobile-title-lg lg:text-title text-center font-lumarc font-semibold uppercase tracking-widest text-foro4-verde shrink-0">
           BIENVENIDO AL FUTURO DE LEÓN
         </h3>
 
-        <div className="flex flex-col text-center gap-[2vh] landscape:gap-[0.75vh]">
-          <div className="flex flex-col gap-[2vh]">
-            <p className="text-subtitle-slide font-bold font-lumarc uppercase text-white">
+        <div className="flex flex-col text-center gap-[2vh] landscape:gap-[1.4vh]">
+          <div className="flex flex-col gap-[1vh] lg:gap-[2vh]">
+            <p className="text-mobile-title-md lg:text-subtitle-slide font-bold font-lumarc uppercase text-white">
               Ubicación Estratégica:
             </p>
-            <p className="text-label text-white">
+            <p className="text-[1.2vw] lg:text-label text-white">
               Ubicada en una zona de alta visibilidad y fácil acceso en León.
               <br />
               Concepto de Estilo de Vida: ofrece una experiencia completa para
@@ -37,11 +37,11 @@ export default function Slide1() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-[2vh]">
-            <p className="text-subtitle-slide font-bold font-lumarc uppercase text-white">
+          <div className="flex flex-col gap-[1vh] lg:gap-[2vh]">
+            <p className="text-mobile-title-md lg:text-subtitle-slide font-bold font-lumarc uppercase text-white">
               Enfoque en Experiencias:
             </p>
-            <p className="text-label text-white">
+            <p className="text-[1.2vw] lg:text-label text-white">
               Se posiciona como un lugar para eventos y experiencias.
               <br />
               Atracción de Marcas y Negocios: El enfoque en atraer marcas
@@ -49,11 +49,11 @@ export default function Slide1() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-[2vh]">
-            <p className="text-subtitle-slide font-bold font-lumarc uppercase text-white">
+          <div className="flex flex-col gap-[1vh] lg:gap-[2vh]">
+            <p className="text-mobile-title-md lg:text-subtitle-slide font-bold font-lumarc uppercase text-white">
               Amplio Estacionamiento:
             </p>
-            <p className="text-label text-white">
+            <p className="text-[1.2vw] lg:text-label text-white">
               Facilita el acceso de clientes con suficiente capacidad para
               recibir visitantes.
               <br />

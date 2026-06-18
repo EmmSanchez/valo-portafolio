@@ -7,7 +7,7 @@ export default function MainMenuForo4() {
 
   return (
     <div className="w-[clamp(180px,16.2vw,311px)] px-1 py-2 2xl:px-5 2xl:py-6.25 bg-white">
-      <p className="flex justify-center items-center w-full max-w-67.75 2xl:h-17 py-1 2xl:px-6.25 2xl:py-3.75 text-title-button text-foro4-morado uppercase">
+      <p className="flex justify-center items-center w-full max-w-67.75 2xl:h-17 py-1 2xl:px-6.25 2xl:py-3.75 text-mobile-title-lg lg:text-title-button text-foro4-morado uppercase">
         Menú
       </p>
 
@@ -17,13 +17,13 @@ export default function MainMenuForo4() {
             <Link
               key={section.id}
               to={section.to}
-              className="group flex items-center justify-between w-full h-[clamp(32px,3.65vw,70px)] px-6.25 text-paragraph-button font-semibold rounded-[40px] hover:bg-foro4-morado hover:font-bold hover:cursor-pointer"
+              className="group flex items-center justify-between w-full h-[clamp(32px,3.65vw,70px)] px-6.25 text-mobile-button lg:text-paragraph-button font-semibold rounded-[40px] hover:bg-foro4-morado hover:font-bold hover:cursor-pointer"
             >
               <span className="text-foro4-morado group-hover:text-white">
                 {section.label}
               </span>
 
-              <span className="relative size-[clamp(16px,1.25vw,24px)]">
+              <span className="relative size-[clamp(4.5px,1.422vw,12px)] max-lg:p-1.5 lg:size-[clamp(16px,1.25vw,24px)]">
                 {/* Inactive */}
                 <span className="absolute inset-0 group-hover:hidden">
                   <CircleIndicatorIcon isActive={false} />
