@@ -69,7 +69,7 @@ export default function RotacionOrbital() {
             : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
-        <div className="flex justify-between lg:w-[clamp(92.75px,16.354167vw,314px)] lg:h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(7.39px,1.302083vw,25px)] py-[clamp(5.32px,0.9375vw,18px)] max-lg:gap-4 bg-foro4-morado pointer-events-auto">
+        <div className="flex justify-between items-center lg:w-[clamp(92.75px,16.354167vw,314px)] lg:h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(7.39px,1.302083vw,25px)] py-[clamp(5.32px,0.9375vw,18px)] max-lg:gap-4 bg-foro4-morado pointer-events-auto">
           <div className="flex size-[clamp(10.34px,1.822917vw,35px)] justify-center items-center">
             <img src={ScrollIcon} alt="Ícono de scroll" />
           </div>
