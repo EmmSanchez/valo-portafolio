@@ -30,7 +30,7 @@ export default function UbicacionLayout() {
         <div className="absolute z-10 flex flex-col self-end items-start w-fit default-padding gap-[5vh]">
           {/* TEXT CONTENT */}
           {!isFilterValid && (
-            <div className="w-[clamp(228.86px,40.26vw,773px)] h-[clamp(127.05px,22.34vw,429px)] p-[clamp(5.92px,1.04vw,20px)] gap-[clamp(4.44px,0.78vw,15px)] flex flex-col bg-white/85 backdrop-blur-xs border-b-10 border-santa-catarina">
+            <div className="w-[clamp(228.86px,40.26vw,773px)] h-[clamp(127.05px,22.34vw,429px)] p-[clamp(5.92px,1.04vw,20px)] gap-[clamp(4.44px,0.78vw,15px)] flex flex-col bg-white/85 backdrop-blur-xs border-b-5 lg:border-b-10 border-santa-catarina">
               <h3 className="text-title text-center text-santa-catarina font-lumarc font-semibold uppercase tracking-widest">
                 Ubicación
               </h3>

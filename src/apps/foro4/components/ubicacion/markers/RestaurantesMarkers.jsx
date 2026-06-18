@@ -23,7 +23,7 @@ export default function RestaurantesMarkers() {
   }, [map]);
 
   const opacity =
-    zoom === null ? 1 : Math.min(1, Math.max(0, (zoom - 13) / 0.1));
+    zoom === null ? 1 : Math.min(1, Math.max(0, (zoom - 12) / 0.1));
   return (
     <>
       {FORO4_COORDENADAS.RESTAURANTES.map((item) => {

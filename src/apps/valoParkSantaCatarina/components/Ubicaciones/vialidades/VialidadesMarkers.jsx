@@ -86,7 +86,7 @@ export default function VialidadesMarkers() {
   }, [map]);
 
   const opacity =
-    zoom === null ? 1 : Math.min(1, Math.max(0, (zoom - 13.5) / 0.1));
+    zoom === null ? 1 : Math.min(1, Math.max(0, (zoom - 12) / 0.1));
   return (
     <>
       {LOCATIONS.map((location) => {

@@ -21,68 +21,68 @@ export default function NavesIndustriales() {
           {/* Características de las Naves */}
           <div className="grid grid-cols-3">
             {/* Primera Caratetistica */}
-            <div className="w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
+            <div className="w-[clamp(66px,20.604vw,150px)] lg:w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
               <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
                 <AlmacenIcon />
               </span>
 
-              <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+              <p className="flex-1 text-mobile-title-md lg:text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
                 Lote: <strong>878 m2</strong> <br /> Bodega:{" "}
                 <strong>698 m2</strong>
               </p>
             </div>
 
             {/* Segunda Caratetistica */}
-            <div className="w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
+            <div className="w-[clamp(66px,20.604vw,150px)] lg:w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
               <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
                 <CintaMedicionIcon />
               </span>
 
-              <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+              <p className="flex-1 text-mobile-title-md lg:text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
                 Altura libre 8 metros
               </p>
             </div>
 
             {/* Tercera Caratetistica */}
-            <div className="w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
+            <div className="w-[clamp(66px,20.604vw,150px)] lg:w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
               <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
                 <RampaIcon />
               </span>
 
-              <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+              <p className="flex-1 text-mobile-title-md lg:text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
                 Rampa
               </p>
             </div>
 
             {/* Cuarta Caratetistica */}
-            <div className="w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
+            <div className="w-[clamp(66px,20.604vw,150px)] lg:w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
               <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
                 <PlataformaIcon />
               </span>
 
-              <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+              <p className="flex-1 text-mobile-title-md lg:text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
                 Anden
               </p>
             </div>
 
             {/* Quinta Caratetistica */}
-            <div className="w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
+            <div className="w-[clamp(66px,20.604vw,150px)] lg:w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
               <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
                 <LamicaIcon />
               </span>
 
-              <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+              <p className="flex-1 text-mobile-title-md lg:text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
                 Cubierta de Lamina <strong>KR18</strong>
               </p>
             </div>
 
             {/* Sexta Caratetistica */}
-            <div className="w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
+            <div className="w-[clamp(66px,20.604vw,150px)] lg:w-[clamp(128.07px,22.55vw,433px)] h-[clamp(75.26px,23.52vh,254px)] flex flex-col items-center justify-center px-2 py-2 gap-2 md:px-2.5 md:py-4 md:gap-2.5 2xl:px-3.75 2xl:py-9.75 2xl:gap-3.75 text-white border-b lg:border-b-2 border-white bg-santa-catarina">
               <span className="flex flex-1 items-end size-[clamp(18px,2.86vw,55px)]">
                 <VentanaIcon />
               </span>
 
-              <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
+              <p className="flex-1 text-mobile-title-md lg:text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
                 Skylights 5%
               </p>
             </div>

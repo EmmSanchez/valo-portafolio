@@ -32,10 +32,10 @@ export default function MapDebugger() {
   return (
     <>
       <div className="fixed bottom-4 right-4 z-[9999] bg-black/90 text-green-400 font-mono text-xl px-4 py-3 rounded-lg border border-green-400/20 shadow-xl pointer-events-none">
-        <p className="text-white/40 uppercase tracking-widest text-[20px] mb-2">
+        <p className="text-white/40 uppercase tracking-widest text-[10px] lg:text-[20px] mb-2">
           Map Debug
         </p>
-        <div className="space-y-1">
+        <div className="max-lg:text-[10px] space-y-1">
           <p>
             🔍 zoom <span className="text-white ml-2">{info.zoom ?? "—"}</span>
           </p>

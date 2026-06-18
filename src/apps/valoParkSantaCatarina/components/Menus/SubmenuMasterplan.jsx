@@ -11,8 +11,8 @@ export default function SubmenuMasterplan({ submenu }) {
   };
 
   return (
-    <div className="w-[clamp(180px,16.2vw,311px)] py-2 px-3 2xl:px-5 xl:py-6.25 bg-santa-catarina">
-      <p className="flex justify-center items-center w-full max-w-67.75 2xl:h-17 py-1 2xl:px-6.25 2xl:py-3.75 text-title-button uppercase">
+    <div className="w-[clamp(170px,16.2vw,311px)] pt-1 lg:py-2 px-3 2xl:px-5 xl:py-6.25 bg-santa-catarina">
+      <p className="flex justify-center items-center w-full max-w-67.75 2xl:h-17 py-1 2xl:px-6.25 2xl:py-3.75 text-mobile-title-lg lg:text-title-button uppercase">
         Menú
       </p>
 
@@ -23,15 +23,15 @@ export default function SubmenuMasterplan({ submenu }) {
           className="group rounded-[40px] hover:bg-santa-catarina-grey hover:cursor-pointer"
         >
           <span
-            className={`flex items-center justify-between w-full h-[clamp(40px,3.65vw,70px)] px-3.5 2xl:px-6.25 rounded-[40px] ${pathname === "/valoPark/santaCatarina/masterplan" ? "bg-santa-catarina-grey" : ""}`}
+            className={`flex items-center justify-between w-full h-[clamp(35px,3.65vw,70px)] px-3.5 2xl:px-6.25 rounded-[40px] ${pathname === "/valoPark/santaCatarina/masterplan" ? "bg-santa-catarina-grey" : ""}`}
           >
             <p
-              className={`text-paragraph-button rounded-[40px] font-bold text-white ${pathname === "/valoPark/santaCatarina/masterplan" ? "font-bold" : "font-semibold"}`}
+              className={`text-mobile-button lg:text-paragraph-button rounded-[40px] font-bold text-white ${pathname === "/valoPark/santaCatarina/masterplan" ? "font-bold" : "font-semibold"}`}
             >
               {label}
             </p>
 
-            <span className="relative size-[clamp(16px,1.25vw,24px)]">
+            <span className="relative size-[clamp(4.5px,1.422vw,12px)] max-lg:p-1.5 lg:size-[clamp(16px,1.25vw,24px)]">
               {/* Inactive */}
               <span className="absolute inset-0 group-hover:hidden group-data-[active=true]:hidden">
                 <CircleIndicatorIcon isActive={false} />
@@ -54,11 +54,11 @@ export default function SubmenuMasterplan({ submenu }) {
               to={button.to}
               data-active={isActivePath(button.to)}
               // Si es active bold, si no semibold
-              className={`group flex items-center justify-between w-full h-[clamp(32px,2.34vw,45px)] px-3.5 2xl:px-6.25 text-paragraph-sub-button  tracking-tighter rounded-[40px] hover:font-bold hover:cursor-pointer font-semibold ${isActivePath(button.to) ? "bg-santa-catarina-grey font-bold" : "hover:bg-santa-catarina-grey font-semibold"}`}
+              className={`group flex items-center justify-between w-full h-[clamp(32px,3.65vw,70px)] px-3.5 2xl:px-6.25 text-mobile-button lg:text-paragraph-sub-button tracking-tighter rounded-[40px] hover:font-bold hover:cursor-pointer font-semibold ${isActivePath(button.to) ? "bg-santa-catarina-grey font-bold" : "hover:bg-santa-catarina-grey font-semibold"}`}
             >
               {button.label}
 
-              <span className="relative size-[clamp(16px,1.25vw,24px)]">
+              <span className="relative size-[clamp(4.5px,1.422vw,12px)] max-lg:p-1.5 lg:size-[clamp(16px,1.25vw,24px)]">
                 {/* Inactive */}
                 <span className="absolute inset-0 group-hover:hidden group-data-[active=true]:hidden">
                   <CircleIndicatorIcon isActive={false} />

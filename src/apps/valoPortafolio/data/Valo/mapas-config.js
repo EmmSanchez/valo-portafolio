@@ -4,6 +4,7 @@ export const MAPAS_CONFIG = {
   "nuevo-leon": {
     id: MAP_ID,
     zoom: 11,
+    zoomMobile: 10,
     maxZoom: 6,
     heading: 9,
     center: { lat: 25.756332, lng: -100.35618 },
@@ -11,6 +12,7 @@ export const MAPAS_CONFIG = {
   guanajuato: {
     id: MAP_ID,
     zoom: 14,
+    zoomMobile: 13,
     maxZoom: 6,
     heading: 9,
     center: { lat: 21.17487, lng: -101.668533 },

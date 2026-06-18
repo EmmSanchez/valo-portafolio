@@ -49,8 +49,13 @@
   --text-card-md: clamp(17.75px, 3.125vw, 24px);
   --text-card-lg: clamp(19.24px, 3.385417vw, 26px);
 
-  /* Animación pop-in para markers */
-  /* Bounce solo una vez al aparecer */
+  /* Mobile landscape */
+  --text-mobile-button: clamp(4.5px, 1.422vw, 12px);
+  --text-mobile-title-lg: clamp(5.3px, 1.659vw, 14px);
+  --text-mobile-title-md: clamp(4.1px, 1.303vw, 11px);
+  --text-mobile-title-xs: clamp(3px, 0.948vw, 8px);
+
+  /* Animación pop-in para markers */ /* Bounce solo una vez al aparecer */
   --animate-bounce-once: bounce-once 0.4s ease;
 
   @keyframes bounce-once {

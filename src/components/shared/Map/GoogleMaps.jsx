@@ -9,6 +9,7 @@ import VialidadesMarkers from "@/apps/valoParkSantaCatarina/components/Ubicacion
 import MapContent from "./MapContent";
 import { MAP_CONFIG } from "@/apps/valoParkSantaCatarina/data/MapConfig";
 import { FILTERS } from "@/apps/valoParkSantaCatarina/const/Filters";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
@@ -29,6 +30,10 @@ const MARKER_COMPONENTS = {
 export default function GoogleMaps({ filter, isFilterValid }) {
   const ActiveMarkers = MARKER_COMPONENTS[filter] ?? null;
 
+  const isMobile = useIsMobile();
+  const zoom = isMobile ? MAP_CONFIG.mobileZoom : MAP_CONFIG.zoom;
+  const center = isMobile ? MAP_CONFIG.mobileCenter : MAP_CONFIG.center;
+
   return (
     <APIProvider apiKey={API_KEY}>
       <Map
@@ -36,8 +41,8 @@ export default function GoogleMaps({ filter, isFilterValid }) {
         mapTypeId="satellite"
         gestureHandling={filter === FILTERS.MASTERPLAN ? "none" : "greedy"}
         disableDefaultUI
-        defaultZoom={MAP_CONFIG.zoom}
-        defaultCenter={MAP_CONFIG.center}
+        defaultZoom={zoom}
+        defaultCenter={center}
         heading={MAP_CONFIG.heading}
         zoomControl={false}
         fullscreenControl={false}

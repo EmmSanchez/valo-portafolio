@@ -5,9 +5,14 @@ import VPSCLandmarkIcon from "@/apps/valoPortafolio/assets/icons/proyectos/marke
 import { MAP_CONFIG } from "@/apps/valoParkSantaCatarina/data/MapConfig";
 import { FILTERS } from "@/apps/valoParkSantaCatarina/const/Filters";
 import { VPSC_LANDMARK_POSITION } from "@/apps/valoParkSantaCatarina/data/MapConfig";
+import MapDebugger from "@/apps/valoPortafolio/components/GoogleMaps/NuevoLeon/MapDebugger";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function MapContent({ filter, ActiveMarkers, isFilterValid }) {
   const map = useMap();
+  const isMobile = useIsMobile();
+  const zoom = isMobile ? MAP_CONFIG.mobileZoom : MAP_CONFIG.zoom;
+  const center = isMobile ? MAP_CONFIG.mobileCenter : MAP_CONFIG.center;
 
   useEffect(() => {
     if (!map) return;
@@ -16,8 +21,8 @@ export default function MapContent({ filter, ActiveMarkers, isFilterValid }) {
       map.panTo({ lat: 25.68919, lng: -100.4880694 });
       map.setZoom(18);
     } else {
-      map.panTo(MAP_CONFIG.center);
-      map.setZoom(MAP_CONFIG.zoom);
+      map.panTo(center);
+      map.setZoom(zoom);
     }
   }, [map, filter]);
 
