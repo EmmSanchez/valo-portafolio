@@ -1,11 +1,11 @@
 import BackButton from "@/components/shared/Buttons/BackButton";
 import imageContacto from "../../assets/images/contactobg.jpg";
-import LogoValoParkSantaCatarina from "../../assets/logos/logo-valoParkSC";
 import { SendIcon } from "@/apps/valoPortafolio/assets/icons/SendIcon";
 import { Link } from "react-router";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 import { useState } from "react";
 import { submitContactForm } from "@/lib/api";
+import LogoValoParkSantaCatarinaWhite from "../../assets/logos/logo-valoParkSC-white";
 
 export default function Contacto() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,7 +52,7 @@ export default function Contacto() {
             to="/valoPark/santaCatarina"
             className="absolute inset-0 pointer-events-auto"
           >
-            <LogoValoParkSantaCatarina />
+            <LogoValoParkSantaCatarinaWhite />
           </Link>
         </div>
       </div>
@@ -173,7 +173,7 @@ export default function Contacto() {
       </div>
 
       <BackButton
-        to="/valoPark/santaCatarina"
+        to="/valoPark/santaCatarina/inicio"
         className="self-end pointer-events-auto bg-santa-catarina hover:bg-santa-catarina-grey"
       />
     </div>

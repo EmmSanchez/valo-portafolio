@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import Home from "./pages/Home/Home";
 import Informacion from "./pages/Informacion/Informacion";
 import Ubicacion from "./pages/Ubicacion/Ubicacion";
@@ -26,6 +26,7 @@ import Nave12FotoGaleria from "./components/Masterplan/Naves/Nave12/Nave12FotoGa
 import Nave11VideoTour from "./components/Masterplan/Naves/Nave11/Nave11VideoTour";
 import Nave12VideoTour from "./components/Masterplan/Naves/Nave12/Nave12VideoTour";
 import RotationMessageLayoutVPSC from "./layouts/RotationMessageLayoutVPSC";
+import Bienvenida from "./pages/Bienvenida/Bienvenida";
 
 export default function ValoParkSantaCatarinaRoutes() {
   return (
@@ -36,7 +37,17 @@ export default function ValoParkSantaCatarinaRoutes() {
           element={<VideoComponentLayout />}
         >
           <Route element={<RotationMessageLayoutVPSC />}>
-            <Route index element={<Home />} />
+            <Route
+              index
+              element={
+                <Navigate to="/valoPark/santaCatarina/bienvenida" replace />
+              }
+            />
+            <Route
+              path="/valoPark/santaCatarina/bienvenida"
+              element={<Bienvenida />}
+            />
+            <Route path="/valoPark/santaCatarina/inicio" element={<Home />} />
 
             {/* Información */}
             <Route

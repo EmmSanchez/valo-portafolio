@@ -1,11 +1,11 @@
 import { Outlet } from "react-router";
 import { useSearchParams } from "react-router";
 import BackButton from "@/components/shared/Buttons/BackButton";
-import LogoValoParkSantaCatarina from "../../assets/logos/logo-valoParkSC";
 import CompassIcon from "../../assets/icons/CompassIcon";
 import { FILTERS } from "../../const/Filters";
 import PuntosInteresFilters from "../../components/Menus/PuntosInteresFilters";
 import { MENU_UBICACION } from "../../data/menu-ubicacion";
+import LogoValoParkSantaCatarinaWhite from "../../assets/logos/logo-valoParkSC-white";
 
 export default function UbicacionLayout() {
   const [searchParams, _] = useSearchParams();
@@ -16,14 +16,14 @@ export default function UbicacionLayout() {
 
   const backTo = isFilterValid
     ? "/valoPark/santaCatarina/ubicacion"
-    : "/valoPark/santaCatarina";
+    : "/valoPark/santaCatarina/inicio";
 
   return (
     <>
       <div className="relative w-dvw h-dvh flex">
         {/* Logo */}
         <div className="absolute top-0 left-0 z-50 default-logo-padding">
-          <LogoValoParkSantaCatarina className="w-[clamp(58.33px,10.26vw,197px)] h-[clamp(17.76px,3.13vw,60px)]" />
+          <LogoValoParkSantaCatarinaWhite className="w-[clamp(58.33px,10.26vw,197px)] h-[clamp(17.76px,3.13vw,60px)]" />
         </div>
 
         {/* SUBMENU AND BACK BUTTON*/}

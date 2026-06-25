@@ -25,7 +25,7 @@ export default function Informacion() {
 
       <div>
         <BackButton
-          to="/valoPark/santaCatarina"
+          to="/valoPark/santaCatarina/inicio"
           className="bg-santa-catarina hover:bg-santa-catarina-grey text-white"
         />
       </div>

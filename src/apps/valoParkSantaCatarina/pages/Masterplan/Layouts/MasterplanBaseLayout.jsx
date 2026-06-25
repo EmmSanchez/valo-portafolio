@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router";
-import LogoValoParkSantaCatarina from "../../../assets/logos/logo-valoParkSC";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
+import LogoValoParkSantaCatarinaWhite from "@/apps/valoParkSantaCatarina/assets/logos/logo-valoParkSC-white";
 
 export default function MasterplanBaseLayout() {
   return (
@@ -17,7 +17,7 @@ export default function MasterplanBaseLayout() {
             to="/valoPark/santaCatarina"
             className="absolute inset-0 pointer-events-auto"
           >
-            <LogoValoParkSantaCatarina />
+            <LogoValoParkSantaCatarinaWhite />
           </Link>
         </div>
       </div>

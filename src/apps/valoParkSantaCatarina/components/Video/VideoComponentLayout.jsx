@@ -51,6 +51,8 @@ const POSITION_TO_CARACTERISTICA = {
 const VIDEOS_MAP = {
   // PORTADAS
   "/valoPark/santaCatarina": portadas.informacion,
+  "/valoPark/santaCatarina/bienvenida": portadas.informacion,
+  "/valoPark/santaCatarina/inicio": portadas.informacion,
   "/valoPark/santaCatarina/informacion": portadas.informacion,
   "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto":
     portadas.masterplan_ventajas,

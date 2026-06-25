@@ -2,7 +2,6 @@ import torrelunaImage from "@/apps/valoPortafolio/assets/images/proyectos/torrel
 import montevoImage from "@/apps/valoPortafolio/assets/images/proyectos/montevo-image.jpg";
 import VPSCImage from "@/apps/valoPortafolio/assets/images/proyectos/valo-sc-image.jpg";
 import ClickIcon from "../../assets/icons/proyectos/ClickIcon";
-import { VideoIcon } from "../../assets/icons/VideoIcon";
 
 export const PROYECTOS_NUEVO_LEON = [
   {

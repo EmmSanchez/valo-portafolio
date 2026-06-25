@@ -10,7 +10,7 @@ export default function MasterplanWithMenuLayout() {
         <SubmenuMasterplan submenu={SUBMENU_MASTERPLAN} />
 
         <BackButton
-          to="/valoPark/santaCatarina"
+          to="/valoPark/santaCatarina/inicio"
           className="self-end bg-santa-catarina hover:bg-santa-catarina-grey"
         />
       </div>
