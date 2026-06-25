@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 
 import Home from "./pages/Home/Home";
 import NosotrosLayout from "./pages/Nosotros/NosotrosLayout";
@@ -10,6 +10,7 @@ import { VideoPlayerPortafolioProvider } from "./context/VideoPlayerPortafolioPr
 import VideoComponentLayout from "./Video/VideoComponentLayout";
 import EstadoDetalle from "./pages/Proyectos/EstadoDetalle";
 import RotationMessageLayout from "./layouts/valo-rotation-message-layout";
+import Bienvenida from "./pages/Bienvenida/Bienvenida";
 
 export default function ValoPortafolioRoutes() {
   return (
@@ -17,7 +18,10 @@ export default function ValoPortafolioRoutes() {
       <Routes>
         <Route element={<VideoComponentLayout />}>
           <Route element={<RotationMessageLayout />}>
-            <Route path="/" element={<Home />} />
+            {/* Bienvenida */}
+            <Route index element={<Navigate to="/bienvenida" replace />} />
+            <Route path="bienvenida" element={<Bienvenida />} />
+            <Route path="/inicio" element={<Home />} />
 
             <Route path="/nosotros" element={<NosotrosLayout />}>
               <Route index element={<Nosotros />} />

@@ -9,8 +9,10 @@ import { VideoPlayerPortafolioContext } from "../context/VideoPlayerPortafolioCo
 
 const VIDEOS_MAP = {
   // PORTADAS
-  "/": portadas.home,
-  "/nosotros": portadas.home,
+  "/": portadas.staticHome,
+  "/bienvenida": portadas.staticHome,
+  "/inicio": portadas.loopHome,
+  "/nosotros": portadas.loopHome,
 };
 const EMPTY_JSON = {
   videos: [{ type: "idle", position: 1, src: "" }],

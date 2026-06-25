@@ -27,7 +27,7 @@ export default function Proyectos() {
 
       {/* Return button */}
       <div className="fixed bottom-0 z-30 default-padding">
-        <BackButton to="/" />
+        <BackButton to="/inicio" />
       </div>
     </div>
   );

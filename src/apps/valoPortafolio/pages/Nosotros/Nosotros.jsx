@@ -26,7 +26,7 @@ export default function Nosotros() {
             navIndicator={navIndicator}
           />
         </div>
-        <BackButton to="/" />
+        <BackButton to="/inicio" />
       </div>
     </div>
   );

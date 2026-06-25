@@ -31,7 +31,7 @@ export default function Contacto() {
     <div className="flex items-center justify-center w-dvw h-dvh bg-white">
       <div className="absolute top-0 left-0 z-50 default-logo-padding">
         <div className="relative w-[clamp(50px,7.34vw,141px)]">
-          <Link to="/" className="absolute inset-0">
+          <Link to="/inicio" className="absolute inset-0">
             <LogoValoMark className="text-valo" />
           </Link>
         </div>
@@ -145,7 +145,7 @@ export default function Contacto() {
 
       {/* Return button */}
       <div className="fixed bottom-0 left-0 z-30 default-padding">
-        <BackButton to="/" />
+        <BackButton to="/inicio" />
       </div>
     </div>
   );

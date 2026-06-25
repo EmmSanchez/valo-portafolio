@@ -1,7 +1,12 @@
 {
-  "home": {
+  "staticHome": {
+    "type": "portada",
+    "loop": false,
+    "src": "/videos/Portada/0_PORTADA_VALO_DEVELOPERS_FRAME1.mp4"
+  },
+  "loopHome": {
     "type": "portada",
     "loop": true,
-    "src": "/videos/Portada/1_PORTADA_PORTAFOLIO.mp4"
+    "src": "/videos/Portada/0_PORTADA_VALO_DEVELOPERS.mp4"
   }
 }
