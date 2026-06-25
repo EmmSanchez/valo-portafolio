@@ -22,14 +22,14 @@ export const PROYECTOS_NUEVO_LEON = [
       img: VPSCImage,
       colors: {
         border: "#2d2273", // morado
-        button: "#00245c", // azul valo
+        button: "#492F87",
         buttonActive: "#fff", // blanco
         background: "#00245c", // morado con opacidad
         textColor: "#fff",
         textColorActive: "#00245c",
       },
       cta: {
-        label: "Página",
+        label: "Plataforma Interactiva",
         icon: ClickIcon,
         href: "/valoPark/santaCatarina",
         target: "_self",
@@ -102,8 +102,8 @@ export const PROYECTOS_NUEVO_LEON = [
         textColorActive: "#00245c",
       },
       cta: {
-        label: "Reproducir video",
-        icon: VideoIcon,
+        label: "Sitio Web",
+        icon: ClickIcon,
         href: "https://montevo.com/",
         target: "_blank",
       },

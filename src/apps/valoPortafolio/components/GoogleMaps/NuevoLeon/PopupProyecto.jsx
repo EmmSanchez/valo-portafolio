@@ -1,4 +1,5 @@
 import CerrarIcon from "@/apps/foro4/assets/icons/CerrarIcon";
+import { ReturnIcon } from "@/apps/valoPortafolio/assets/icons/ReturnIcon";
 
 export default function PopupProyecto({ selectedProject, handleCleanParam }) {
   const colors = selectedProject?.properties.colors;
@@ -18,6 +19,23 @@ export default function PopupProyecto({ selectedProject, handleCleanParam }) {
       >
         <CerrarIcon className="size-[clamp(13.31px,2.34375vw,45px)]" />
       </button>
+
+      {/* Botón volver al mapa */}
+      <div className="absolute left-0 bottom-0 flex default-padding">
+        <button
+          onClick={handleCleanParam}
+          className="group flex justify-between items-center w-[clamp(170px,16.2vw,311px)] h-[clamp(38px,3.65vw,70px)] px-[29px] 2xl:px-11.25 hover:cursor-pointer -translate-y-0.5 bg-valo hover:bg-white text-white hover:text-valo"
+        >
+          <span className="text-mobile-button lg:text-paragraph-button font-semibold group-hover:font-bold">
+            Volver al Mapa
+          </span>
+          <span className="relative size-[clamp(4.5px,1.422vw,12px)] max-lg:p-1.5 lg:size-[clamp(16px,1.35vw,26px)]">
+            <span className="absolute inset-0">
+              <ReturnIcon />
+            </span>
+          </span>
+        </button>
+      </div>
 
       <div
         className={`flex w-[90vw] h-[61vh] gap-[clamp(4.43px,0.78125vw,15px)] ${selectedProject.properties.img ? "justify-between" : "justify-center"}`}
@@ -61,10 +79,10 @@ export default function PopupProyecto({ selectedProject, handleCleanParam }) {
                   ? "noopener noreferrer"
                   : undefined
               }
-              className={`flex items-center justify-between w-[clamp(75.6px,13.333333vw,256px)] p-[clamp(5.02px,0.885417vw,17px)] text-white ${selectedProject.landmarkId === "montevo" ? "flex-row-reverse" : ""}`}
+              className={`flex items-center justify-between lg:min-w-[150px] px-[clamp(5.02px,0.885417vw,17px)] gap-[clamp(7.09px,1.25vw,24px)] py-[clamp(5.91px,1.041667vw,20px)] text-white`}
               style={{ backgroundColor: colors.button }}
             >
-              <span className="text-[9px] lg:text-paragraph-button leading-none">
+              <span className="translate-y-0.5 text-[9px] font-semibold lg:text-paragraph-button whitespace-nowrap leading-none">
                 {selectedProject.properties.cta.label}
               </span>
 
