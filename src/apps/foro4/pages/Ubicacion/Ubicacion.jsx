@@ -56,7 +56,7 @@ export default function Ubicacion() {
       {/* Buttons and Submenu */}
       <div className="relative z-10 flex w-full h-full items-end justify-between pointer-events-none">
         {/* Texto y botón de regresar */}
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-[5vh]">
           {!activeFiler && (
             <div className="flex flex-col w-[36vw] lg:w-[42%] bg-foro4-morado border-b-4 border-foro4-verde px-[clamp(5.91px,1.041667vw,20px)] py-[clamp(8.86px,1.5625vw,30px)] gap-[clamp(4.43px,0.78125vw,15px)] pointer-events-auto">
               <h3 className="text-center text-title-lg font-lumarc font-bold uppercase">

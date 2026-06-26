@@ -41,7 +41,7 @@ export default function MenuRE() {
   };
 
   return (
-    <div className="flex flex-col items-end w-full">
+    <div className="flex flex-col items-end w-full gap-[clamp(4.43px,0.78125vw,15px)]">
       {ROTACION_BUTTONS.map((button) => {
         const isActive = button.id === position;
 
@@ -51,7 +51,7 @@ export default function MenuRE() {
             data-active={isActive}
             disabled={mode === MODE.TRANSITIONING}
             onClick={() => handleChangePosition(button.id)}
-            className={`group relative flex justify-end items-center w-[clamp(62px,19.231vw,140px)] lg:w-full h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(2.95px,0.520833vw,10px)] bg-foro4-morado overflow-hidden ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer" : "pointer-events-none"}`}
+            className={`group relative flex justify-end items-center w-[clamp(62px,19.231vw,140px)] lg:w-full max-w-[215px] h-[clamp(23.63px,4.166667vw,80px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(2.95px,0.520833vw,10px)] rounded-[clamp(14.8px,2.6vw,50px)] shadow-lg border border-white bg-foro4-morado overflow-hidden ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer" : "pointer-events-none"}`}
           >
             <img
               src={button.img}

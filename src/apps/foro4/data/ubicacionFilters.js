@@ -1,20 +1,19 @@
-import EdificioIcon from "../assets/icons/ubicacion/EdificioIcon";
-import BancoIcon from "../assets/icons/ubicacion/BancoIcon";
-import RestauranteIcon from "../assets/icons/ubicacion/RestauranteIcon";
-import HotelIcon from "../assets/icons/ubicacion/HotelIcon";
+import AvionIcon from "../assets/icons/ubicacion/AvionIcon";
 import BolsaIcon from "../assets/icons/ubicacion/BolsaIcon";
 import CircleIcon from "../assets/icons/ubicacion/CircleIcon";
+import GolfIcon from "../assets/icons/ubicacion/GolfIcon";
+import BusIcon from "../assets/icons/ubicacion/BusIcon";
 
 export const UBICACION_FILTERS = [
   {
-    id: "edificios-corporativos",
-    label: "Edificios corporativos",
-    icon: EdificioIcon,
+    id: "aeropuerto",
+    label: "Aeropuerto",
+    icon: AvionIcon,
   },
   {
-    id: "bancos",
-    label: "Bancos",
-    icon: BancoIcon,
+    id: "campo-golf",
+    label: "Campo de Golf",
+    icon: GolfIcon,
   },
   {
     id: "centros-comerciales",
@@ -22,14 +21,9 @@ export const UBICACION_FILTERS = [
     icon: BolsaIcon,
   },
   {
-    id: "restaurantes",
-    label: "Restaurantes",
-    icon: RestauranteIcon,
-  },
-  {
-    id: "hoteles",
-    label: "Hoteles",
-    icon: HotelIcon,
+    id: "transporte",
+    label: "Transporte público",
+    icon: BusIcon,
   },
   {
     id: "vialidades",
