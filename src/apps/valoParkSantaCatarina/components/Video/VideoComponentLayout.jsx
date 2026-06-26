@@ -53,7 +53,7 @@ const VIDEOS_MAP = {
   "/valoPark/santaCatarina/bienvenida": portadas.informacion,
   "/valoPark/santaCatarina/inicio": portadas.informacion,
   "/valoPark/santaCatarina/informacion": portadas.informacion,
-  "/valoPark/santaCatarina/masterplan/proyecto": portadas.masterplan_ventajas,
+  "/valoPark/santaCatarina/masterplan/proyecto": rde,
   "/valoPark/santaCatarina/masterplan/naves-industriales":
     portadas.naves_industriales,
   "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11":
@@ -65,12 +65,6 @@ const VIDEOS_MAP = {
   // Video tours y recorridos
   "/valoPark/santaCatarina/masterplan": rde,
   "/valoPark/santaCatarina/masterplan/proyecto/video-tour": vti_ventajas,
-  /*   
-    "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11/video-tour":
-      vti_nave11,
-    "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12/video-tour":
-      vti_nave12,
-  */
   "/valoPark/santaCatarina/masterplan/naves-industriales/video-tour":
     vti_nave12,
 };
@@ -109,11 +103,17 @@ export default function VideoComponentLayout() {
       },
     });
 
-  // PARA MASTERPLAN
+  // PARA MASTERPLAN Y VISTA CENITAL (QUE ES "MASTERPLAN/PROYECTO")
   useEffect(() => {
     if (!position) return;
     goTo(Number(position));
   }, [position]);
+
+  useEffect(() => {
+    if (pathname === "/valoPark/santaCatarina/masterplan/proyecto") {
+      goTo(6);
+    }
+  }, [pathname]);
 
   // PARA VTI VENTAJAS
   useEffect(() => {
