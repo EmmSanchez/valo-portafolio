@@ -15,18 +15,12 @@ import MasterplanWithMenuLayout from "./pages/Masterplan/Layouts/MasterplanWithM
 import Recorrido360 from "./components/Masterplan/Ventajas/Recorrido360";
 import VideoTour from "./components/Masterplan/Ventajas/VideoTour";
 import FotoGaleria from "./components/Masterplan/Ventajas/FotoGaleria";
-import Nave11 from "./components/Masterplan/Naves/Nave11/Nave11";
-import Nave12 from "./components/Masterplan/Naves/Nave12/Nave12";
 import NavesIndustriales from "./components/Masterplan/Naves/NavesIndustriales";
-import NavesLayout from "./pages/Masterplan/Layouts/NavesLayout";
-import Nave11Recorrido360 from "./components/Masterplan/Naves/Nave11/Nave11Recorrido360";
-import Nave11FotoGaleria from "./components/Masterplan/Naves/Nave11/Nave11FotoGaleria";
-import Nave12Recorrido360 from "./components/Masterplan/Naves/Nave12/Nave12Recorrido360";
-import Nave12FotoGaleria from "./components/Masterplan/Naves/Nave12/Nave12FotoGaleria";
-import Nave11VideoTour from "./components/Masterplan/Naves/Nave11/Nave11VideoTour";
-import Nave12VideoTour from "./components/Masterplan/Naves/Nave12/Nave12VideoTour";
 import RotationMessageLayoutVPSC from "./layouts/RotationMessageLayoutVPSC";
 import Bienvenida from "./pages/Bienvenida/Bienvenida";
+import NavesFotoGaleria from "./components/Masterplan/Naves/NavesFotoGaleria";
+import NavesVideoTour from "./components/Masterplan/Naves/NavesVideoTour";
+import NavesRecorrido360 from "./components/Masterplan/Naves/NavesRecorrido360";
 
 export default function ValoParkSantaCatarinaRoutes() {
   return (
@@ -75,7 +69,7 @@ export default function ValoParkSantaCatarinaRoutes() {
                 <Route index element={<Masterplan />} />
 
                 {/* Ventajas */}
-                <Route path="ventajas-de-proyecto">
+                <Route path="proyecto">
                   <Route index element={<Ventajas />} />
                 </Route>
 
@@ -86,36 +80,23 @@ export default function ValoParkSantaCatarinaRoutes() {
               </Route>
 
               {/* Ventajas hijos (sin submenu) */}
-              <Route
-                path="ventajas-de-proyecto/recorrido-360"
-                element={<Recorrido360 />}
-              />
-              <Route
-                path="ventajas-de-proyecto/video-tour"
-                element={<VideoTour />}
-              />
-              <Route
-                path="ventajas-de-proyecto/foto-galeria"
-                element={<FotoGaleria />}
-              />
+              <Route path="proyecto/recorrido-360" element={<Recorrido360 />} />
+              <Route path="proyecto/video-tour" element={<VideoTour />} />
+              <Route path="proyecto/foto-galeria" element={<FotoGaleria />} />
 
-              {/* Nave 11 y 12 con layout propio */}
+              {/* Naves Industriales hijos (sin submenu) */}
               <Route
-                path="naves-industriales/nave-11"
-                element={<NavesLayout />}
-              >
-                <Route index element={<Nave11 />} />
-                <Route path="recorrido-360" element={<Nave11Recorrido360 />} />
-                <Route path="video-tour" element={<Nave11VideoTour />} />
-                <Route path="foto-galeria" element={<Nave11FotoGaleria />} />
-              </Route>
-
-              <Route path="naves-industriales/nave-12">
-                <Route index element={<Nave12 />} />
-                <Route path="recorrido-360" element={<Nave12Recorrido360 />} />
-                <Route path="video-tour" element={<Nave12VideoTour />} />
-                <Route path="foto-galeria" element={<Nave12FotoGaleria />} />
-              </Route>
+                path="naves-industriales/recorrido-360"
+                element={<NavesRecorrido360 />}
+              />
+              <Route
+                path="naves-industriales/video-tour"
+                element={<NavesVideoTour />}
+              />
+              <Route
+                path="naves-industriales/foto-galeria"
+                element={<NavesFotoGaleria />}
+              />
             </Route>
 
             {/* Disponibilidad */}

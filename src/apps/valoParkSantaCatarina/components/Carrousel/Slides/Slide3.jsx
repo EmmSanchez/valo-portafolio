@@ -28,7 +28,10 @@ export default function Slide3() {
           </span>
 
           <p className="flex-1 text-label text-center px-[clamp(30px,4.5vw,95px)] landscape:px-[clamp(14px,3vw,30px)] font-lumarc leading-[120%]">
-            Área comercial de <strong>850m2</strong>
+            Área comercial de{" "}
+            <strong>
+              850 m<sup>2</sup>
+            </strong>
             <br />
             al frente del terreno.
           </p>

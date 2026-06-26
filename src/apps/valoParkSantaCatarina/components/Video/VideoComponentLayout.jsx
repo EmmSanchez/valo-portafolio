@@ -8,7 +8,6 @@ import { PLAYER, MODE } from "../../const/Videos";
 import { VideoPlayerContext } from "../../context/VideoPlayerContext";
 import rde from "../../data/Videos/rde.json";
 import vti_ventajas from "../../data/Videos/vti_ventajas.json";
-import vti_nave11 from "../../data/Videos/vti_nave11.json";
 import vti_nave12 from "../../data/Videos/vti_nave12.json";
 
 const VENTAJA_TO_POSITION = {
@@ -54,8 +53,7 @@ const VIDEOS_MAP = {
   "/valoPark/santaCatarina/bienvenida": portadas.informacion,
   "/valoPark/santaCatarina/inicio": portadas.informacion,
   "/valoPark/santaCatarina/informacion": portadas.informacion,
-  "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto":
-    portadas.masterplan_ventajas,
+  "/valoPark/santaCatarina/masterplan/proyecto": portadas.masterplan_ventajas,
   "/valoPark/santaCatarina/masterplan/naves-industriales":
     portadas.naves_industriales,
   "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11":
@@ -66,11 +64,14 @@ const VIDEOS_MAP = {
 
   // Video tours y recorridos
   "/valoPark/santaCatarina/masterplan": rde,
-  "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto/video-tour":
-    vti_ventajas,
-  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11/video-tour":
-    vti_nave11,
-  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12/video-tour":
+  "/valoPark/santaCatarina/masterplan/proyecto/video-tour": vti_ventajas,
+  /*   
+    "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11/video-tour":
+      vti_nave11,
+    "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12/video-tour":
+      vti_nave12,
+  */
+  "/valoPark/santaCatarina/masterplan/naves-industriales/video-tour":
     vti_nave12,
 };
 const EMPTY_JSON = {
@@ -93,7 +94,7 @@ export default function VideoComponentLayout() {
     useVideoPlayer({
       json: videosRunning ?? EMPTY_JSON,
       onPositionChange: (pos) => {
-        if (pathname.includes("ventajas-de-proyecto")) {
+        if (pathname.includes("proyecto")) {
           setSearchParams({ ventaja: POSITION_TO_VENTAJA[pos] });
           return;
         }

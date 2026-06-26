@@ -18,9 +18,16 @@ export default function Slide2() {
           Valo Park es un proyecto de bodegas industriales estratégicamente
           ubicado en el municipio de Santa Catarina. Un proyecto que nace a raíz
           de la demanda por espacio industrial Clase A en la ciudad. El parque
-          compone de 17 bodegas de 698m2, en terrenos de 878m2, y cumple con los
-          estándares más altos de la industria en cuanto a diseño, construcción,
-          y ubicación.
+          compone de 17 bodegas de{" "}
+          <span className="whitespace-nowrap">
+            698 m<sup>2</sup>
+          </span>
+          , en terrenos de{" "}
+          <span className="whitespace-nowrap">
+            878 m<sup>2</sup>
+          </span>
+          , y cumple con los estándares más altos de la industria en cuanto a
+          diseño, construcción, y ubicación.
         </p>
       </div>
     </div>

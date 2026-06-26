@@ -79,7 +79,7 @@ export default function VideoTour() {
       </div>
 
       <BackButton
-        to="/valoPark/santaCatarina/masterplan/ventajas-de-proyecto"
+        to="/valoPark/santaCatarina/masterplan/proyecto"
         className="self-end pointer-events-auto bg-santa-catarina hover:bg-santa-catarina-grey"
       />
     </div>

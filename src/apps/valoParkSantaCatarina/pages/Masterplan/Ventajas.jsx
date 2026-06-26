@@ -6,17 +6,17 @@ const SUBMENU_VENTAJAS = [
   {
     id: "recorrido",
     label: "Recorrido 360",
-    to: "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto/recorrido-360",
+    to: "/valoPark/santaCatarina/masterplan/proyecto/recorrido-360",
   },
   {
     id: "video_tour",
     label: "Video Tour",
-    to: "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto/video-tour?ventaja=ubicacion-privilegiada",
+    to: "/valoPark/santaCatarina/masterplan/proyecto/video-tour?ventaja=ubicacion-privilegiada",
   },
   {
     id: "galeria",
     label: "Foto Galería",
-    to: "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto/foto-galeria",
+    to: "/valoPark/santaCatarina/masterplan/proyecto/foto-galeria",
   },
 ];
 

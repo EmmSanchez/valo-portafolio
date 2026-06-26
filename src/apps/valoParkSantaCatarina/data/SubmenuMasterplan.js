@@ -4,8 +4,8 @@ export const SUBMENU_MASTERPLAN = {
   buttons: [
     {
       id: "ventajas-vpsc",
-      label: "Ventajas de proyecto",
-      to: "/valoPark/santaCatarina/masterplan/ventajas-de-proyecto",
+      label: "Proyecto",
+      to: "/valoPark/santaCatarina/masterplan/proyecto",
     },
     {
       id: "naves-vpsc",

@@ -76,7 +76,7 @@ export default function Contacto() {
             </div>
 
             {/* Inputs */}
-            <div className="grid grid-cols-2 gap-x-[clamp(7.99px,1.41vw,27px)] gap-y-[clamp(20.74px,6.48vh,70px)]">
+            <div className="grid grid-cols-2 gap-x-[clamp(7.99px,1.41vw,27px)] gap-y-[clamp(23.63px,4.166667vw,80px)]">
               {/* Nombre */}
               <input
                 type="text"
@@ -113,18 +113,6 @@ export default function Contacto() {
                 className="contact-input"
               />
 
-              {/* Nave */}
-              <input
-                type="text"
-                id="nave"
-                name="nave"
-                maxLength="100"
-                pattern="^[A-Za-z0-9ÁÉÍÓÚáéíóúÑñ\s.,'&\-]{2,100}$"
-                placeholder="Nave 11"
-                required
-                className="contact-input"
-              />
-
               {/* Teléfono */}
               <input
                 type="tel"
@@ -133,18 +121,6 @@ export default function Contacto() {
                 maxLength="15"
                 pattern="^[0-9+\(\)\s\-]{8,15}$"
                 placeholder="Número de teléfono"
-                required
-                className="contact-input"
-              />
-
-              {/* ¿Cómo te enteraste? */}
-              <input
-                type="text"
-                id="como_enteraste"
-                name="como_enteraste"
-                maxLength="100"
-                pattern="^[A-Za-z0-9ÁÉÍÓÚáéíóúÑñ\s.,'&\-]{2,100}$"
-                placeholder="¿Cómo te enteraste de nosotros?"
                 required
                 className="contact-input"
               />

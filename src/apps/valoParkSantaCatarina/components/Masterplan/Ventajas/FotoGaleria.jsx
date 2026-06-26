@@ -16,7 +16,6 @@ const FOTO_GALERIA_IMAGES = [
   FotoGaleria2,
   FotoGaleria3,
   FotoGaleria4,
-  FotoGaleria4,
   FotoGaleria5,
   FotoGaleria6,
   FotoGaleria7,
@@ -43,7 +42,7 @@ export default function FotoGaleria() {
       </div>
 
       <BackButton
-        to="/valoPark/santaCatarina/masterplan/ventajas-de-proyecto"
+        to="/valoPark/santaCatarina/masterplan/proyecto"
         className="self-end pointer-events-auto bg-santa-catarina hover:bg-santa-catarina-grey"
       />
     </div>

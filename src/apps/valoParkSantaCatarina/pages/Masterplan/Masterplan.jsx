@@ -1,4 +1,4 @@
-import { Navigate, useSearchParams } from "react-router";
+import { Link, Navigate, useSearchParams } from "react-router";
 import { useContext } from "react";
 import { VideoPlayerContext } from "../../context/VideoPlayerContext";
 import { CircleIndicatorIcon } from "../../assets/icons/CicleIndicatorIcon";
@@ -63,7 +63,7 @@ export default function Masterplan() {
                 key={posiciones.id}
                 onClick={() => setSearchParams({ position: posiciones.id })}
                 disabled={mode === MODE.TRANSITIONING}
-                className={`group relative overflow-hidden flex justify-end items-center w-[clamp(63.54px,11.197917vw,215px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] shadow-lg pointer-events-auto ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer " : ""}`}
+                className={`group relative overflow-hidden flex justify-end items-center w-[clamp(63.54px,11.197917vw,215px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] shadow-lg pointer-events-auto border border-white ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer " : ""}`}
               >
                 <img
                   src={posiciones.img}
@@ -85,10 +85,10 @@ export default function Masterplan() {
 
           {/* BOTÓN 360 */}
           <div className="absolute bottom-0 right-[clamp(10.36px,1.82vw,35px)] default-bottom-padding">
-            <button
-              onClick={() => setSearchParams({ position: "6" })}
+            <Link
+              to={"/valoPark/santaCatarina/masterplan/proyecto"}
               disabled={mode === MODE.TRANSITIONING}
-              className={`group relative overflow-hidden flex justify-end items-center w-[clamp(63.54px,11.197917vw,215px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto hover:cursor-pointer shadow-lg ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer hover:bg-santa-catarina-grey" : ""} ${activePos === "6" ? "bg-santa-catarina-grey" : "bg-santa-catarina"}`}
+              className={`group relative overflow-hidden flex justify-end items-center w-[clamp(63.54px,11.197917vw,215px)] px-[clamp(5.02px,0.885417vw,17px)] py-[clamp(6.66px,1.17vw,22.5px)] gap-[clamp(30.21px,5.31vw,102px)] rounded-[clamp(14.8px,2.6vw,50px)] pointer-events-auto hover:cursor-pointer shadow-lg border border-white ${mode !== MODE.TRANSITIONING ? "hover:cursor-pointer hover:bg-santa-catarina-grey" : ""} ${activePos === "6" ? "bg-santa-catarina-grey" : "bg-santa-catarina"}`}
             >
               <img
                 src={sc360}
@@ -104,13 +104,13 @@ export default function Masterplan() {
                 className={`relative z-10 size-[clamp(7.11px,1.25vw,24px)]`}
                 isActive={activePos === "6"}
               />
-            </button>
+            </Link>
           </div>
 
           {/* Titulo y pin */}
           <div className="absolute w-full h-full inset-0 z-10 pointer-events-none">
             <p className="absolute left-1/2 -translate-x-[50%] top-[19vh] w-[clamp(286.85px,50.572917vw,971px)] py-[0.2vh] bg-white text-title-lg text-center text-santa-catarina font-lumarc font-bold uppercase border-b-[0.7vh] border-santa-catarina pointer-events-auto">
-              Visualicación Orbital
+              Navegación Orbital
             </p>
 
             {/* Pin */}
