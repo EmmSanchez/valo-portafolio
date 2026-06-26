@@ -1,22 +1,21 @@
+import CarIcon from "@/apps/foro4/assets/icons/ubicacion/CarIcon";
+import AvionIcon from "../assets/icons/ubicacion/AvionIcon";
+
 export const FORO4_COORDENADAS = {
   EDIFICIOS_CORPORATIVOS: [
     {
-      id: "corporativo_punta_sur",
-      label: "Corporativo Punta Sur",
+      id: "minutos",
+      label: "30 minutos",
       labelSide: "right",
-      coordinates: { lat: 21.1658, lng: -101.6891 },
+      icon: CarIcon,
+      coordinates: { lat: 21.06877218657975, lng: -101.59376657552585 },
     },
     {
-      id: "torre_blvd_aeropuerto",
-      label: "Torre Blvd. Aeropuerto",
-      labelSide: "left",
-      coordinates: { lat: 21.1625, lng: -101.6975 },
-    },
-    {
-      id: "parque_industrial_aeropuerto",
-      label: "Parque Industrial Aeropuerto",
+      id: "aeropuerto",
+      label: "Guanajuato International Aeropuerto",
       labelSide: "right",
-      coordinates: { lat: 21.1595, lng: -101.683 },
+      icon: AvionIcon,
+      coordinates: { lat: 20.985951279769854, lng: -101.47895661860964 },
     },
   ],
 

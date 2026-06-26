@@ -4,7 +4,7 @@ import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
 import { FORO4_COORDENADAS } from "@/apps/foro4/data/map-coordenadas";
 import EdificioIcon from "@/apps/foro4/assets/icons/ubicacion/EdificioIcon";
 
-export default function BancosMarkers() {
+export default function GolfMarkers() {
   const map = useMap();
   const [zoom, setZoom] = useState(null);
 

@@ -13,10 +13,9 @@ export const FORO4_LANDMARK_POSITION = {
 };
 
 export const FORO4_MAP_FILTERS = {
-  EDIFICIOS_CORPORATIVOS: "edificios-corporativos",
-  BANCOS: "bancos",
+  AEROPUERTO: "aeropuerto",
+  GOLF: "campo-golf",
   CENTROS_COMERCIALES: "centros-comerciales",
-  RESTAURANTES: "restaurantes",
-  HOTELES: "hoteles",
+  TRANSPORTE: "transporte",
   VIALIDADES: "vialidades",
 };
