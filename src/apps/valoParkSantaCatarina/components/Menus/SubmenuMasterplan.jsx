@@ -5,6 +5,10 @@ import { useLocation } from "react-router";
 export default function SubmenuMasterplan({ submenu }) {
   const { label, buttons } = submenu;
   const { pathname } = useLocation();
+  const lastRouteIsProyect =
+    pathname === "/valoPark/santaCatarina/masterplan/proyecto";
+
+  console.log(lastRouteIsProyect);
 
   const isActivePath = (basePath) => {
     return pathname === basePath || pathname.startsWith(basePath + "/");
@@ -18,7 +22,11 @@ export default function SubmenuMasterplan({ submenu }) {
 
       <div className="flex flex-col">
         <Link
-          to={"/valoPark/santaCatarina/masterplan?position=1"}
+          to={
+            lastRouteIsProyect
+              ? "/valoPark/santaCatarina/masterplan?position=5"
+              : "/valoPark/santaCatarina/masterplan?position=1"
+          }
           data-active={pathname === "/valoPark/santaCatarina/masterplan"}
           className="group rounded-[40px] hover:bg-santa-catarina-grey hover:cursor-pointer"
         >
