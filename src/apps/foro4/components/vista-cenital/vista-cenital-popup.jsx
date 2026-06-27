@@ -20,7 +20,7 @@ export default function VistaCenitalPopup({ data }) {
         {/* Close */}
         <div className="flex shrink-0 justify-end">
           <Link
-            to="/foro4/masterplan/vista-cenital"
+            to="/foro4/masterplan/proyecto"
             className="group flex justify-center items-center p-[clamp(5.02px,0.885417vw,17px)] bg-white hover:bg-foro4-morado"
           >
             <CerrarIcon className="size-[clamp(13.31px,2.34375vw,45px)] text-foro4-negro group-hover:text-white" />
@@ -73,7 +73,7 @@ export default function VistaCenitalPopup({ data }) {
         {/* Back */}
         <div className="flex shrink-0">
           <BackButton
-            to="/foro4/masterplan/vista-cenital"
+            to="/foro4/masterplan/proyecto"
             className="bg-white text-foro4-morado"
           />
         </div>

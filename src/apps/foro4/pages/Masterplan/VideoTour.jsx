@@ -55,7 +55,7 @@ export default function VideoTour() {
         {/* Texto y botón de regresar */}
         <div className="flex flex-col">
           <BackButton
-            to="/foro4/masterplan/vista-cenital"
+            to="/foro4/masterplan/proyecto"
             className="bg-white text-foro4-morado"
           />
         </div>

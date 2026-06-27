@@ -38,7 +38,7 @@ export default function Recorrido360() {
         {/* Texto y botón de regresar */}
         <div className="flex flex-col pointer-events-none">
           <BackButton
-            to="/foro4/masterplan/vista-cenital"
+            to="/foro4/masterplan/proyecto"
             className="bg-white text-foro4-morado pointer-events-auto"
           />
         </div>

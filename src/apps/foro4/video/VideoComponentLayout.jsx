@@ -17,6 +17,7 @@ const VIDEOS_MAP = {
   // Rotación de exteriores
   "/foro4/masterplan": masterplanRDE,
   "/foro4/masterplan/vista-cenital": masterplanRDE,
+  "/foro4/masterplan/proyecto": masterplanRDE,
 
   // Masterplan VTI
   "/foro4/masterplan/video-tour": masterplanVTI,
@@ -75,7 +76,7 @@ export default function VideoComponentLayout() {
 
   // Masterplan RDE Position
   useEffect(() => {
-    if (pathname === "/foro4/masterplan/vista-cenital") {
+    if (pathname === "/foro4/masterplan/proyecto") {
       goTo(5);
     } else if (pathname === "/foro4/masterplan") {
       goTo(Number(position));

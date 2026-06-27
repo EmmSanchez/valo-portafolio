@@ -52,7 +52,7 @@ export default function Foro4Routes() {
             {/* Masterplan */}
             <Route path="masterplan">
               <Route index element={<Masterplan />} />
-              <Route path="vista-cenital" element={<VistaCenital />} />
+              <Route path="proyecto" element={<VistaCenital />} />
               <Route
                 path="locales-disponibles"
                 element={<LocalesDisponibles />}

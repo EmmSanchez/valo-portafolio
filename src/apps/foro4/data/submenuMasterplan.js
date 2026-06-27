@@ -3,9 +3,9 @@ export const SUBMENU_MASTERPLAN_FORO4 = {
   label: "Masterplan",
   buttons: [
     {
-      id: "vista-cenital",
-      label: "Vista Cenital",
-      to: "/foro4/masterplan/vista-cenital",
+      id: "proyecto",
+      label: "Proyecto",
+      to: "/foro4/masterplan/proyecto",
     },
     {
       id: "locales-disponibles",

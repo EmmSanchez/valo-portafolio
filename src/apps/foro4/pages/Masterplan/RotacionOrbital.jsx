@@ -55,7 +55,7 @@ export default function RotacionOrbital() {
       <div className="relative z-10 flex w-full h-full items-end justify-between pointer-events-none">
         <div className="flex flex-col pointer-events-none">
           <BackButton
-            to="/foro4/masterplan/vista-cenital"
+            to="/foro4/masterplan/proyecto"
             className="bg-white text-foro4-morado pointer-events-auto"
           />
         </div>
