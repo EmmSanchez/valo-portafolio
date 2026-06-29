@@ -1,9 +1,15 @@
 import { CircleIndicatorIcon } from "@/apps/valoPortafolio/assets/icons/CircleIndicatorIcon";
 import { Link } from "react-router";
 import data from "../../data/Valo/menu.json";
+import { track } from "@/trackIds";
 
 export default function MainMenu() {
   const { menu } = data;
+
+  function handleClick(item) {
+    track(`valo:menu:${item.id}:click`);
+  }
+
   return (
     <div className="w-[clamp(170px,16.2vw,311px)] px-1 py-1 lg:py-2 2xl:px-5 2xl:py-6.25 bg-valo">
       <p className="flex justify-center items-center w-full max-w-67.75 2xl:h-17 py-1 2xl:px-6.25 2xl:py-3.75 text-mobile-title-lg lg:text-title-button uppercase">
@@ -16,6 +22,7 @@ export default function MainMenu() {
             <Link
               key={section.id}
               to={section.to}
+              onClick={() => track(handleClick(section))}
               className="group flex items-center justify-between w-full h-[clamp(32px,3.65vw,70px)] px-6.25 text-mobile-button lg:text-paragraph-button font-semibold rounded-[40px] hover:bg-white hover:text-valo hover:font-bold hover:cursor-pointer"
             >
               {section.label}
