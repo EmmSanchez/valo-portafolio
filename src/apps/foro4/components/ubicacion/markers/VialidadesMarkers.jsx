@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useMap } from "@vis.gl/react-google-maps";
 import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
 import { FORO4_COORDENADAS } from "@/apps/foro4/data/map-coordenadas";
-import EdificioIcon from "@/apps/foro4/assets/icons/ubicacion/EdificioIcon";
 import { geojsonToVialidad } from "@/apps/valoParkSantaCatarina/utils/geojsonUtils";
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import rutaClouthier from "@/apps/foro4/data/geojson/ruta-clouthier.json";

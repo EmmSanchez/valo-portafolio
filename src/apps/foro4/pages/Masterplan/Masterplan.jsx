@@ -1,4 +1,4 @@
-import { Link, Navigate, useSearchParams } from "react-router";
+import { Link, Navigate, useLocation, useSearchParams } from "react-router";
 import { useContext, useState, useEffect } from "react";
 import { VideoPlayerContext } from "../../video/context/VideoPlayerContext";
 import BackButton from "@/components/shared/Buttons/BackButton";
@@ -10,10 +10,18 @@ import { MODE } from "../../video/const/Videos";
 import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 
 const VALID_POSITIONS = new Set([1, 2, 3, 4]);
+const ORIGIN_ROUTES = {
+  ubicacion: "/foro4/ubicacion",
+  home: "/foro4/inicio",
+};
 
 export default function Masterplan() {
   const { mode } = useContext(VideoPlayerContext);
   const [searchParams] = useSearchParams();
+
+  const location = useLocation();
+  const backTo = ORIGIN_ROUTES[location.state?.from] ?? "/foro4/inicio";
+
   const [pinVisible, setPinVisible] = useState(false);
   const position = Number(searchParams.get("position"));
 
@@ -28,7 +36,13 @@ export default function Masterplan() {
   }, [mode, position]);
 
   if (!position || !VALID_POSITIONS.has(position)) {
-    return <Navigate to="/foro4/masterplan?position=1" replace />;
+    return (
+      <Navigate
+        to="/foro4/masterplan?position=1"
+        replace
+        state={location.state}
+      />
+    );
   }
 
   return (
@@ -59,10 +73,7 @@ export default function Masterplan() {
         {/* Texto y botón de regresar */}
         <div className="flex flex-col">
           <SubmenuMasterplan />
-          <BackButton
-            to={"/foro4/inicio"}
-            className="bg-white text-foro4-morado"
-          />
+          <BackButton to={backTo} className="bg-white text-foro4-morado" />
         </div>
 
         {/* Menu de rotación de exteriores */}

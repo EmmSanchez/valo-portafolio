@@ -103,6 +103,7 @@ export default function Ubicacion() {
               {/* Botón de Masterplan */}
               <Link
                 to={"/foro4/masterplan"}
+                state={{ from: "ubicacion" }}
                 className={`group flex-1 flex justify-between items-center px-[clamp(5.92px,1.04vw,20px)] font-semibold rounded-[clamp(11.83px,2.08vw,40px)] hover:cursor-pointer hover:bg-foro4-morado`}
               >
                 <span className="text-paragraph-subFilter-button text-foro4-morado group-hover:text-white">
