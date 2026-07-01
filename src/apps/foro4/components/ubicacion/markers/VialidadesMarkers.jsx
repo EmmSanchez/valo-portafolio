@@ -3,9 +3,59 @@ import { useMap } from "@vis.gl/react-google-maps";
 import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
 import { FORO4_COORDENADAS } from "@/apps/foro4/data/map-coordenadas";
 import EdificioIcon from "@/apps/foro4/assets/icons/ubicacion/EdificioIcon";
+import { geojsonToVialidad } from "@/apps/valoParkSantaCatarina/utils/geojsonUtils";
+import { useMapsLibrary } from "@vis.gl/react-google-maps";
+import rutaClouthier from "@/apps/foro4/data/geojson/ruta-clouthier.json";
+import rutaMorelos from "@/apps/foro4/data/geojson/ruta-morelos.json";
+import rutaMorelosOeste from "@/apps/foro4/data/geojson/ruta-morelos-oeste.json";
+import rutaJardines from "@/apps/foro4/data/geojson/ruta-jardines.json";
+import rutaTorres from "@/apps/foro4/data/geojson/ruta-torres.json";
+
+const RUTAS = [
+  {
+    geojson: rutaJardines,
+    innerColor: "#492f87",
+    outerColor: "#FFFFFF",
+    outerWidth: 8,
+    innerWidth: 5,
+  },
+  {
+    geojson: rutaClouthier,
+    innerColor: "#492f87",
+    outerColor: "#FFFFFF",
+    outerWidth: 8,
+    innerWidth: 5,
+  },
+  {
+    geojson: rutaMorelos,
+    innerColor: "#492f87",
+    outerColor: "#FFFFFF",
+    outerWidth: 8,
+    innerWidth: 5,
+  },
+  {
+    geojson: rutaMorelosOeste,
+    innerColor: "#492f87",
+    outerColor: "#FFFFFF",
+    outerWidth: 8,
+    innerWidth: 5,
+  },
+  {
+    geojson: rutaTorres,
+    innerColor: "#492f87",
+    outerColor: "#FFFFFF",
+    outerWidth: 8,
+    innerWidth: 5,
+  },
+];
+
+const polylineData = RUTAS.flatMap(({ geojson, innerColor, ...options }) =>
+  geojsonToVialidad(geojson, innerColor, options),
+);
 
 export default function VialidadesMarkers() {
   const map = useMap();
+  const mapsLib = useMapsLibrary("maps");
   const [zoom, setZoom] = useState(null);
 
   useEffect(() => {
@@ -24,36 +74,47 @@ export default function VialidadesMarkers() {
 
   const opacity =
     zoom === null ? 1 : Math.min(1, Math.max(0, (zoom - 12) / 0.1));
+
+  // Ruta
+  useEffect(() => {
+    if (!map || !mapsLib) return;
+
+    const polylines = polylineData.map((vialidad) => {
+      return new mapsLib.Polyline({
+        path: vialidad.path,
+        strokeColor: vialidad.strokeColor,
+        strokeWeight: vialidad.strokeWidth,
+        map,
+      });
+    });
+
+    return () => polylines.forEach((p) => p.setMap(null));
+  }, [map, mapsLib]);
   return (
     <>
       {FORO4_COORDENADAS.VIALIDADES.map((item) => {
         return (
-          <AdvanceMarker key={item.id} position={item.coordinates}>
-            <div
-              className="relative flex items-center transition-opacity duration-300"
-              style={{
-                opacity,
-                pointerEvents: opacity < 0.1 ? "none" : "auto",
-              }}
-            >
-              {/* Label */}
+          <>
+            <AdvanceMarker key={item.id} position={item.coordinates}>
               <div
-                className={`absolute top-1/2 -translate-y-1/2 flex items-center h-[clamp(18px,3vw,58px)] bg-foro4-morado/95 backdrop-blur-sm border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.25)] whitespace-nowrap transition-all duration-300 ${
-                  item.labelSide === "left"
-                    ? ` right-[50%] rounded-l-full pl-[clamp(8px,1vw,18px)] pr-[clamp(28px,3.2vw,60px)]`
-                    : `left-[50%] rounded-r-full pr-[clamp(8px,1vw,18px)] pl-[clamp(28px,3.2vw,60px)]`
-                }`}
+                className="relative flex items-center transition-opacity duration-300"
+                style={{
+                  opacity,
+                  pointerEvents: opacity < 0.1 ? "none" : "auto",
+                  rotate: `${item.rotation ?? 0}deg`,
+                }}
               >
-                <p className="text-puntos-interes font-semibold uppercase tracking-wide text-white">
-                  {item.label}
-                </p>
+                {/* Label */}
+                <div
+                  className={`absolute top-1/2 -translate-y-1/2 flex items-center pt-2.5 pb-1.5 px-3 bg-foro4-morado backdrop-blur-sm border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.25)] whitespace-nowrap transition-all duration-300`}
+                >
+                  <p className="text-puntos-interes font-eurostile font-semibold uppercase tracking-wide text-white leading-none">
+                    {item.label}
+                  </p>
+                </div>
               </div>
-
-              <div className="relative z-10 flex items-center justify-center size-[clamp(24px,4vw,72px)] rounded-full border border-foro4-verde bg-white shadow-[0_6px_24px_rgba(0,0,0,0.28)] transition-transform duration-300 hover:scale-105">
-                <EdificioIcon className="size-[clamp(11.83px,2.08vw,40px)] text-foro4-verde" />
-              </div>
-            </div>
-          </AdvanceMarker>
+            </AdvanceMarker>
+          </>
         );
       })}
     </>

@@ -40,6 +40,7 @@
   --text-ubicacion: clamp(8px, 1.56vw, 30px);
   --text-ubicacion-paragraph: clamp(6px, 1vw, 21px);
   --text-puntos-interes: clamp(5.33px, 0.94vw, 18px);
+  --text-caption: clamp(4.14px, 0.729167vw, 14px);
   --text-puntos-ubicaciones: clamp(5.33px, 1.05vw, 20px);
   --text-nave-button: clamp(10px, 1.09vw, 21px);
   --text-subtitle-slide: clamp(9.9px, 1.71875vw, 33px);

@@ -156,10 +156,20 @@ export const FORO4_COORDENADAS = {
 
   VIALIDADES: [
     {
-      id: "blvd_aeropuerto",
-      label: "Blvd. Aeropuerto",
-      labelSide: "right",
-      coordinates: { lat: 21.1642, lng: -101.683 },
+      id: "blvd_morelos",
+      label: "Blvrd Jose María Morelos",
+      coordinates: { lat: 21.162834322771754, lng: -101.6915424234099 },
+    },
+    {
+      id: "blvd_clouthier",
+      label: "Manuel J. Clouthier",
+      coordinates: { lat: 21.16425548865177, lng: -101.6939927904392 },
+    },
+    {
+      id: "blvd_morelos_norte",
+      label: "Blvrd Jose María Morelos",
+      coordinates: { lat: 21.169653238872822, lng: -101.69528024698698 },
+      rotation: 270,
     },
   ],
 };
