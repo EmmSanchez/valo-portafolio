@@ -16,12 +16,21 @@ export default function MapContent({ filter, ActiveMarkers }) {
     if (!map) return;
 
     if (filter === FORO4_MAP_FILTERS.AEROPUERTO) {
-      map.panTo({ lat: 21.085732537264608, lng: -101.59254497095206 });
+      map.panTo({ lat: 21.083810515095234, lng: -101.52044719517052 });
       map.setZoom(12);
       map.setHeading(0);
+    } else if (filter === FORO4_MAP_FILTERS.GOLF) {
+      map.panTo({ lat: 21.18109858701598, lng: -101.67124903795194 });
+      map.setZoom(14);
+      map.setHeading(0);
+    } else if (filter === FORO4_MAP_FILTERS.CENTROS_COMERCIALES) {
+      map.panTo({ lat: 21.165971721643533, lng: -101.67468226537012 });
+      map.setZoom(14);
+      map.setHeading(0);
     } else if (filter === FORO4_MAP_FILTERS.VIALIDADES) {
-      map.setZoom(17);
-      map.setHeading(MAP_CONFIG.heading);
+      map.panTo({ lat: 21.16214287637686, lng: -101.69217174463986 });
+      map.setZoom(16);
+      map.setHeading(80);
     } else {
       map.panTo(MAP_CONFIG.center);
       map.setZoom(MAP_CONFIG.zoom);

@@ -16,7 +16,7 @@
  * // [{ path: [{lat, lng}, ...], strokeColor: "#2d2273", ... }]
  */
 
-export function geojsonToVialidad(geojson) {
+export function geojsonToVialidad(geojson, innerColor = "#2D2273") {
   const { geometry } = geojson;
 
   const path = geometry.coordinates.map(([lng, lat]) => ({ lat, lng }));
@@ -30,7 +30,7 @@ export function geojsonToVialidad(geojson) {
     },
     // Capa interior (color principal)
     {
-      strokeColor: "#2D2273",
+      strokeColor: innerColor,
       strokeWidth: 5,
       path,
     },

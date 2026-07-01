@@ -12,7 +12,7 @@ export const UBICACION_FILTERS = [
   },
   {
     id: "campo-golf",
-    label: "Campo de Golf",
+    label: "Campos de Golf",
     icon: GolfIcon,
   },
   {

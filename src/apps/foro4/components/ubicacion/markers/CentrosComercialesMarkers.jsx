@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useMap } from "@vis.gl/react-google-maps";
 import AdvanceMarker from "@/components/shared/Map/AdvanceMarker";
 import { FORO4_COORDENADAS } from "@/apps/foro4/data/map-coordenadas";
-import EdificioIcon from "@/apps/foro4/assets/icons/ubicacion/EdificioIcon";
+import PinIcon from "@/apps/foro4/assets/icons/ubicacion/PinIcon";
 
 export default function CentrosComercialesMarkers() {
   const map = useMap();
@@ -27,6 +27,8 @@ export default function CentrosComercialesMarkers() {
   return (
     <>
       {FORO4_COORDENADAS.CENTROS_COMERCIALES.map((item) => {
+        const IconComponent = item.icon;
+        const isCircleIcon = item.bgIcon === "circle";
         return (
           <AdvanceMarker key={item.id} position={item.coordinates}>
             <div
@@ -38,19 +40,34 @@ export default function CentrosComercialesMarkers() {
             >
               {/* Label */}
               <div
-                className={`absolute top-1/2 -translate-y-1/2 flex items-center h-[clamp(18px,3vw,58px)] bg-foro4-morado/95 backdrop-blur-sm border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.25)] whitespace-nowrap transition-all duration-300 ${
+                className={`absolute top-1/2 -translate-y-1/2 flex items-center pt-2.5 pb-1.5 bg-foro4-morado backdrop-blur-sm border border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.25)] whitespace-nowrap transition-all duration-300 ${
                   item.labelSide === "left"
-                    ? ` right-[50%] rounded-l-full pl-[clamp(8px,1vw,18px)] pr-[clamp(28px,3.2vw,60px)]`
-                    : `left-[50%] rounded-r-full pr-[clamp(8px,1vw,18px)] pl-[clamp(28px,3.2vw,60px)]`
+                    ? ` right-[50%] pl-[clamp(8px,1vw,18px)] pr-[clamp(28px,3.2vw,30px)]`
+                    : `left-[50%] pr-[clamp(8px,1vw,18px)] pl-[clamp(28px,3.2vw,30px)]`
                 }`}
               >
-                <p className="text-puntos-interes font-semibold uppercase tracking-wide text-white">
+                <p className="text-puntos-ubicaciones font-eurostile font-semibold uppercase tracking-wide text-white leading-none">
                   {item.label}
                 </p>
               </div>
 
-              <div className="relative z-10 flex items-center justify-center size-[clamp(24px,4vw,72px)] rounded-full border border-foro4-verde bg-white shadow-[0_6px_24px_rgba(0,0,0,0.28)] transition-transform duration-300 hover:scale-105">
-                <EdificioIcon className="size-[clamp(11.83px,2.08vw,40px)] text-foro4-verde" />
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="relative">
+                  {/* Ícono */}
+                  <IconComponent className="absolute z-10 left-1/2 -translate-x-1/2 -translate-y-13/20 w-5 text-[#2B1D67]" />
+
+                  {isCircleIcon ? (
+                    <>
+                      {/* Circle */}
+                      <div className="absolute left-1/2 -translate-x-1/2 -translate-y-11/20 size-12 rounded-full bg-white drop-shadow-sm"></div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Pin */}
+                      <PinIcon className="absolute w-10 z-0 inset-0 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl" />
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </AdvanceMarker>
