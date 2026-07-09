@@ -40,12 +40,12 @@ export default function PopupProyecto({ selectedProject, handleCleanParam }) {
       </div>
 
       <div
-        className={`flex w-[90vw] h-[61vh] gap-[clamp(4.43px,0.78125vw,15px)] ${selectedProject.properties.img ? "justify-between" : "justify-center"}`}
+        className={`flex w-[90vw] h-[52vh] lg:h-[61vh] gap-[clamp(4.43px,0.78125vw,15px)] ${selectedProject.properties.img ? "justify-between" : "justify-center"}`}
       >
         {/* Image */}
         {selectedProject.properties.img && (
           <div
-            className="shrink-0 relative w-[clamp(282.72px,49.84375vw,957px)] aspect-957/657 border-[clamp(1.48px,0.260417vw,5px)]"
+            className="shrink-0 relative w-auto lg:w-[clamp(282.72px,49.84375vw,957px)] aspect-957/657 border-[clamp(1.48px,0.260417vw,5px)]"
             style={{
               borderColor: colors.border,
               backgroundColor: `${colors.border}66`, // 66 ≈ 40% opacidad
@@ -135,7 +135,7 @@ export default function PopupProyecto({ selectedProject, handleCleanParam }) {
           onClick={() => setActiveVideo(null)}
         >
           <div
-            className="relative w-[90%] lg:w-[clamp(466.41px,80.46875vw,980px)] aspect-video ring-[clamp(4px,0.45vw,10px)] dark:ring-amarillo shadow-2xl overflow-hidden"
+            className="relative w-[50%] lg:w-[clamp(466.41px,80.46875vw,980px)] aspect-video ring-[clamp(4px,0.45vw,10px)] dark:ring-amarillo shadow-2xl overflow-hidden"
             style={{ "--tw-ring-color": colors.border }}
             onClick={(e) => e.stopPropagation()}
           >

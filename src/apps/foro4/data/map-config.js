@@ -3,8 +3,10 @@ const MAP_ID = import.meta.env.VITE_GOOGLE_MAPID;
 export const FORO4_MAP_CONFIG = {
   id: MAP_ID,
   zoom: 15,
+  mobileZoom: 14,
   heading: 90,
   center: { lat: 21.164202433829658, lng: -101.692266463462 },
+  mobileCenter: { lat: 21.164202433829658, lng: -101.692266463462 },
 };
 
 export const FORO4_LANDMARK_POSITION = {

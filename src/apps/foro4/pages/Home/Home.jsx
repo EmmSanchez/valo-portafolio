@@ -31,7 +31,7 @@ export default function Home() {
 
         <div className="flex w-full h-full justify-between items-end">
           <MainMenuForo4 />
-          <Link to={"/foro4/video"}>
+          <Link to={"#"}>
             <PlayButton />
           </Link>
         </div>

@@ -8,35 +8,54 @@ import {
 } from "../../data/map-config";
 import { FORO4_MAP_CONFIG as MAP_CONFIG } from "../../data/map-config";
 import MapDebugger from "@/components/shared/Map/MapDebugger";
+import { useIsMobile } from "@/hooks/useIsMobile";
+
+const FILTER_CAMERA_CONFIG = {
+  [FORO4_MAP_FILTERS.AEROPUERTO]: {
+    center: { lat: 21.083810515095234, lng: -101.52044719517052 },
+    zoom: 12,
+    mobileZoom: 10,
+    heading: 0,
+  },
+  [FORO4_MAP_FILTERS.GOLF]: {
+    center: { lat: 21.18109858701598, lng: -101.67124903795194 },
+    zoom: 14,
+    mobileZoom: 13,
+    heading: 0,
+  },
+  [FORO4_MAP_FILTERS.CENTROS_COMERCIALES]: {
+    center: { lat: 21.165971721643533, lng: -101.67468226537012 },
+    zoom: 14,
+    mobileZoom: 13,
+    heading: 0,
+  },
+  [FORO4_MAP_FILTERS.VIALIDADES]: {
+    center: { lat: 21.16214287637686, lng: -101.69217174463986 },
+    zoom: 16,
+    mobileZoom: 15,
+    heading: 80,
+  },
+};
 
 export default function MapContent({ filter, ActiveMarkers }) {
   const map = useMap();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (!map) return;
 
-    if (filter === FORO4_MAP_FILTERS.AEROPUERTO) {
-      map.panTo({ lat: 21.083810515095234, lng: -101.52044719517052 });
-      map.setZoom(12);
-      map.setHeading(0);
-    } else if (filter === FORO4_MAP_FILTERS.GOLF) {
-      map.panTo({ lat: 21.18109858701598, lng: -101.67124903795194 });
-      map.setZoom(14);
-      map.setHeading(0);
-    } else if (filter === FORO4_MAP_FILTERS.CENTROS_COMERCIALES) {
-      map.panTo({ lat: 21.165971721643533, lng: -101.67468226537012 });
-      map.setZoom(14);
-      map.setHeading(0);
-    } else if (filter === FORO4_MAP_FILTERS.VIALIDADES) {
-      map.panTo({ lat: 21.16214287637686, lng: -101.69217174463986 });
-      map.setZoom(16);
-      map.setHeading(80);
-    } else {
-      map.panTo(MAP_CONFIG.center);
-      map.setZoom(MAP_CONFIG.zoom);
-      map.setHeading(MAP_CONFIG.heading);
-    }
-  }, [map, filter]);
+    const camera = FILTER_CAMERA_CONFIG[filter] ?? {
+      center: isMobile ? MAP_CONFIG.mobileCenter : MAP_CONFIG.center,
+      zoom: isMobile ? MAP_CONFIG.mobileZoom : MAP_CONFIG.zoom,
+      heading: MAP_CONFIG.heading,
+    };
+
+    const zoom = isMobile ? (camera.mobileZoom ?? camera.zoom) : camera.zoom;
+
+    map.panTo(camera.center);
+    map.setZoom(zoom);
+    map.setHeading(camera.heading);
+  }, [map, filter, isMobile]);
 
   return (
     <>

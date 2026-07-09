@@ -12,6 +12,7 @@ import GolfMarkers from "./markers/GolfMarkers";
 import CentrosComercialesMarkers from "./markers/CentrosComercialesMarkers";
 import VialidadesMarkers from "./markers/VialidadesMarkers";
 import TransporteMarkers from "./markers/TransporteMarkers";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
@@ -29,6 +30,10 @@ export default function GoogleMapForo4() {
 
   const ActiveMarkers = COMPONENT_TO_RENDER[filter] ?? null;
 
+  const isMobile = useIsMobile();
+  const zoom = isMobile ? MAP_CONFIG.mobileZoom : MAP_CONFIG.zoom;
+  const center = isMobile ? MAP_CONFIG.mobileCenter : MAP_CONFIG.center;
+
   return (
     <APIProvider apiKey={API_KEY}>
       <Map
@@ -36,8 +41,8 @@ export default function GoogleMapForo4() {
         mapTypeId="satellite"
         // gestureHandling={"none"}
         disableDefaultUI
-        defaultZoom={MAP_CONFIG.zoom}
-        defaultCenter={MAP_CONFIG.center}
+        defaultZoom={zoom}
+        defaultCenter={center}
         zoomControl={false}
         fullscreenControl={false}
         streetViewControl={false}
