@@ -25,12 +25,15 @@ export const PROYECTOS_GUANAJUATO = [
         textColor: "#fff",
         textColorActive: "#00245c",
       },
-      cta: {
-        label: "Plataforma Interactiva",
-        icon: ClickIcon,
-        href: "/foro4",
-        target: "_self",
-      },
+      cta: [
+        {
+          type: "link",
+          label: "Plataforma Interactiva",
+          icon: ClickIcon,
+          href: "/foro4",
+          target: "_self",
+        },
+      ],
     },
   },
 ];

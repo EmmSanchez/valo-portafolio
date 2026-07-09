@@ -1,9 +1,11 @@
+import { useState } from "react";
 import CerrarIcon from "@/apps/foro4/assets/icons/CerrarIcon";
 import { ReturnIcon } from "@/apps/valoPortafolio/assets/icons/ReturnIcon";
 
 export default function PopupProyecto({ selectedProject, handleCleanParam }) {
   const colors = selectedProject?.properties.colors;
-  const Icon = selectedProject?.properties.cta?.icon;
+  const ctas = selectedProject?.properties.cta ?? [];
+  const [activeVideo, setActiveVideo] = useState(null);
 
   return (
     <div
@@ -70,29 +72,107 @@ export default function PopupProyecto({ selectedProject, handleCleanParam }) {
           </p>
 
           {/* CTA */}
-          {selectedProject.properties.cta && (
-            <a
-              href={selectedProject.properties.cta.href}
-              target={selectedProject.properties.cta.target}
-              rel={
-                selectedProject.properties.cta.target === "_blank"
-                  ? "noopener noreferrer"
-                  : undefined
-              }
-              className={`flex items-center justify-between lg:min-w-[150px] px-[clamp(5.02px,0.885417vw,17px)] gap-[clamp(7.09px,1.25vw,24px)] py-[clamp(5.91px,1.041667vw,20px)] text-white`}
-              style={{ backgroundColor: colors.button }}
-            >
-              <span className="translate-y-0.5 text-[9px] font-semibold lg:text-paragraph-button whitespace-nowrap leading-none">
-                {selectedProject.properties.cta.label}
-              </span>
+          {ctas.length > 0 && (
+            <div className="flex flex-wrap items-center justify-center gap-[clamp(28px,4.688vw,60px)]">
+              {ctas.map((cta, index) => {
+                const Icon = cta.icon;
 
-              <span className="size-[clamp(12px,1.3vw,25px)]">
-                <Icon />
-              </span>
-            </a>
+                if (cta.type === "link") {
+                  return (
+                    <a
+                      key={index}
+                      href={cta.href}
+                      target={cta.target}
+                      rel={
+                        cta.target === "_blank"
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="flex items-center justify-between lg:min-w-[150px] px-[clamp(5.02px,0.885417vw,17px)] gap-[clamp(7.09px,1.25vw,24px)] py-[clamp(5.91px,1.041667vw,20px)] text-white"
+                      style={{ backgroundColor: colors.button }}
+                    >
+                      <span className="translate-y-0.5 text-[9px] font-semibold lg:text-paragraph-button whitespace-nowrap leading-none">
+                        {cta.label}
+                      </span>
+                      {Icon && (
+                        <span className="size-[clamp(12px,1.3vw,25px)]">
+                          <Icon />
+                        </span>
+                      )}
+                    </a>
+                  );
+                }
+
+                if (cta.type === "video") {
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => setActiveVideo(cta.videoUrl)}
+                      className="flex items-center justify-between lg:min-w-[150px] px-[clamp(5.02px,0.885417vw,17px)] gap-[clamp(7.09px,1.25vw,24px)] py-[clamp(5.91px,1.041667vw,20px)] text-white"
+                      style={{ backgroundColor: colors.button }}
+                    >
+                      <span className="translate-y-0.5 text-[9px] font-semibold lg:text-paragraph-button whitespace-nowrap leading-none">
+                        {cta.label}
+                      </span>
+                      {Icon && (
+                        <span className="size-[clamp(12px,1.3vw,25px)]">
+                          <Icon />
+                        </span>
+                      )}
+                    </button>
+                  );
+                }
+              })}
+            </div>
           )}
         </div>
       </div>
+
+      {/* Modal de video */}
+      {activeVideo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+          onClick={() => setActiveVideo(null)}
+        >
+          <div
+            className="relative w-[90%] lg:w-[clamp(466.41px,80.46875vw,980px)] aspect-video ring-[clamp(4px,0.45vw,10px)] dark:ring-amarillo shadow-2xl overflow-hidden"
+            style={{ "--tw-ring-color": colors.border }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveVideo(null)}
+              className="absolute -top-10 right-0 text-white hover:cursor-pointer"
+              aria-label="Cerrar video"
+            >
+              <CerrarIcon className="size-8" />
+            </button>
+
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              src={activeVideo}
+              controls
+              autoPlay
+              playsInline
+            />
+          </div>
+
+          <div className="absolute left-0 bottom-0 flex default-padding">
+            <button
+              onClick={() => setActiveVideo(null)}
+              className="group flex justify-between items-center w-[clamp(170px,16.2vw,311px)] h-[clamp(38px,3.65vw,70px)] px-[29px] 2xl:px-11.25 hover:cursor-pointer -translate-y-0.5 bg-valo hover:bg-white text-white hover:text-valo"
+            >
+              <span className="text-mobile-button lg:text-paragraph-button font-semibold group-hover:font-bold">
+                Regresar
+              </span>
+              <span className="relative size-[clamp(4.5px,1.422vw,12px)] max-lg:p-1.5 lg:size-[clamp(16px,1.35vw,26px)]">
+                <span className="absolute inset-0">
+                  <ReturnIcon />
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

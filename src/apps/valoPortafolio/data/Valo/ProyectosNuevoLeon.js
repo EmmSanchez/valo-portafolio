@@ -2,6 +2,8 @@ import torrelunaImage from "@/apps/valoPortafolio/assets/images/proyectos/torrel
 import montevoImage from "@/apps/valoPortafolio/assets/images/proyectos/montevo-image.jpg";
 import VPSCImage from "@/apps/valoPortafolio/assets/images/proyectos/valo-sc-image.jpg";
 import ClickIcon from "../../assets/icons/proyectos/ClickIcon";
+import videoMontevo from "/montevo/video-comercial.mp4";
+import { VideoIcon } from "../../assets/icons/VideoIcon";
 
 export const PROYECTOS_NUEVO_LEON = [
   {
@@ -27,12 +29,14 @@ export const PROYECTOS_NUEVO_LEON = [
         textColor: "#fff",
         textColorActive: "#00245c",
       },
-      cta: {
-        label: "Plataforma Interactiva",
-        icon: ClickIcon,
-        href: "/valoPark/santaCatarina",
-        target: "_self",
-      },
+      cta: [
+        {
+          label: "Plataforma Interactiva",
+          icon: ClickIcon,
+          href: "/valoPark/santaCatarina",
+          target: "_self",
+        },
+      ],
     },
   },
   {
@@ -100,12 +104,23 @@ export const PROYECTOS_NUEVO_LEON = [
         textColor: "#fff",
         textColorActive: "#00245c",
       },
-      cta: {
-        label: "Sitio Web",
-        icon: ClickIcon,
-        href: "https://montevo.com/",
-        target: "_blank",
-      },
+      cta: [
+        {
+          type: "link",
+          label: "Sitio Web",
+          icon: ClickIcon,
+          href: "https://montevo.com/",
+          target: "_blank",
+        },
+        {
+          type: "video",
+          label: "Reproducir video",
+          icon: VideoIcon,
+          href: "#",
+          target: "_self",
+          videoUrl: videoMontevo,
+        },
+      ],
     },
   },
 ];
