@@ -31,6 +31,7 @@ export const PROYECTOS_NUEVO_LEON = [
       },
       cta: [
         {
+          type: "link",
           label: "Plataforma Interactiva",
           icon: ClickIcon,
           href: "/valoPark/santaCatarina",

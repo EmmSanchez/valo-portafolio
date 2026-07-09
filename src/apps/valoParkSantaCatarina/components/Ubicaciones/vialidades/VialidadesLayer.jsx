@@ -11,15 +11,60 @@ import { useMap } from "@vis.gl/react-google-maps";
 import { geojsonToVialidad } from "@/apps/valoParkSantaCatarina/utils/geojsonUtils";
 
 const VIALIDADES = [
-  colosio,
-  villa_garcia,
-  heberto,
-  lib_noroeste,
-  matehuala_monterrey,
-  manuel_ordonez,
-  cuota_saltillo,
+  {
+    geojson: colosio,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFFA6",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: villa_garcia,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFFA6",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: heberto,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFFA6",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: lib_noroeste,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFFA6",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: matehuala_monterrey,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFFA6",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: manuel_ordonez,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFFA6",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: cuota_saltillo,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFFA6",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
 ];
-const polylineData = VIALIDADES.flatMap(geojsonToVialidad);
+
+const polylineData = VIALIDADES.flatMap(({ geojson, innerColor, ...options }) =>
+  geojsonToVialidad(geojson, innerColor, options),
+);
 
 export default function VialidadesLayer() {
   const map = useMap();

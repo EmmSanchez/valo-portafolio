@@ -29,9 +29,63 @@
  * });
  */
 
+/*
+const VIALIDADES = [
+  {
+    geojson: colosio,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFF",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: villa_garcia,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFF",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: heberto,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFF",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: lib_noroeste,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFF",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: matehuala_monterrey,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFF",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: manuel_ordonez,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFF",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+  {
+    geojson: cuota_saltillo,
+    innerColor: "#2B1D67",
+    outerColor: "#FFFFFF",
+    outerWidth: 14,
+    innerWidth: 5,
+  },
+];
+ */
+
 export function geojsonToVialidad(
   geojson,
-  innerColor = "#2D2273",
+  innerColor = "",
   { outerColor = "#FFFFFFA6", outerWidth = 14, innerWidth = 5 } = {},
 ) {
   const { geometry } = geojson;
