@@ -6,6 +6,7 @@ import LogoValoMark from "@/apps/valoPortafolio/assets/logos/logo-valo-mark";
 import { useState } from "react";
 import { submitContactForm } from "@/lib/api";
 import LogoValoParkSantaCatarinaWhite from "../../assets/logos/logo-valoParkSC-white";
+import WhastappIcon from "../../assets/icons/WhastappIcon";
 
 export default function Contacto() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -146,6 +147,18 @@ export default function Contacto() {
             </div>
           </form>
         </div>
+      </div>
+
+      {/* Whatsapp Button */}
+      <div className="fixed bottom-0 left-1/2 -translate-x-[50%] z-30 default-padding  pointer-events-auto">
+        <a
+          href="https://wa.me/528111704935"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center items-center pointer-events-auto group h-[clamp(38px,3.65vw,70px)] p-[clamp(10.02px,0.885417vw,17px)] bg-santa-catarina hover:bg-santa-catarina-grey hover:cursor-pointer"
+        >
+          <WhastappIcon className="size-[18px] xl:size-[clamp(15px,2.5vw,28px)] text-white group-hover:text-white" />
+        </a>
       </div>
 
       <BackButton
