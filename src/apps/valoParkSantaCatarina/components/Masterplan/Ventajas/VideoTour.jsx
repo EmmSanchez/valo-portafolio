@@ -19,15 +19,15 @@ const VENTAJAS = [
   },
   {
     id: "2",
-    label: "Cerca de Centro Comercial",
+    label: "Frente a Centro Comercial",
     icon: ViaIcon,
-    slug: "cercania-centro-comercial",
+    slug: "frente-centro-comercial",
   },
   {
     id: "3",
-    label: "Portón controlado",
+    label: "Acceso controlado",
     icon: PortonIconVTI,
-    slug: "porton-controlado",
+    slug: "acceso-controlado",
   },
   {
     id: "4",

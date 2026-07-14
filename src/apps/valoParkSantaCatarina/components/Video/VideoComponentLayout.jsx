@@ -12,16 +12,16 @@ import vti_nave12 from "../../data/Videos/vti_nave12.json";
 
 const VENTAJA_TO_POSITION = {
   "ubicacion-privilegiada": 1,
-  "cercania-centro-comercial": 2,
-  "porton-controlado": 3,
+  "frente-centro-comercial": 2,
+  "acceso-controlado": 3,
   "espacio-industrial-clase-a": 4,
   "patio-de-maniobras": 5,
   "bodegas-listas": 6,
 };
 const POSITION_TO_VENTAJA = {
   1: "ubicacion-privilegiada",
-  2: "cercania-centro-comercial",
-  3: "porton-controlado",
+  2: "frente-centro-comercial",
+  3: "acceso-controlado",
   4: "espacio-industrial-clase-a",
   5: "patio-de-maniobras",
   6: "bodegas-listas",
