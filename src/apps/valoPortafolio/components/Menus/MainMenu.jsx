@@ -18,6 +18,32 @@ export default function MainMenu() {
 
       <nav className="flex flex-col">
         {menu.map((section) => {
+          if (section.external) {
+            return (
+              <a
+                key={section.id}
+                href={section.to}
+                target="_blank"
+                rel="noreferrer noopener"
+                onClick={() => track(handleClick(section))}
+                className="group flex items-center justify-between w-full h-[clamp(32px,3.65vw,70px)] px-6.25 text-mobile-button lg:text-paragraph-button font-semibold rounded-[40px] hover:bg-white hover:text-valo hover:font-bold hover:cursor-pointer"
+              >
+                {section.label}
+
+                <span className="relative size-[clamp(4.5px,1.422vw,12px)] max-lg:p-1.5 lg:size-[clamp(16px,1.25vw,24px)]">
+                  {/* Inactive */}
+                  <span className="absolute inset-0 group-hover:hidden">
+                    <CircleIndicatorIcon isActive={false} />
+                  </span>
+
+                  {/* Active / Hover */}
+                  <span className="absolute inset-0 hidden group-hover:block">
+                    <CircleIndicatorIcon isActive />
+                  </span>
+                </span>
+              </a>
+            );
+          }
           return (
             <Link
               key={section.id}

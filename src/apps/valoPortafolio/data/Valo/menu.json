@@ -30,7 +30,8 @@
     {
       "id": "sitio_web",
       "label": "Sitio Web",
-      "to": "#"
+      "to": "https://valodevelopers.com/",
+      "external": true
     }
   ]
 }
