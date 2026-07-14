@@ -54,19 +54,18 @@ const VIDEOS_MAP = {
   "/valoPark/santaCatarina/inicio": portadas.informacion,
   "/valoPark/santaCatarina/informacion": portadas.informacion,
   "/valoPark/santaCatarina/masterplan/proyecto": rde,
-  "/valoPark/santaCatarina/masterplan/naves-industriales":
+  "/valoPark/santaCatarina/masterplan/especificaciones":
     portadas.naves_industriales,
-  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-11":
+  "/valoPark/santaCatarina/masterplan/especificaciones/nave-11":
     portadas.nave_11,
-  "/valoPark/santaCatarina/masterplan/naves-industriales/nave-12":
+  "/valoPark/santaCatarina/masterplan/especificaciones/nave-12":
     portadas.nave_12,
   "/valoPark/santaCatarina/disponibilidad": portadas.naves_industriales,
 
   // Video tours y recorridos
   "/valoPark/santaCatarina/masterplan": rde,
   "/valoPark/santaCatarina/masterplan/proyecto/video-tour": vti_ventajas,
-  "/valoPark/santaCatarina/masterplan/naves-industriales/video-tour":
-    vti_nave12,
+  "/valoPark/santaCatarina/masterplan/especificaciones/video-tour": vti_nave12,
 };
 const EMPTY_JSON = {
   videos: [{ type: "idle", position: 1, src: "" }],
@@ -93,7 +92,7 @@ export default function VideoComponentLayout() {
           return;
         }
 
-        if (pathname.includes("naves-industriales")) {
+        if (pathname.includes("especificaciones")) {
           setSearchParams({ caracteristica: POSITION_TO_CARACTERISTICA[pos] });
           return;
         }
