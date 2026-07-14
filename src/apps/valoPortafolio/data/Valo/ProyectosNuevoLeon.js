@@ -1,6 +1,6 @@
 import torrelunaImage from "@/apps/valoPortafolio/assets/images/proyectos/torreluna-image.jpg";
 import montevoImage from "@/apps/valoPortafolio/assets/images/proyectos/montevo-image.jpg";
-import VPSCImage from "@/apps/valoPortafolio/assets/images/proyectos/valo-sc-image.jpg";
+import ValoPSCImage from "@/apps/valoPortafolio/assets/images/proyectos/vpsc-popup.jpg";
 import ClickIcon from "../../assets/icons/proyectos/ClickIcon";
 import videoMontevo from "/montevo/video-comercial.mp4";
 import { VideoIcon } from "../../assets/icons/VideoIcon";
@@ -20,7 +20,7 @@ export const PROYECTOS_NUEVO_LEON = [
       description:
         "Valo Park es un proyecto de bodegas industriales estratégicamente ubicado en el municipio de Santa Catarina.\nUn proyecto que nace a raíz de la demanda por espacio industrial Clase A en la ciudad",
       url: "/valoPark/santaCatarina",
-      img: VPSCImage,
+      img: ValoPSCImage,
       colors: {
         border: "#2d2273", // morado
         button: "#492F87",
