@@ -11,17 +11,17 @@ const SUBMENU_NAVES = [
   {
     id: "recorrido",
     label: "Recorrido 360",
-    to: "/valoPark/santaCatarina/masterplan/naves-industriales/recorrido-360",
+    to: "/valoPark/santaCatarina/masterplan/especificaciones/recorrido-360",
   },
   {
     id: "video_tour",
     label: "Video Tour",
-    to: "/valoPark/santaCatarina/masterplan/naves-industriales/video-tour?caracteristica=acceso-privado",
+    to: "/valoPark/santaCatarina/masterplan/especificaciones/video-tour?caracteristica=acceso-privado",
   },
   {
     id: "galeria",
     label: "Foto Galería",
-    to: "/valoPark/santaCatarina/masterplan/naves-industriales/foto-galeria",
+    to: "/valoPark/santaCatarina/masterplan/especificaciones/foto-galeria",
   },
 ];
 

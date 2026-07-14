@@ -11,7 +11,7 @@ export default function NavesRecorrido360() {
       />
 
       <BackButton
-        to="/valoPark/santaCatarina/masterplan/naves-industriales"
+        to="/valoPark/santaCatarina/masterplan/especificaciones"
         className="self-end pointer-events-auto bg-santa-catarina hover:bg-santa-catarina-grey"
       />
     </div>

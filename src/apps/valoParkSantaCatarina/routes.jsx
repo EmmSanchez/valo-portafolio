@@ -74,7 +74,7 @@ export default function ValoParkSantaCatarinaRoutes() {
                 </Route>
 
                 {/* Naves Industriales */}
-                <Route path="naves-industriales">
+                <Route path="especificaciones">
                   <Route index element={<NavesIndustriales />} />
                 </Route>
               </Route>
@@ -86,15 +86,15 @@ export default function ValoParkSantaCatarinaRoutes() {
 
               {/* Naves Industriales hijos (sin submenu) */}
               <Route
-                path="naves-industriales/recorrido-360"
+                path="especificaciones/recorrido-360"
                 element={<NavesRecorrido360 />}
               />
               <Route
-                path="naves-industriales/video-tour"
+                path="especificaciones/video-tour"
                 element={<NavesVideoTour />}
               />
               <Route
-                path="naves-industriales/foto-galeria"
+                path="especificaciones/foto-galeria"
                 element={<NavesFotoGaleria />}
               />
             </Route>

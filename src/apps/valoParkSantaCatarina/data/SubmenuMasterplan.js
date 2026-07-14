@@ -9,8 +9,8 @@ export const SUBMENU_MASTERPLAN = {
     },
     {
       id: "naves-vpsc",
-      label: "Naves industriales",
-      to: "/valoPark/santaCatarina/masterplan/naves-industriales",
+      label: "Especificaciones",
+      to: "/valoPark/santaCatarina/masterplan/especificaciones",
     },
   ],
 };
